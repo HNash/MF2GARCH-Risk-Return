@@ -6,16 +6,10 @@ import warnings
 # Suppressing warnings due to square rooting of negative h*tau values
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
-returns = pandas.read_excel('data/SP500_1971_2023_06_30_ret.xlsx')
-y = returns['RET_SPX'].values
-# Calculating conditional means of excess market returns
-excess = returns['EXCESS'].values
-cond_means = np.zeros(excess.size)
+returns = pandas.read_csv('data/FF_DAILY_3_FACTORS.csv')
+y = returns['Mkt-RF'].values
 
-for i in range(cond_means.size):
-    cond_means[i] = np.mean(excess[:i])
-
-solution, stderrs, p_values = estimation.estimate(y, cond_means)
+solution, stderrs, p_values = estimation.estimate(y)
 
 # Simple text formatting for results
 print("-------------------------------------------")
