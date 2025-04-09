@@ -4,18 +4,16 @@ import stderr
 
 # This function simply calculates MF2-GARCH components with given parameter values
 def mf2_execute(param, y, m):
-    #LEFTOVER FROM MF2-GARCH TOOLBOX
-    #mu = param[0]
-    alpha = param[1]
-    gamma = param[2]
-    beta = param[3]
+    alpha = param[0]
+    gamma = param[1]
+    beta = param[2]
 
-    lambda_0 = param[4]
-    lambda_1 = param[5]
-    lambda_2 = param[6]
+    lambda_0 = param[3]
+    lambda_1 = param[4]
+    lambda_2 = param[5]
 
-    gamma_0 = param[7]
-    gamma_1 = param[8]
+    gamma_0 = param[6]
+    gamma_1 = param[7]
 
     h = np.ones(y.size)
     tau = np.ones(y.size)*np.mean(np.power(y,2))
@@ -59,8 +57,8 @@ def mf2_execute(param, y, m):
 def totallikelihood(param, y, m):
     # Get component values to use in likelihood function
     e, h, tau, V_m = mf2_execute(param, y, m)
-    gamma_0 = param[7]
-    gamma_1 = param[8]
+    gamma_0 = param[6]
+    gamma_1 = param[7]
 
     # Likelihood function for MF2-GARCH specification
     ll_mf2 = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h,tau)) + np.power(e,2))
@@ -73,17 +71,17 @@ def totallikelihood(param, y, m):
 
 def estimate(y):
     # Initial guesses for parameters
-    param_init = np.array([0.02, 0.007, 0.14, 0.85, np.mean(np.square(y))*(1-0.07-0.91), 0.07, 0.91, np.mean(y), 0.0])
+    param_init = np.array([0.007, 0.14, 0.85, np.mean(np.square(y))*(1-0.07-0.91), 0.07, 0.91, np.mean(y), 0.0])
 
     # Constraints are passed in the form Ax<b, --> b-Ax>0
-    A = np.array([[0.0, -1.0,  0.0,  0.0,  0.0,  0.0,  0.0, 0.0, 0.0],
-                 [0.0, 1.0,  0.5,  1.0,  0.0,  0.0,  0.0, 0.0, 0.0],
-                 [0.0, 0.0,  0.0,  0.0,  0.0,  -1.0,  0.0, 0.0, 0.0],
-                 [0.0, 0.0,  0.0,  0.0,  0.0,  1.0,  1.0, 0.0, 0.0]])
+    A = np.array([[-1.0,  0.0,  0.0,  0.0,  0.0,  0.0, 0.0, 0.0],
+                 [1.0,  0.5,  1.0,  0.0,  0.0,  0.0, 0.0, 0.0],
+                 [0.0,  0.0,  0.0,  0.0,  -1.0,  0.0, 0.0, 0.0],
+                 [0.0,  0.0,  0.0,  0.0,  1.0,  1.0, 0.0, 0.0]])
     b = np.array([0.0, 1.0, 0.0, 1.0])
     constraints = [{'type': 'ineq', 'fun': lambda x, A=A, b=b: b-np.dot(A,x)}]
     # Upper/lower bound pairs for each parameter
-    bounds = ((-1.0,1.0), (0.0,1.0), (-0.5,0.5), (0.0,1.0), (0.000001,10.0), (0.0,1.0), (0.0,1.0),(-1.0,1.0), (-1.0,1.0))
+    bounds = ((0.0,1.0), (-0.5,0.5), (0.0,1.0), (0.000001,10.0), (0.0,1.0), (0.0,1.0),(-1.0,1.0), (-1.0,1.0))
 
     m = 63 
     

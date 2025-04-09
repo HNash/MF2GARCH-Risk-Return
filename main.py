@@ -13,9 +13,9 @@ solution, stderrs, p_values = estimation.estimate(y)
 
 # Simple text formatting for results
 print("-------------------------------------------")
-param_names = ["mu", "alpha", "gamma", "beta", "lambda_0", "lambda_1", "lambda_2", "gamma_0", "gamma_1"]
-table = [[0]*4 for i in range(9)]
-for i in range(9):
+param_names = ["alpha", "gamma", "beta", "lambda_0", "lambda_1", "lambda_2", "gamma_0", "gamma_1"]
+table = [[0]*4 for i in range(8)]
+for i in range(8):
     table[i][0] = param_names[i]
     table[i][1] = format(solution[i], '.3f')
     table[i][2] = format(stderrs[i], '.3f')

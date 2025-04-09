@@ -50,20 +50,20 @@ def stdErrors(params, y, e, h, tau, m):
 
     for j in range(k):
         params_h_h = params + hhh[:, j]
-        gamma_0_h = params_h_h[7]
-        gamma_1_h = params_h_h[8]
+        gamma_0_h = params_h_h[6]
+        gamma_1_h = params_h_h[7]
         e_h, h_h, tau_h, V = estimation.mf2_execute(params_h_h, y, m)
-        ll_mf2_h = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h_h,tau_h)) + np.power(e_h,2))
-        ll_rr_h = -0.5 * (np.log(2*np.pi*(np.multiply(h_h, tau_h))) + np.divide(np.power(np.subtract(y[505:],(gamma_0_h+gamma_1_h*tau_h)),2), np.multiply(h_h, tau_h)))
-        ll_sum_h = (ll_mf2_h + ll_rr_h)
+        #ll_mf2_h = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h_h,tau_h)) + np.power(e_h,2))
+        #ll_rr_h = -0.5 * (np.log(2*np.pi*(np.multiply(h_h, tau_h))) + np.divide(np.power(np.subtract(y[505:],(gamma_0_h+gamma_1_h*tau_h)),2), np.multiply(h_h, tau_h)))
+        ll_sum_h = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h_h,tau_h)) + np.power(e_h,2))
 
         params_h_m = params - hhh[:, j]
-        gamma_0_m = params_h_m[7]
-        gamma_1_m = params_h_m[8]
+        gamma_0_m = params_h_m[6]
+        gamma_1_m = params_h_m[7]
         e_m, h_m, tau_m, V = estimation.mf2_execute(params_h_m, y, m)
-        ll_mf2_m = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h_m,tau_m)) + np.power(e_m,2))
-        ll_rr_m = -0.5 * (np.log(2*np.pi*(np.multiply(h_m, tau_m))) + np.divide(np.power(np.subtract(y[505:],(gamma_0_m+gamma_1_m*tau_m)),2), np.multiply(h_m, tau_m)))
-        ll_sum_m = (ll_mf2_m + ll_rr_m)
+        #ll_mf2_m = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h_m,tau_m)) + np.power(e_m,2))
+        #ll_rr_m = -0.5 * (np.log(2*np.pi*(np.multiply(h_m, tau_m))) + np.divide(np.power(np.subtract(y[505:],(gamma_0_m+gamma_1_m*tau_m)),2), np.multiply(h_m, tau_m)))
+        ll_sum_m = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h_m,tau_m)) + np.power(e_m,2))
 
         scores[:,j] = np.divide((ll_sum_h - ll_sum_m),(2*hhh[j,j]))
 
@@ -72,7 +72,6 @@ def stdErrors(params, y, e, h, tau, m):
     # Hessian
     H = hessianTwoSided(estimation.totallikelihood,params, y, m)
     A = H/T
-    print(A)
     mhess = np.linalg.inv(A)
 
     # Standard errors
