@@ -23,7 +23,7 @@ def mf2_execute(param, y, m):
     # This first for loop only calculates h values since tau requires m previous observations
     for t in range(2, m+1):
         # mu in MF2-GARCH is given here by the univariate risk-return spec from Maheu & McCurdy (
-        mu = gamma_0 + (gamma_1 * tau[t-1])
+        mu = gamma_0 + (gamma_1 * h[t-1])#* h[t-1])
         # If negative, leverage effect parameter (gamma) is included
         if((y[t-1]-mu) < 0):
             h[t] = (1-alpha-(gamma/2)-beta) + ((alpha+gamma)*(( (y[t-1]-mu)**2)/tau[t-1])) + (beta*h[t-1])
@@ -33,7 +33,7 @@ def mf2_execute(param, y, m):
     # Same as above except V, V_m and tau are now able to be calculated
     for t in range(m+1, y.size):
         # mu in MF2-GARCH is given here by the univariate risk-return spec from Maheu & McCurdy (
-        mu = gamma_0 + (gamma_1 * tau[t-1])
+        mu = gamma_0 + (gamma_1 * h[t-1])#* h[t-1])
         if((y[t-1]-mu) < 0):
             h[t] = (1-alpha-(gamma/2)-beta) + ((alpha+gamma)*(((y[t-1]-mu)**2)/tau[t-1])) + (beta*h[t-1])
         else:
@@ -43,7 +43,7 @@ def mf2_execute(param, y, m):
 
         tau[t] = lambda_0 + (lambda_1 * V_m[t-1]) + (lambda_2 * tau[t-1])
 
-    mu = gamma_0 + (gamma_1 * tau)
+    mu = gamma_0 + (gamma_1 *h)#* np.multiply(tau,h))
     e = np.divide((y-mu), np.sqrt(np.multiply(h,tau)))
 
     # Ignoring first two years of data
