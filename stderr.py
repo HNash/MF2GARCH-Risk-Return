@@ -34,7 +34,6 @@ def hessianTwoSided(llfunc, params, y, m):
 
     for i in range(n):
         for j in range(n):
-            #H[i,j] = (Hp[i,j]-gp[i]-gp[j]+fx+fx-gm[i]-gm[j]+Hm[i,j])/hh[i,j]/2
             H[i,j] = (Hp[i,j] - gp[i] - gp[j] + 2*fx - gm[i] - gm[j] + Hm[i,j]) / (2*hh[i,j])
             H[j,i] = H[i,j]
     return H
@@ -50,19 +49,11 @@ def stdErrors(params, y, e, h, tau, m):
 
     for j in range(k):
         params_h_h = params + hhh[:, j]
-        gamma_0_h = params_h_h[6]
-        gamma_1_h = params_h_h[7]
         e_h, h_h, tau_h, V = estimation.mf2_execute(params_h_h, y, m)
-        #ll_mf2_h = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h_h,tau_h)) + np.power(e_h,2))
-        #ll_rr_h = -0.5 * (np.log(2*np.pi*(np.multiply(h_h, tau_h))) + np.divide(np.power(np.subtract(y[505:],(gamma_0_h+gamma_1_h*tau_h)),2), np.multiply(h_h, tau_h)))
         ll_sum_h = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h_h,tau_h)) + np.power(e_h,2))
 
         params_h_m = params - hhh[:, j]
-        gamma_0_m = params_h_m[6]
-        gamma_1_m = params_h_m[7]
         e_m, h_m, tau_m, V = estimation.mf2_execute(params_h_m, y, m)
-        #ll_mf2_m = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h_m,tau_m)) + np.power(e_m,2))
-        #ll_rr_m = -0.5 * (np.log(2*np.pi*(np.multiply(h_m, tau_m))) + np.divide(np.power(np.subtract(y[505:],(gamma_0_m+gamma_1_m*tau_m)),2), np.multiply(h_m, tau_m)))
         ll_sum_m = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h_m,tau_m)) + np.power(e_m,2))
 
         scores[:,j] = np.divide((ll_sum_h - ll_sum_m),(2*hhh[j,j]))
