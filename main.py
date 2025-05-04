@@ -10,7 +10,14 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 returns = pandas.read_csv('data/FF_DAILY_3_FACTORS.csv')
 y = returns['Mkt-RF'].values
 
-solution, stderrs, p_values, m, ll = estimation.estimate(y)
+# Proportional=1 --> don't include intercept gamma_0
+proportional = 0
+
+# Which components of MF2-GARCH volatility to include in the risk-return specification
+# 0 --> short-term only. 1 --> long-term only. 2 --> both
+components = 0
+
+solution, stderrs, p_values, m, ll = estimation.estimate(y, proportional, components)
 
 significance=[
     "***" if p<0.01
@@ -24,12 +31,23 @@ significance=[
 print("Likelihood: ", format(ll, '.3f'))
 print("m/argmin(BIC): ", m)
 print("-----------------------------------------------------")
-param_names = ["alpha", "gamma", "beta", "lambda_0", "lambda_1", "lambda_2", "gamma_0", "gamma_1_s"]
-table = [[0]*5 for i in range(8)]
-for i in range(8):
+param_names = ["alpha", "gamma", "beta", "lambda_0", "lambda_1", "lambda_2"]
+
+if (proportional == 1):
+    param_names=np.append(param_names, "gamma_0")
+if (components == 0):
+    param_names=np.append(param_names, "gamma_1_s")
+elif (components == 1):
+    param_names=np.append(param_names, "gamma_1_l")
+else:
+    param_names = np.append(param_names, "gamma_1_s")
+    param_names = np.append(param_names, "gamma_1_l")
+
+table = [[0]*5 for i in range(len(param_names))]
+for i in range(len(param_names)):
     table[i][0] = param_names[i]
-    table[i][1] = format(solution[i], '.3f')
-    table[i][2] = format(stderrs[i], '.3f')
-    table[i][3] = format(p_values[i], '.3f')
+    table[i][1] = format(solution[i], '.4f')
+    table[i][2] = format(stderrs[i], '.4f')
+    table[i][3] = format(p_values[i], '.4f')
     table[i][4] = significance[i]
 print(tabulate(table, headers=["", "Coeff.", "Std. Err.", "P-Value","Significance"]))
