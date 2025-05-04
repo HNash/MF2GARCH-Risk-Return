@@ -1,7 +1,6 @@
 import numpy as np
 from scipy.optimize import minimize
 import stderr
-import statsmodels.api as sm
 
 # This function simply calculates MF2-GARCH components with given parameter values
 def mf2_execute(param, y, m):
