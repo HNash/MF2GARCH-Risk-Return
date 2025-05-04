@@ -2,6 +2,7 @@ import numpy as np
 from scipy.stats import norm
 from scipy.sparse import csr_matrix
 import estimation
+from numba import njit
 
 def hessianTwoSided(llfunc, params, y, m):
     n = params.size
@@ -37,6 +38,7 @@ def hessianTwoSided(llfunc, params, y, m):
             H[i,j] = (Hp[i,j] - gp[i] - gp[j] + 2*fx - gm[i] - gm[j] + Hm[i,j]) / (2*hh[i,j])
             H[j,i] = H[i,j]
     return H
+
 
 def stdErrors(params, y, e, h, tau, m):
     T = tau.size
