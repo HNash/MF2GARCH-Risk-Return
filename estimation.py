@@ -41,7 +41,7 @@ def mf2_execute(param, y, m):
             h[t] = (1-alpha-(gamma/2)-beta) + ((alpha+gamma)*(((y[t-1]-mu_prev)**2)/tau[t-1])) + (beta*h[t-1])
         else:
             h[t] = (1-alpha-(gamma/2)-beta) + (alpha*(((y[t-1]-mu_prev)**2)/tau[t-1])) + (beta*h[t-1])
-        V[t] = ((y[t]-mu)**2)/h[t]
+        V[t] = ((y[t]-mu_prev)**2)/h[t]
         V_m[t] = np.sum(np.divide(V[t-(m-1):t],m))
 
         tau[t] = lambda_0 + (lambda_1 * V_m[t-1]) + (lambda_2 * tau[t-1])
