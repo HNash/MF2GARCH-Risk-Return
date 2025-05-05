@@ -10,12 +10,21 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 returns = pandas.read_csv('data/FF_DAILY_3_FACTORS.csv')
 y = returns['Mkt-RF'].values
 
+#######################################################
+#######################################################
+################## USER INPUT HERE ####################
+#######################################################
+#######################################################
 # Proportional=1 --> don't include intercept gamma_0
 proportional = 0
-
 # Which components of MF2-GARCH volatility to include in the risk-return specification
 # 0 --> short-term only. 1 --> long-term only. 2 --> both
 components = 0
+#######################################################
+#######################################################
+#######################################################
+#######################################################
+#######################################################
 
 solution, stderrs, p_values, m, ll = estimation.estimate(y, proportional, components)
 
@@ -33,7 +42,7 @@ print("m/argmin(BIC): ", m)
 print("-----------------------------------------------------")
 param_names = ["alpha", "gamma", "beta", "lambda_0", "lambda_1", "lambda_2"]
 
-if (proportional == 1):
+if (proportional == 0):
     param_names=np.append(param_names, "gamma_0")
 if (components == 0):
     param_names=np.append(param_names, "gamma_1_s")

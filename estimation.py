@@ -112,10 +112,12 @@ def estimate(y, proportional, components, **kwargs):
         param_solution = minimize(fun=lambda x: totallikelihood(x, y, m, proportional, components), x0=param0, method='SLSQP', bounds=bounds, constraints=cons).x
         ll = totallikelihood(param_solution, y, m, proportional, components)
         BICs[m-20] = (np.log(y.size)*param_solution.size)-(2*np.log(ll))
+        #print(ll)
+
     m = np.argmin(BICs) + 20
 
     plt.plot(range(20,150), BICs)
-    #plt.show()
+    plt.show()
 
     sol = minimize(lambda x: totallikelihood(x, y, m, proportional, components), param0, method='SLSQP', bounds=bounds, constraints=cons)
 
