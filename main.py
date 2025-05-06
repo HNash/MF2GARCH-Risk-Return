@@ -7,7 +7,7 @@ import warnings
 # Suppressing warnings due to square rooting of negative h*tau values
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
-returns = pandas.read_csv('data/FF_DAILY_3_FACTORS.csv')
+returns = pandas.read_csv('data/Modern_FF_DAILY_3_FACTORS.csv')
 y = returns['Mkt-RF'].values
 
 #######################################################
@@ -16,10 +16,10 @@ y = returns['Mkt-RF'].values
 #######################################################
 #######################################################
 # Proportional=1 --> don't include intercept gamma_0
-proportional = 0
+proportional = 1
 # Which components of MF2-GARCH volatility to include in the risk-return specification
 # 0 --> short-term only. 1 --> long-term only. 2 --> both
-components = 0
+components = 2
 #######################################################
 #######################################################
 #######################################################

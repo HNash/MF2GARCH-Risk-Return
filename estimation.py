@@ -114,7 +114,7 @@ def estimate(y, proportional, components, **kwargs):
         BICs[m-20] = (np.log(y.size)*param_solution.size)-(2*np.log(ll))
         #print(ll)
 
-    m = np.argmin(BICs) + 20
+    m = np.argmin(BICs) + 21
 
     plt.plot(range(20,150), BICs)
     plt.show()
