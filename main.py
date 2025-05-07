@@ -16,7 +16,7 @@ y = returns['Mkt-RF'].values
 #######################################################
 #######################################################
 # Proportional=1 --> don't include intercept gamma_0
-proportional = 1
+proportional = 0
 # Which components of MF2-GARCH volatility to include in the risk-return specification
 # 0 --> short-term only. 1 --> long-term only. 2 --> both
 components = 2
@@ -36,21 +36,28 @@ significance=[
     for p in p_values
 ]
 
-# Simple text formatting for results
-print("Likelihood: ", format(ll, '.3f'))
-print("m/argmin(BIC): ", m)
-print("-----------------------------------------------------")
 param_names = ["alpha", "gamma", "beta", "lambda_0", "lambda_1", "lambda_2"]
 
 if (proportional == 0):
     param_names=np.append(param_names, "gamma_0")
+    print("Non-Proportional,", end=" ")
+else:
+    print("Proportional,", end=" ")
 if (components == 0):
     param_names=np.append(param_names, "gamma_1_s")
+    print("Short-Term Component")
 elif (components == 1):
     param_names=np.append(param_names, "gamma_1_l")
+    print("Long-Term Component")
 else:
     param_names = np.append(param_names, "gamma_1_s")
     param_names = np.append(param_names, "gamma_1_l")
+    print("Both Components")
+
+# Simple text formatting for results
+print("Likelihood: ", format(ll, '.3f'))
+print("m/argmin(BIC): ", m)
+print("-----------------------------------------------------")
 
 table = [[0]*5 for i in range(len(param_names))]
 for i in range(len(param_names)):
