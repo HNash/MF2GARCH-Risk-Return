@@ -26,7 +26,7 @@ components = 2
 #######################################################
 #######################################################
 
-solution, stderrs, p_values, m, ll = estimation.estimate(y, proportional, components)
+solution, stderrs, p_values, m, nll = estimation.estimate(y, proportional, components)
 
 significance=[
     "***" if p<0.01
@@ -55,7 +55,7 @@ else:
     print("Both Components")
 
 # Simple text formatting for results
-print("Log-likelihood: ", format(-ll, '.3f'))
+print("Log-likelihood: ", format(-nll, '.3f'))
 print("m/argmin(BIC): ", m)
 print("-----------------------------------------------------")
 

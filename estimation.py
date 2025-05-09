@@ -70,7 +70,7 @@ def mf2_execute(param, y, m, proportional, components):
     return e[start_index:], h[start_index:], tau[start_index:], V_m
 
 @njit
-def totallikelihood(param, y, m, proportional, components):
+def negativeLogLikelihood(param, y, m, proportional, components):
     # Get component values to use in likelihood function
     e, h, tau, V_m = mf2_execute(param, y, m, proportional, components)
     # Likelihood function for MF2-GARCH specification
@@ -104,9 +104,9 @@ def estimate(y, proportional, components, **kwargs):
     # Chooses the m that minimizes the Bayesian Info Criterion
     BICs = np.zeros(130)
     for m in range(20, 150):
-        param_solution = minimize(fun=lambda x: totallikelihood(x, y, m, proportional, components), x0=param0, method='SLSQP', bounds=bounds, constraints=cons).x
-        ll = totallikelihood(param_solution, y, m, proportional, components)
-        BICs[m-20] = (np.log(y.size)*param_solution.size)-(-2*ll)
+        param_solution = minimize(fun=lambda x: negativeLogLikelihood(x, y, m, proportional, components), x0=param0, method='SLSQP', bounds=bounds, constraints=cons).x
+        nll = negativeLogLikelihood(param_solution, y, m, proportional, components)
+        BICs[m-20] = (np.log(y.size)*param_solution.size)-(-2*nll)
     m = np.argmin(BICs) + 20
     # Plots m on the x axis vs. BIC values on the y axis
     plt.plot(range(20, 150), BICs)
@@ -115,12 +115,12 @@ def estimate(y, proportional, components, **kwargs):
     plt.ylabel("BIC Value")
     plt.show()
 
-    sol = minimize(lambda x: totallikelihood(x, y, m, proportional, components), param0, method='SLSQP', bounds=bounds, constraints=cons)
+    sol = minimize(lambda x: negativeLogLikelihood(x, y, m, proportional, components), param0, method='SLSQP', bounds=bounds, constraints=cons)
 
     param_solution = sol.x
-    ll = sol.fun
+    nll = sol.fun
     e, h, tau, V_m = mf2_execute(param_solution, y, m, proportional, components)
     qmle_se, p_value_qmle = stderr.stdErrors(param_solution, y, e, h, tau, m, proportional, components)
 
 
-    return param_solution, qmle_se, p_value_qmle, m, ll
+    return param_solution, qmle_se, p_value_qmle, m, nll

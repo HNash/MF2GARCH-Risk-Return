@@ -63,7 +63,7 @@ def stdErrors(params, y, e, h, tau, m, proportional, components):
     S = (1/T)*np.matmul(np.transpose(scores),scores); 
     
     # Hessian
-    H = hessianTwoSided(estimation.totallikelihood,params, y, m, proportional, components)
+    H = hessianTwoSided(estimation.negativeLogLikelihood,params, y, m, proportional, components)
     A = H/T
     mhess = np.linalg.inv(A)
 
