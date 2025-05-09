@@ -16,7 +16,7 @@ y = returns['Mkt-RF'].values
 #######################################################
 #######################################################
 # Proportional=1 --> don't include intercept gamma_0
-proportional = 0
+proportional = 1
 # Which components of MF2-GARCH volatility to include in the risk-return specification
 # 0 --> short-term only. 1 --> long-term only. 2 --> both
 components = 2
@@ -55,7 +55,7 @@ else:
     print("Both Components")
 
 # Simple text formatting for results
-print("Likelihood: ", format(ll, '.3f'))
+print("Log-likelihood: ", format(-ll, '.3f'))
 print("m/argmin(BIC): ", m)
 print("-----------------------------------------------------")
 

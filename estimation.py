@@ -44,13 +44,9 @@ def mf2_execute(param, y, m, proportional, components):
     V_m = np.ones(n, dtype=y.dtype)
     cumsum_V = np.zeros(n+1, dtype=y.dtype)
 
-    h[:2] = 1.0
-    V[:2] = 1.0
-
-    # This first for loop only calculates h values since tau requires m previous observations
     for t in range(2, n):
         # mu in MF2-GARCH is given here by the univariate risk-return spec from Maheu & McCurdy
-        # Default value is 0.0, so the param drops if required
+        # Default param value is 0.0, so the param drops if required
         mu_prev = gamma_0 + (gamma_1_s * h[t-1]) + (gamma_1_l * tau[t-1])
         # If negative, leverage effect parameter (gamma) is included
         if((y[t-1]-mu_prev) < 0):
@@ -78,12 +74,10 @@ def totallikelihood(param, y, m, proportional, components):
     # Get component values to use in likelihood function
     e, h, tau, V_m = mf2_execute(param, y, m, proportional, components)
     # Likelihood function for MF2-GARCH specification
-    ll_mf2 = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h,tau)) + np.power(e,2))
-    return -np.sum(ll_mf2)
+    ll = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h,tau)) + np.power(e,2))
+    return -np.sum(ll)
 
 def estimate(y, proportional, components, **kwargs):
-    m = kwargs.get('m', 63)
-
     y = np.asarray(y)
 
     # DEFAULT CASE: PROPORTIONAL, ONE COMPONENT
@@ -107,16 +101,18 @@ def estimate(y, proportional, components, **kwargs):
 
     cons = [{'type': 'ineq', 'fun': lambda x, A=A, b=b: b - np.dot(A, x)}]
 
+    # Chooses the m that minimizes the Bayesian Info Criterion
     BICs = np.zeros(130)
     for m in range(20, 150):
         param_solution = minimize(fun=lambda x: totallikelihood(x, y, m, proportional, components), x0=param0, method='SLSQP', bounds=bounds, constraints=cons).x
         ll = totallikelihood(param_solution, y, m, proportional, components)
-        BICs[m-20] = (np.log(y.size)*param_solution.size)-(2*np.log(ll))
-        #print(ll)
-
-    m = np.argmin(BICs) + 21
-
-    plt.plot(range(20,150), BICs)
+        BICs[m-20] = (np.log(y.size)*param_solution.size)-(-2*ll)
+    m = np.argmin(BICs) + 20
+    # Plots m on the x axis vs. BIC values on the y axis
+    plt.plot(range(20, 150), BICs)
+    plt.title("BIC Plot")
+    plt.xlabel("Moving Avg. Window Size (m)")
+    plt.ylabel("BIC Value")
     plt.show()
 
     sol = minimize(lambda x: totallikelihood(x, y, m, proportional, components), param0, method='SLSQP', bounds=bounds, constraints=cons)
