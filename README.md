@@ -1,4 +1,4 @@
-<h3>Dependencies:</h3>
+<h3>Dependencies (Python Libraries):</h3>
 <ul>
   <li>pandas</li>
   <li>NumPy</li>
