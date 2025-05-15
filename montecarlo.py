@@ -29,30 +29,35 @@ def generate(proportional, components, length):
     h = np.zeros(length)
     V = np.zeros(length)
     V_m = np.zeros(length)
+    mu = np.zeros(length)
 
-    tau[0] = 0.1
+    tau[0] = lambda_0/(1-lambda_2)
     h[0] = 0.1
-    V[0] = (0.02**2)/0.1
-    V_m[0] = 0.8
+    V[0] = alpha
+    V_m[0] = alpha
 
     r[0] = 0.02
 
-    m=63
+    m = 63
+
+    np.random.seed(51)
 
     for t in range(1, length):
-        if (t<150):
-            V_m[t] = 0.8
+        if (t<m):
+            V_m[t] = np.average(V[:m])
         else:
             V_m[t] = np.average(V[t-m+1:t])
-        tau[t] = lambda_0 + (lambda_1 * V[t-1]) + (lambda_2 * tau[t-1])
-
+        shock = np.random.normal(0,1)
+        mu[t] = gamma_0 + (gamma_1_s*h[t-1]) + (gamma_1_l*tau[t-1]) + (np.sqrt(h[t-1]*tau[t-1])*shock)
         if (r[t-1] < 0):
-            h[t] = (1-alpha-(gamma/2)-beta) + ((alpha + gamma)*((r[t-1]**2)/tau[t-1])) + (beta*h[t-1])
+            h[t] = (1-alpha-(gamma/2)-beta) + ((alpha + gamma)*(((r[t-1]-mu[t-1])**2)/tau[t-1])) + (beta*h[t-1])
         else:
-            h[t] = (1-alpha-(gamma/2)-beta) + (alpha*((r[t-1]**2)/tau[t-1])) + (beta*h[t-1])
+            h[t] = (1-alpha-(gamma/2)-beta) + (alpha*(((r[t-1]-mu[t-1])**2)/tau[t-1])) + (beta*h[t-1])
+        V[t] = ((r[t]-mu[t])**2)/h[t]
+        r[t] = np.sqrt(h[t]*tau[t])*shock + mu[t]
 
-        r[t] = gamma_0 + (gamma_1_s*h[t]) + (gamma_1_l*tau[t]) + (np.sqrt(h[t]*tau[t])*np.random.standard_normal)
+        tau[t] = lambda_0 + (lambda_1 * V_m[t-1]) + (lambda_2 * tau[t-1])
 
-        V[t] = (r[t]**2)/tau[t]
+
 
     return r

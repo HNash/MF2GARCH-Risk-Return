@@ -1,6 +1,7 @@
 import numpy as np
 import pandas
 import estimation
+import montecarlo
 from tabulate import tabulate
 import warnings
 
@@ -8,8 +9,8 @@ import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 returns = pandas.read_excel('data/Modern_FF_DAILY_3_FACTORS.xlsx')
-y = returns['Mkt-RF'].values
-
+#y = returns['Mkt-RF'].values
+y=montecarlo.generate(1, 1, 25000)[1000:]
 #######################################################
 #######################################################
 ################## USER INPUT HERE ####################
