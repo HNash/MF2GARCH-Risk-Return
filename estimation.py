@@ -45,6 +45,10 @@ def mf2_execute(param, y, m, proportional, components):
     cumsum_V = np.zeros(n+1, dtype=y.dtype)
 
     for t in range(2, n):
+        if(h[t-1] == 0):
+            h[t-1] = h[t-2]
+        if (tau[t - 1] == 0):
+            tau[t - 1] = tau[t - 2]
         # mu in MF2-GARCH is given here by the univariate risk-return spec from Maheu & McCurdy
         # Default param value is 0.0, so the param drops if required
         mu_prev = gamma_0 + (gamma_1_s * h[t-1]) + (gamma_1_l * tau[t-1])
@@ -53,6 +57,11 @@ def mf2_execute(param, y, m, proportional, components):
             h[t] = base + ((alpha+gamma)*(( (y[t-1]-mu_prev)**2)/tau[t-1])) + (beta*h[t-1])
         else:
             h[t] = base + (alpha*(((y[t-1]-mu_prev)**2)/tau[t-1])) + (beta*h[t-1])
+
+        if (h[t] == 0):
+            h[t] = h[t - 1]
+        if (tau[t] == 0):
+            tau[t] = tau[t - 1]
 
         if (t>=m):
             V[t] = ((y[t] - mu_prev) ** 2) / h[t]
@@ -113,7 +122,7 @@ def estimate(y, proportional, components, **kwargs):
     plt.title("BIC Plot")
     plt.xlabel("Moving Avg. Window Size (m)")
     plt.ylabel("BIC Value")
-    plt.show()
+    #plt.show()
 
     sol = minimize(lambda x: negativeLogLikelihood(x, y, m, proportional, components), param0, method='SLSQP', bounds=bounds, constraints=cons)
 

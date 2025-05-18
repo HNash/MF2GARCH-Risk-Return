@@ -1,6 +1,6 @@
 import numpy as np
 
-def generate(proportional, components, length):
+def generate(proportional, components, length, seed):
     r = np.zeros(length)
 
     #param0 = np.array([0.007, 0.14, 0.85, y.var() * (1 - 0.07 - 0.91), 0.07, 0.91, 0.0])
@@ -40,7 +40,7 @@ def generate(proportional, components, length):
 
     m = 63
 
-    np.random.seed(51)
+    np.random.seed(seed)
 
     for t in range(1, length):
         if (t<m):
@@ -49,7 +49,7 @@ def generate(proportional, components, length):
             V_m[t] = np.average(V[t-m+1:t])
         shock = np.random.normal(0,1)
         mu[t] = gamma_0 + (gamma_1_s*h[t-1]) + (gamma_1_l*tau[t-1]) + (np.sqrt(h[t-1]*tau[t-1])*shock)
-        if (r[t-1] < 0):
+        if (r[t-1]-mu[t-1] < 0):
             h[t] = (1-alpha-(gamma/2)-beta) + ((alpha + gamma)*(((r[t-1]-mu[t-1])**2)/tau[t-1])) + (beta*h[t-1])
         else:
             h[t] = (1-alpha-(gamma/2)-beta) + (alpha*(((r[t-1]-mu[t-1])**2)/tau[t-1])) + (beta*h[t-1])

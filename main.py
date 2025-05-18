@@ -19,22 +19,31 @@ returns = pandas.read_excel('data/Modern_FF_DAILY_3_FACTORS.xlsx')
 proportional = 1
 # Which components of MF2-GARCH volatility to include in the risk-return specification
 # 0 --> short-term only. 1 --> long-term only. 2 --> both
-components = 1
+components = 0
 # 0 --> use real data. 1 --> use Monte Carlo simulation
 montecarlo_sim = 1
-sim_length = 25000
+sim_length = 10000
+iterations = 1000
 #######################################################
 #######################################################
 #######################################################
 #######################################################
 #######################################################
+
+param_count = 7 + int(proportional==0) + int(components==2)
 
 if (montecarlo_sim == 0):
     y = returns['Mkt-RF'].values
+    solution, stderrs, p_values, m, nll = estimation.estimate(y, proportional, components)
 else:
-    y = montecarlo.generate(proportional, components, sim_length)[1000:]
+    stderrs, p_values, m, nll = np.zeros(param_count), np.zeros(param_count), 0, 0
+    solutions = np.zeros((iterations, param_count))
+    for s in range(iterations):
+        y = montecarlo.generate(proportional, components, sim_length, s)
+        solutions[s], stderrs, p_values, m, nll = estimation.estimate(y, proportional, components)
+        print(solutions[s])
+    solution = solutions.mean(axis=0)
 
-solution, stderrs, p_values, m, nll = estimation.estimate(y, proportional, components)
 
 significance=[
     "***" if p<0.01
