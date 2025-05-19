@@ -7,54 +7,61 @@ import warnings
 
 # Suppressing warnings due to square rooting of negative h*tau values
 warnings.filterwarnings("ignore", category=RuntimeWarning)
-
+# Importing data (market premia)
 returns = pandas.read_excel('data/Modern_FF_DAILY_3_FACTORS.xlsx')
 
-#######################################################
-#######################################################
-################## USER INPUT HERE ####################
-#######################################################
-#######################################################
+#####################################
+##### SELECT SPECIFICATION HERE #####
+#####################################
 # Proportional=1 --> don't include intercept gamma_0
 proportional = 1
 # Which components of MF2-GARCH volatility to include in the risk-return specification
 # 0 --> short-term only. 1 --> long-term only. 2 --> both
-components = 0
+components = 2
+# 0 --> don't include dummy variable to control for crises. 1 --> include
+crisis_control = 1
 # 0 --> use real data. 1 --> use Monte Carlo simulation
-montecarlo_sim = 1
+montecarlo_sim = 0
 sim_length = 10000
 iterations = 1000
-#######################################################
-#######################################################
-#######################################################
-#######################################################
-#######################################################
+#####################################
+#####################################
+#####################################
 
-param_count = 7 + int(proportional==0) + int(components==2)
+param_count = 8 + int(proportional==0) + int(components==2)
 
+# If Monte Carlo simulation was NOT selected, use imported data
 if (montecarlo_sim == 0):
+    # Market premia
     y = returns['Mkt-RF'].values
-    solution, stderrs, p_values, m, nll = estimation.estimate(y, proportional, components)
+    # Dummy variable to control for crises. If not desired then remains an array of zeros
+    D = np.zeros(len(y))
+    if(crisis_control):
+        D = returns['Crisis'].values
+    solution, stderrs, p_values, m, nll = estimation.estimate(y, proportional, components, D)
 else:
+    print("Monte Carlo Simulation / Estimation Results")
+    print("Simulation Length (T): ", sim_length)
+    print("Number of Iterations: ", iterations)
+    # Standard errors, p-values, m and likelihood are ignored for Monte Carlo simulation
     stderrs, p_values, m, nll = np.zeros(param_count), np.zeros(param_count), 0, 0
+
+    # Array to store estimated parameters for each Monte Carlo iteration
     solutions = np.zeros((iterations, param_count))
     for s in range(iterations):
+        # Generate data
         y = montecarlo.generate(proportional, components, sim_length, s)
-        solutions[s], stderrs, p_values, m, nll = estimation.estimate(y, proportional, components)
-        print(solutions[s])
+        # Estimate parameters
+        solutions[s], stderrs, p_values, m, nll = estimation.estimate(y, proportional, components, D)
+    # The parameter estimates are averaged over all iterations
     solution = solutions.mean(axis=0)
 
-
-significance=[
-    "***" if p<0.01
-    else "**" if p<0.05
-    else "*" if p<0.10
-    else ""
-    for p in p_values
-]
-
+##### PARAMETER NAMES #####
+# These parameters are always included
 param_names = ["alpha", "gamma", "beta", "lambda_0", "lambda_1", "lambda_2"]
 
+# Description of specification and parameter name inclusion
+# Depending on specification, the intercept and volatility component coefficients are/aren't included
 if (proportional == 0):
     param_names=np.append(param_names, "gamma_0")
     print("Non-Proportional,", end=" ")
@@ -71,11 +78,33 @@ else:
     param_names = np.append(param_names, "gamma_1_l")
     print("Both Components")
 
-# Simple text formatting for results
+# Adding parameters and description if dummy variable is included to control for crises
+if(crisis_control):
+    print("Controlling for crises")
+    if (proportional == 0):
+        param_names = np.append(param_names, "crisis_0")
+    if (components == 0):
+        param_names = np.append(param_names, "crisis_1_s")
+    elif (components == 1):
+        param_names = np.append(param_names, "crisis_1_l")
+    else:
+        param_names = np.append(param_names, "crisis_1_s")
+        param_names = np.append(param_names, "crisis_1_l")
+else:
+    print("Not controlling for crises")
+
+##### OUTPUT FORMATTING #####
+significance=[
+    "***" if p<0.01
+    else "**" if p<0.05
+    else "*" if p<0.10
+    else ""
+    for p in p_values
+]
+
 print("Log-likelihood: ", format(-nll, '.3f'))
 print("m/argmin(BIC): ", m)
-print("-----------------------------------------------------")
-
+print("------------------------------------------------------------")
 table = [[0]*5 for i in range(len(param_names))]
 for i in range(len(param_names)):
     table[i][0] = param_names[i]
