@@ -4,6 +4,11 @@ import stderr
 from numba import njit
 from matplotlib import pyplot as plt
 
+# This code is based on:
+# Conrad, Christian and Julius Schoelkopf. 2025. MF2-GARCH Toolbox for Matlab. Matlab package version 0.1.0.
+# (github.com/juliustheodor/mf2garch/)
+# which was originally designed for MF2-GARCH parameter estimation
+
 # This function simply calculates MF2-GARCH components with given parameter values
 @njit
 def mf2_execute(param, y, m, proportional, components, D):
@@ -17,6 +22,7 @@ def mf2_execute(param, y, m, proportional, components, D):
     gamma_0, gamma_1_s, gamma_1_l = [0.0, 0.0, 0.0]
     crisis_0, crisis_1_s, crisis_1_l = [0.0, 0.0, 0.0]
 
+    # Depending on specification, parameters are initialized from arguments
     if (components == 0):
         if (proportional == 0):
             gamma_0 = param[6]
@@ -39,6 +45,7 @@ def mf2_execute(param, y, m, proportional, components, D):
             gamma_1_s = param[6]
             gamma_1_l = param[7]
 
+    # If dummy variable is included, dummy parameters are initialized from arguments
     if(crisis_control):
         if(proportional):
             if(components == 0):
@@ -60,6 +67,7 @@ def mf2_execute(param, y, m, proportional, components, D):
                 crisis_1_s = param[10]
                 crisis_1_l = param[11]
 
+    # MF2-GARCH intercept
     base = 1 - alpha - gamma/2 - beta
 
     n = y.size
@@ -69,13 +77,9 @@ def mf2_execute(param, y, m, proportional, components, D):
     V_m = np.ones(n, dtype=y.dtype)
     cumsum_V = np.zeros(n+1, dtype=y.dtype)
 
-    for t in range(2, n):
-        if(h[t-1] == 0):
-            h[t-1] = h[t-2]
-        if (tau[t - 1] == 0):
-            tau[t - 1] = tau[t - 2]
-        # mu in MF2-GARCH is given here by the univariate risk-return spec from Maheu & McCurdy
 
+    for t in range(2, n):
+        # mu in MF2-GARCH is given here by the univariate risk-return spec from Maheu & McCurdy
         if(crisis_control):
             # Default param value is 0.0, so the param drops if required
             mu_prev = (((gamma_0 + crisis_0) * D[t-1]) + ((gamma_1_s + crisis_1_s * D[t-1]) * h[t - 1]) + ((gamma_1_l + crisis_1_l * D[t-1]) * tau[t - 1]))
@@ -85,24 +89,26 @@ def mf2_execute(param, y, m, proportional, components, D):
 
         # If negative, leverage effect parameter (gamma) is included
         if((y[t-1]-mu_prev) < 0):
-            h[t] = base + ((alpha+gamma)*(( (y[t-1]-mu_prev)**2)/tau[t-1])) + (beta*h[t-1])
+            h[t] = base + ((alpha+gamma)*(((y[t-1]-mu_prev)**2)/tau[t-1])) + (beta*h[t-1])
         else:
             h[t] = base + (alpha*(((y[t-1]-mu_prev)**2)/tau[t-1])) + (beta*h[t-1])
 
+        # Preventing rare division by zero error
         if (h[t] == 0):
-            h[t] = h[t - 1]
+            h[t] = h[t-1]
         if (tau[t] == 0):
-            tau[t] = tau[t - 1]
+            tau[t] = tau[t-1]
 
+        V[t] = ((y[t] - mu_prev) ** 2) / h[t]
+        cumsum_V[t + 1] = cumsum_V[t] + V[t]
+
+        # V_m (moving average) needs window of m observations
         if (t>=m):
-            V[t] = ((y[t] - mu_prev) ** 2) / h[t]
-
-            cumsum_V[t + 1] = cumsum_V[t] + V[t]
             V_m[t] = (cumsum_V[t + 1] - cumsum_V[t + 1 - m]) / m
-
             tau[t] = lambda_0 + (lambda_1 * V_m[t-1]) + (lambda_2 * tau[t-1])
 
     mu = np.zeros(len(h))
+    # mu calculated with crisis dummy if controlling for crises
     if(crisis_control):
         for i in range(len(mu)):
             mu[i] = (gamma_0+crisis_0*D[i]) + ((gamma_1_s+crisis_1_s*D[i]) * h[i]) + ((gamma_1_l+crisis_1_l*D[i]) * tau[i])
@@ -118,7 +124,6 @@ def mf2_execute(param, y, m, proportional, components, D):
 @njit
 def negativeLogLikelihood(param, y, m, proportional, components, D):
     e, h, tau, V_m = mf2_execute(param, y, m, proportional, components, D)
-
     # Likelihood function for MF2-GARCH specification
     ll = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h,tau)) + np.power(e,2))
     return -np.sum(ll)

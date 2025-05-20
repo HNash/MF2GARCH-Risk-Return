@@ -4,6 +4,20 @@ from scipy.sparse import csr_matrix
 import estimation
 from numba import njit
 
+# This code is based on:
+# Conrad, Christian and Julius Schoelkopf. 2025. MF2-GARCH Toolbox for Matlab. Matlab package version 0.1.0.
+# (github.com/juliustheodor/mf2garch/)
+# which was originally designed for MF2-GARCH parameter estimation
+
+# Citation from MF2-GARCH Toolbox for Matlab:
+## Code originally from COMPECON toolbox [www4.ncsu.edu/~pfackler]
+## documentation modified to fit the format of the Econometrics Toolbox
+## by James P. LeSage, Dept of Economics
+## University of Toledo
+## 2801 W. Bancroft St,
+## Toledo, OH 43606
+## jlesage@spatial-econometrics.com
+
 def hessianTwoSided(llfunc, params, y, m, proportional, components, D):
     n = params.size
 
