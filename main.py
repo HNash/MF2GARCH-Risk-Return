@@ -3,6 +3,7 @@ import pandas
 import estimation
 import montecarlo
 from tabulate import tabulate
+from matplotlib import pyplot as plt
 import warnings
 
 # Suppressing warnings due to square rooting of negative h*tau values
@@ -10,23 +11,25 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 # Importing data (market premia)
 returns = pandas.read_excel('data/Modern_FF_DAILY_3_FACTORS.xlsx')
 
-#####################################
-##### SELECT SPECIFICATION HERE #####
-#####################################
-# Proportional=1 --> don't include intercept gamma_0
-proportional = 1
-# Which components of MF2-GARCH volatility to include in the risk-return specification
-# 0 --> short-term only. 1 --> long-term only. 2 --> both
-components = 2
-# 0 --> don't include dummy variable to control for crises. 1 --> include
-crisis_control = 1
-# 0 --> use real data. 1 --> use Monte Carlo simulation
-montecarlo_sim = 0
-sim_length = 10000
-iterations = 1000
-#####################################
-#####################################
-#####################################
+####################################
+############ USER INPUT ############
+####################################
+print("MF2-GARCH risk-return specification")
+print("User options")
+print("------------------------------------------------------------")
+proportional = int(input("Proportional specification (exclude intercept)? (1 = yes, 0 = no) "))
+components = int(input("Which components of MF2-GARCH volatility should be included in the risk-return specification? (0 = short-term only, 1 = long-term only, 2 = both) "))
+montecarlo_sim = int(input("Monte Carlo simulation? (1 = yes, 0 = no/real data) "))
+if(montecarlo_sim):
+    sim_length = int(input("Simulation length (T)? "))
+    iterations = int(input("How many simulations should be performed? "))
+else:
+    crisis_control = int(input("Should crisis periods be controlled for? (1 = yes, 0 = no) "))
+plotBIC = int(input("Plot BIC values for each m? (1 = yes, 0 = no) "))
+print("------------------------------------------------------------")
+####################################
+####################################
+####################################
 
 param_count = 8 + int(proportional==0) + int(components==2)
 
@@ -43,6 +46,7 @@ else:
     print("Monte Carlo Simulation / Estimation Results")
     print("Simulation Length (T): ", sim_length)
     print("Number of Iterations: ", iterations)
+    print("------------------------------------------------------------")
     # Standard errors, p-values, m and likelihood are ignored for Monte Carlo simulation
     stderrs, p_values, m, nll = np.zeros(param_count), np.zeros(param_count), 0, 0
 
@@ -104,7 +108,7 @@ significance=[
 
 print("Log-likelihood: ", format(-nll, '.3f'))
 print("m/argmin(BIC): ", m)
-print("------------------------------------------------------------")
+print("---------------------------RESULTS--------------------------")
 table = [[0]*5 for i in range(len(param_names))]
 for i in range(len(param_names)):
     table[i][0] = param_names[i]
@@ -113,3 +117,5 @@ for i in range(len(param_names)):
     table[i][3] = format(p_values[i], '.4f')
     table[i][4] = significance[i]
 print(tabulate(table, headers=["", "Coeff.", "Std. Err.", "P-Value","Significance"]))
+if(plotBIC):
+    plt.show()
