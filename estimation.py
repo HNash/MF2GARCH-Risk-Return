@@ -4,15 +4,25 @@ import stderr
 from numba import njit
 from matplotlib import pyplot as plt
 
+# This code is based on:
+# Conrad, Christian and Julius Schoelkopf. 2025. MF2-GARCH Toolbox for Matlab. Matlab package version 0.1.0.
+# (github.com/juliustheodor/mf2garch/)
+# which was originally designed for MF2-GARCH parameter estimation
+
 # This function simply calculates MF2-GARCH components with given parameter values
 @njit
-def mf2_execute(param, y, m, proportional, components):
+def mf2_execute(param, y, m, proportional, components, D):
+    # If dummy variable was not initialized, crisis_control is False
+    crisis_control = np.sum(D)!=0
+
     alpha, gamma, beta = param[:3]
     lambda_0, lambda_1, lambda_2 = param[3:6]
 
     # Initializing to 0.0 so that if the user doesn't want a param, it drops
     gamma_0, gamma_1_s, gamma_1_l = [0.0, 0.0, 0.0]
+    crisis_0, crisis_1_s, crisis_1_l = [0.0, 0.0, 0.0]
 
+    # Depending on specification, parameters are initialized from arguments
     if (components == 0):
         if (proportional == 0):
             gamma_0 = param[6]
@@ -35,6 +45,29 @@ def mf2_execute(param, y, m, proportional, components):
             gamma_1_s = param[6]
             gamma_1_l = param[7]
 
+    # If dummy variable is included, dummy parameters are initialized from arguments
+    if(crisis_control):
+        if(proportional):
+            if(components == 0):
+                crisis_1_s = param[7]
+            elif(components == 1):
+                crisis_1_l = param[7]
+            else:
+                crisis_1_s = param[8]
+                crisis_1_l = param[9]
+        else:
+            if (components == 0):
+                crisis_0 = param[8]
+                crisis_1_s = param[9]
+            elif (components == 1):
+                crisis_0 = param[8]
+                crisis_1_l = param[9]
+            else:
+                crisis_0 = param[9]
+                crisis_1_s = param[10]
+                crisis_1_l = param[11]
+
+    # MF2-GARCH intercept
     base = 1 - alpha - gamma/2 - beta
 
     n = y.size
@@ -44,34 +77,44 @@ def mf2_execute(param, y, m, proportional, components):
     V_m = np.ones(n, dtype=y.dtype)
     cumsum_V = np.zeros(n+1, dtype=y.dtype)
 
+
     for t in range(2, n):
-        if(h[t-1] == 0):
-            h[t-1] = h[t-2]
-        if (tau[t - 1] == 0):
-            tau[t - 1] = tau[t - 2]
         # mu in MF2-GARCH is given here by the univariate risk-return spec from Maheu & McCurdy
-        # Default param value is 0.0, so the param drops if required
-        mu_prev = gamma_0 + (gamma_1_s * h[t-1]) + (gamma_1_l * tau[t-1])
+        if(crisis_control):
+            # Default param value is 0.0, so the param drops if required
+            mu_prev = (((gamma_0 + crisis_0) * D[t-1]) + ((gamma_1_s + crisis_1_s * D[t-1]) * h[t - 1]) + ((gamma_1_l + crisis_1_l * D[t-1]) * tau[t - 1]))
+        else:
+            # Default param value is 0.0, so the param drops if required
+            mu_prev = gamma_0 + gamma_1_s*h[t-1] + gamma_1_l*tau[t-1]
+
         # If negative, leverage effect parameter (gamma) is included
         if((y[t-1]-mu_prev) < 0):
-            h[t] = base + ((alpha+gamma)*(( (y[t-1]-mu_prev)**2)/tau[t-1])) + (beta*h[t-1])
+            h[t] = base + ((alpha+gamma)*(((y[t-1]-mu_prev)**2)/tau[t-1])) + (beta*h[t-1])
         else:
             h[t] = base + (alpha*(((y[t-1]-mu_prev)**2)/tau[t-1])) + (beta*h[t-1])
 
+        # Preventing rare division by zero error
         if (h[t] == 0):
-            h[t] = h[t - 1]
+            h[t] = h[t-1]
         if (tau[t] == 0):
-            tau[t] = tau[t - 1]
+            tau[t] = tau[t-1]
 
+        V[t] = ((y[t] - mu_prev) ** 2) / h[t]
+        cumsum_V[t + 1] = cumsum_V[t] + V[t]
+
+        # V_m (moving average) needs window of m observations
         if (t>=m):
-            V[t] = ((y[t] - mu_prev) ** 2) / h[t]
-
-            cumsum_V[t + 1] = cumsum_V[t] + V[t]
             V_m[t] = (cumsum_V[t + 1] - cumsum_V[t + 1 - m]) / m
-
             tau[t] = lambda_0 + (lambda_1 * V_m[t-1]) + (lambda_2 * tau[t-1])
 
-    mu = gamma_0 + (gamma_1_s*h) + (gamma_1_l*tau)
+    mu = np.zeros(len(h))
+    # mu calculated with crisis dummy if controlling for crises
+    if(crisis_control):
+        for i in range(len(mu)):
+            mu[i] = (gamma_0+crisis_0*D[i]) + ((gamma_1_s+crisis_1_s*D[i]) * h[i]) + ((gamma_1_l+crisis_1_l*D[i]) * tau[i])
+    else:
+        mu = gamma_0 + gamma_1_s*h + gamma_1_l*tau
+
     e = np.divide((y-mu), np.sqrt(np.multiply(h,tau)))
 
     # Ignoring first two years of data
@@ -79,14 +122,16 @@ def mf2_execute(param, y, m, proportional, components):
     return e[start_index:], h[start_index:], tau[start_index:], V_m
 
 @njit
-def negativeLogLikelihood(param, y, m, proportional, components):
-    # Get component values to use in likelihood function
-    e, h, tau, V_m = mf2_execute(param, y, m, proportional, components)
+def negativeLogLikelihood(param, y, m, proportional, components, D):
+    e, h, tau, V_m = mf2_execute(param, y, m, proportional, components, D)
     # Likelihood function for MF2-GARCH specification
     ll = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h,tau)) + np.power(e,2))
     return -np.sum(ll)
 
-def estimate(y, proportional, components, **kwargs):
+def estimate(y, proportional, components, D):
+    # If dummy variable was not initialized, crisis_control is False
+    crisis_control = np.sum(D)!=0
+
     y = np.asarray(y)
 
     # DEFAULT CASE: PROPORTIONAL, ONE COMPONENT
@@ -100,23 +145,38 @@ def estimate(y, proportional, components, **kwargs):
     b = np.array([0.0, 1.0, 0.0, 1.0])
     bounds = ((0.0, 1.0), (-0.5, 0.5), (0.0, 1.0), (0.000001, 10.0), (0.0, 1.0), (0.0, 1.0), (-1.0, 1.0))
 
-    # ADD THE NECESSARY PARAMETERS TO param0 AND THE CONSTRAINTS
-    for i in range(int(proportional==0) + int(components==2)):
+    # Based on the specification, add the necessary parameters (initial guesses and constraints)
+    for i in range(int(proportional == 0) + int(components == 2)):
         param0 = np.append(param0, 0.0)
         A = np.hstack([A, np.zeros((len(A), 1), dtype=float)])
 
-        to_add = (-1.0,1.0)
+        to_add = (-1.0, 1.0)
         bounds = bounds + (to_add,)
 
+    # If controlling for crises, add the parameters for the dummy variable (initial guesses and constraints)
+    if(crisis_control):
+        for i in range(1 + int(proportional == 0) + int(components == 2)):
+            param0 = np.append(param0, 0.0)
+            A = np.hstack([A, np.zeros((len(A), 1), dtype=float)])
+            to_add = (-1.0, 1.0)
+            bounds = bounds + (to_add,)
+
+    # Constraints to be passed into SciPy minimization function
     cons = [{'type': 'ineq', 'fun': lambda x, A=A, b=b: b - np.dot(A, x)}]
 
     # Chooses the m that minimizes the Bayesian Info Criterion
     BICs = np.zeros(130)
+    # Loop over possible values of m...
     for m in range(20, 150):
-        param_solution = minimize(fun=lambda x: negativeLogLikelihood(x, y, m, proportional, components), x0=param0, method='SLSQP', bounds=bounds, constraints=cons).x
-        nll = negativeLogLikelihood(param_solution, y, m, proportional, components)
+        # ...minimize negative log-likelihood for each...
+        param_solution = minimize(fun=lambda x: negativeLogLikelihood(x, y, m, proportional, components, D), x0=param0,
+                                      method='SLSQP', bounds=bounds, constraints=cons).x
+        nll = negativeLogLikelihood(param_solution, y, m, proportional, components, D)
+        # ...calculate and store BIC for this m...
         BICs[m-20] = (np.log(y.size)*param_solution.size)-(-2*nll)
+    # ...find the value of m that minmizes the BIC
     m = np.argmin(BICs) + 20
+
     # Plots m on the x axis vs. BIC values on the y axis
     plt.plot(range(20, 150), BICs)
     plt.title("BIC Plot")
@@ -124,11 +184,13 @@ def estimate(y, proportional, components, **kwargs):
     plt.ylabel("BIC Value")
     #plt.show()
 
-    sol = minimize(lambda x: negativeLogLikelihood(x, y, m, proportional, components), param0, method='SLSQP', bounds=bounds, constraints=cons)
+    # Get the solution for the optimal m
+    sol = minimize(fun=lambda x: negativeLogLikelihood(x, y, m, proportional, components, D), x0=param0,
+                                      method='SLSQP', bounds=bounds, constraints=cons)
 
     param_solution = sol.x
     nll = sol.fun
-    e, h, tau, V_m = mf2_execute(param_solution, y, m, proportional, components)
-    qmle_se, p_value_qmle = stderr.stdErrors(param_solution, y, e, h, tau, m, proportional, components)
+    e, h, tau, V_m = mf2_execute(param_solution, y, m, proportional, components, D)
+    qmle_se, p_value_qmle = stderr.stdErrors(param_solution, y, e, h, tau, m, proportional, components, D)
 
     return param_solution, qmle_se, p_value_qmle, m, nll
