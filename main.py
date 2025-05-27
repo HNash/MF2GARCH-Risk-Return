@@ -9,7 +9,7 @@ import warnings
 # Suppressing warnings due to square rooting of negative h*tau values
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 # Importing data (market premia)
-returns = pandas.read_excel('data/Modern_FF_DAILY_3_FACTORS.xlsx')
+returns = pandas.read_excel('data/Early_FF_DAILY_3_FACTORS.xlsx')
 
 ####################################
 ############ USER INPUT ############
@@ -67,19 +67,19 @@ param_names = ["alpha", "gamma", "beta", "lambda_0", "lambda_1", "lambda_2"]
 # Description of specification and parameter name inclusion
 # Depending on specification, the intercept and volatility component coefficients are/aren't included
 if (proportional == 0):
-    param_names=np.append(param_names, "gamma_0")
+    param_names=np.append(param_names, "delta_0")
     print("Non-Proportional,", end=" ")
 else:
     print("Proportional,", end=" ")
 if (components == 0):
-    param_names=np.append(param_names, "gamma_1_s")
+    param_names=np.append(param_names, "delta_1_s")
     print("Short-Term Component")
 elif (components == 1):
-    param_names=np.append(param_names, "gamma_1_l")
+    param_names=np.append(param_names, "delta_1_l")
     print("Long-Term Component")
 else:
-    param_names = np.append(param_names, "gamma_1_s")
-    param_names = np.append(param_names, "gamma_1_l")
+    param_names = np.append(param_names, "delta_1_s")
+    param_names = np.append(param_names, "delta_1_l")
     print("Both Components")
 
 # Adding parameters and description if dummy variable is included to control for crises

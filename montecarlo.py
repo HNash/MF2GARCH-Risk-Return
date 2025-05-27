@@ -12,20 +12,20 @@ def generate(proportional, components, length, seed):
     lambda_2 = 0.94
 
     # Default value is 0 to drop parameter if specification doesn't call for it
-    gamma_0 = 0.0
-    gamma_1_s = 0.0
-    gamma_1_l = 0.0
+    delta_0 = 0.0
+    delta_1_s = 0.0
+    delta_1_l = 0.0
 
     # Initialize parameters if specification calls for them
     if (proportional == 0):
-        gamma_0 = 0.02
+        delta_0 = 0.02
     if (components == 0):
-        gamma_1_s = -0.013
+        delta_1_s = -0.013
     elif (components == 1):
-        gamma_1_l = 0.05
+        delta_1_l = 0.05
     else:
-        gamma_1_s = -0.013
-        gamma_1_l = 0.05
+        delta_1_s = -0.013
+        delta_1_l = 0.05
 
     tau = np.zeros(length)
     h = np.zeros(length)
@@ -51,7 +51,7 @@ def generate(proportional, components, length, seed):
         else:
             V_m[t] = np.average(V[t-m+1:t])
         shock = np.random.normal(0,1)
-        mu[t] = gamma_0 + (gamma_1_s*h[t-1]) + (gamma_1_l*tau[t-1]) + (np.sqrt(h[t-1]*tau[t-1])*shock)
+        mu[t] = delta_0 + (delta_1_s*h[t-1]) + (delta_1_l*tau[t-1]) + (np.sqrt(h[t-1]*tau[t-1])*shock)
         if (r[t-1]-mu[t-1] < 0):
             h[t] = (1-alpha-(gamma/2)-beta) + ((alpha + gamma)*(((r[t-1]-mu[t-1])**2)/tau[t-1])) + (beta*h[t-1])
         else:
