@@ -20,7 +20,7 @@ def mf2_execute(param, y, m, proportional, components, D):
 
     # Initializing to 0.0 so that if the user doesn't want a param, it drops
     delta_0, delta_1_s, delta_1_l = [0.0, 0.0, 0.0]
-    crisis_0, crisis_1_s, crisis_1_l = [0.0, 0.0, 0.0]
+    theta_0, theta_1_s, theta_1_l = [0.0, 0.0, 0.0]
 
     # Depending on specification, parameters are initialized from arguments
     if (components == 0):
@@ -49,23 +49,23 @@ def mf2_execute(param, y, m, proportional, components, D):
     if(crisis_control):
         if(proportional):
             if(components == 0):
-                crisis_1_s = param[7]
+                theta_1_s = param[7]
             elif(components == 1):
-                crisis_1_l = param[7]
+                theta_1_l = param[7]
             else:
-                crisis_1_s = param[8]
-                crisis_1_l = param[9]
+                theta_1_s = param[8]
+                theta_1_l = param[9]
         else:
             if (components == 0):
-                crisis_0 = param[8]
-                crisis_1_s = param[9]
+                theta_0 = param[8]
+                theta_1_s = param[9]
             elif (components == 1):
-                crisis_0 = param[8]
-                crisis_1_l = param[9]
+                theta_0 = param[8]
+                theta_1_l = param[9]
             else:
-                crisis_0 = param[9]
-                crisis_1_s = param[10]
-                crisis_1_l = param[11]
+                theta_0 = param[9]
+                theta_1_s = param[10]
+                theta_1_l = param[11]
 
     # MF2-GARCH intercept
     base = 1 - alpha - gamma/2 - beta
@@ -82,7 +82,7 @@ def mf2_execute(param, y, m, proportional, components, D):
         # mu in MF2-GARCH is given here by the univariate risk-return spec from Maheu & McCurdy
         if(crisis_control):
             # Default param value is 0.0, so the param drops if required
-            mu_prev = (((delta_0 + crisis_0) * D[t-1]) + ((delta_1_s + crisis_1_s * D[t-1]) * h[t - 1]) + ((delta_1_l + crisis_1_l * D[t-1]) * tau[t - 1]))
+            mu_prev = (((delta_0 + theta_0) * D[t-1]) + ((delta_1_s + theta_1_s * D[t-1]) * h[t - 1]) + ((delta_1_l + theta_1_l * D[t-1]) * tau[t - 1]))
         else:
             # Default param value is 0.0, so the param drops if required
             mu_prev = delta_0 + delta_1_s*h[t-1] + delta_1_l*tau[t-1]
@@ -111,7 +111,7 @@ def mf2_execute(param, y, m, proportional, components, D):
     # mu calculated with crisis dummy if controlling for crises
     if(crisis_control):
         for i in range(len(mu)):
-            mu[i] = (delta_0+crisis_0*D[i]) + ((delta_1_s+crisis_1_s*D[i]) * h[i]) + ((delta_1_l+crisis_1_l*D[i]) * tau[i])
+            mu[i] = (delta_0+theta_0*D[i]) + ((delta_1_s+theta_1_s*D[i]) * h[i]) + ((delta_1_l+theta_1_l*D[i]) * tau[i])
     else:
         mu = delta_0 + delta_1_s*h + delta_1_l*tau
 

@@ -86,14 +86,14 @@ else:
 if(crisis_control):
     print("Controlling for crises")
     if (proportional == 0):
-        param_names = np.append(param_names, "crisis_0")
+        param_names = np.append(param_names, "theta_0")
     if (components == 0):
-        param_names = np.append(param_names, "crisis_1_s")
+        param_names = np.append(param_names, "theta_1_s")
     elif (components == 1):
-        param_names = np.append(param_names, "crisis_1_l")
+        param_names = np.append(param_names, "theta_1_l")
     else:
-        param_names = np.append(param_names, "crisis_1_s")
-        param_names = np.append(param_names, "crisis_1_l")
+        param_names = np.append(param_names, "theta_1_s")
+        param_names = np.append(param_names, "theta_1_l")
 else:
     print("Not controlling for crises")
 
