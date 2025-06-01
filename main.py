@@ -9,7 +9,7 @@ import warnings
 # Suppressing warnings due to square rooting of negative h*tau values
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 # Importing data (market premia)
-returns = pandas.read_excel('data/Early_FF_DAILY_3_FACTORS.xlsx')
+returns = pandas.read_excel('data/Modern_FF_DAILY_3_FACTORS.xlsx')
 
 ####################################
 ############ USER INPUT ############
@@ -36,7 +36,7 @@ param_count = 8 + int(proportional==0) + int(components==2)
 # If Monte Carlo simulation was NOT selected, use imported data
 if (montecarlo_sim == 0):
     # Market premia
-    y = returns['Mkt-RF'].values
+    y = returns['Log_Prem'].values
     # Dummy variable to control for crises. If not desired then remains an array of zeros
     D = np.zeros(len(y))
     if(crisis_control):
