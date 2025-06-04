@@ -9,7 +9,7 @@ import warnings
 # Suppressing warnings due to square rooting of negative h*tau values
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 # Importing data (market premia)
-returns = pandas.read_excel('data/Modern_FF_DAILY_3_FACTORS.xlsx')
+returns = pandas.read_excel('data/Early_FF_DAILY_3_FACTORS.xlsx')
 
 ####################################
 ############ USER INPUT ############
