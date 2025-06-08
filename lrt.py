@@ -15,6 +15,6 @@ stat_2_comp= -2*(llf_null_2_comp-llf_alt_2_comp)
 
 diff_df=1
 
-print("p_value, both components", format(chi2.sf(stat_2_comp,diff_df),'.3f'))
-print("p_value, short-term component", format(chi2.sf(stat_short,diff_df),'.3f'))
-print("p_value, long-term component", format(chi2.sf(stat_long,diff_df),'.3f'))
+print("p-value, both components", format(chi2.sf(stat_2_comp,diff_df),'.3f'))
+print("p-value, short-term component", format(chi2.sf(stat_short,diff_df),'.3f'))
+print("p-value, long-term component", format(chi2.sf(stat_long,diff_df),'.3f'))
