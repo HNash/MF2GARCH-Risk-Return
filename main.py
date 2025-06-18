@@ -9,7 +9,7 @@ import warnings
 # Suppressing warnings due to square rooting of negative h*tau values
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 # Importing data (market premia)
-returns = pandas.read_excel('data/Early_FF_DAILY_3_FACTORS.xlsx')
+returns = pandas.read_excel('data/Modern_FF_DAILY_3_FACTORS.xlsx')
 
 ####################################
 ############ USER INPUT ############
@@ -23,15 +23,16 @@ montecarlo_sim = int(input("Monte Carlo simulation? (1 = yes, 0 = no/real data) 
 if(montecarlo_sim):
     sim_length = int(input("Simulation length (T)? "))
     iterations = int(input("How many simulations should be performed? "))
+    crisis_control = False
 else:
     crisis_control = int(input("Should crisis periods be controlled for? (1 = yes, 0 = no) "))
-plotBIC = int(input("Plot BIC values for each m? (1 = yes, 0 = no) "))
+    plotBIC = int(input("Plot BIC values for each m? (1 = yes, 0 = no) "))
 print("------------------------------------------------------------")
 ####################################
 ####################################
 ####################################
 
-param_count = 8 + int(proportional==0) + int(components==2)
+param_count = 7 + int(proportional==0) + int(components==2)
 
 # If Monte Carlo simulation was NOT selected, use imported data
 if (montecarlo_sim == 0):
@@ -56,6 +57,7 @@ else:
         # Generate data
         y = montecarlo.generate(proportional, components, sim_length, s)
         # Estimate parameters
+        D = np.zeros(sim_length)
         solutions[s], stderrs, p_values, m, nll = estimation.estimate(y, proportional, components, D)
     # The parameter estimates are averaged over all iterations
     solution = solutions.mean(axis=0)
@@ -112,9 +114,9 @@ print("---------------------------RESULTS--------------------------")
 table = [[0]*5 for i in range(len(param_names))]
 for i in range(len(param_names)):
     table[i][0] = param_names[i]
-    table[i][1] = format(solution[i], '.4f')
-    table[i][2] = format(stderrs[i], '.4f')
-    table[i][3] = format(p_values[i], '.4f')
+    table[i][1] = format(solution[i], '.3f')
+    table[i][2] = format(stderrs[i], '.3f')
+    table[i][3] = format(p_values[i], '.3f')
     table[i][4] = significance[i]
 print(tabulate(table, headers=["", "Coeff.", "Std. Err.", "P-Value","Significance"]))
 if(plotBIC):
