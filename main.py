@@ -4,6 +4,7 @@ import estimation
 import montecarlo
 from tabulate import tabulate
 from matplotlib import pyplot as plt
+from scipy.stats import skew, kurtosis
 import warnings
 
 # Suppressing warnings due to square rooting of negative h*tau values
@@ -119,5 +120,40 @@ for i in range(len(param_names)):
     table[i][3] = format(p_values[i], '.3f')
     table[i][4] = significance[i]
 print(tabulate(table, headers=["", "Coeff.", "Std. Err.", "P-Value","Significance"]))
+
 if(plotBIC):
     plt.show()
+
+print("---------------------------SUMMARY STATS--------------------------")
+
+e, h, tau, V_m = estimation.mf2_execute(solution, y, m, proportional, components, D)
+vol = np.multiply(h,tau)
+
+# Making them into pandas series to get autocorrelation easily
+y_pd = pandas.Series(y)
+h_pd = pandas.Series(h)
+tau_pd = pandas.Series(tau)
+vol_pd = pandas.Series(vol)
+
+print("---y---")
+print("Mean: ", format(np.mean(y), '.3f'))
+print("Std. Dev: ", format(np.sqrt(np.var(y)), '.3f'))
+print("Skew: ", format(skew(y), '.3f'))
+print("Kurtosis: ", format(kurtosis(y), '.3f'))
+print("Min: ", format(np.min(y), '.3f'))
+print("Max: ", format(np.max(y), '.3f'))
+print("AC(1): ", format(y_pd.autocorr(lag=1), '.3f'))
+
+print("---h---")
+print("Mean: ", format(np.mean(h), '.3f'))
+print("AC(1): ", format(h_pd.autocorr(lag=1), '.9f'))
+
+print("---tau---")
+print("Mean: ", format(np.mean(tau), '.3f'))
+print("AC(1): ", format(tau_pd.autocorr(lag=1), '.9f'))
+
+print("---Vol---")
+print("Mean: ", format(np.mean(vol), '.3f'))
+print("Min: ", format(np.min(vol), '.3f'))
+print("Max: ", format(np.max(vol), '.3f'))
+print("AC(1): ", format(vol_pd.autocorr(lag=1), '.3f'))

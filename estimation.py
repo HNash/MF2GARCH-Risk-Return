@@ -182,7 +182,6 @@ def estimate(y, proportional, components, D):
     plt.title("BIC Plot")
     plt.xlabel("Moving Avg. Window Size (m)")
     plt.ylabel("BIC Value")
-    #plt.show()
 
     # Get the solution for the optimal m
     sol = minimize(fun=lambda x: negativeLogLikelihood(x, y, m, proportional, components, D), x0=param0,
