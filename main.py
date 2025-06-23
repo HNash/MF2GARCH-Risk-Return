@@ -10,7 +10,7 @@ import warnings
 # Suppressing warnings due to square rooting of negative h*tau values
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 # Importing data (market premia)
-returns = pandas.read_excel('data/Modern_FF_DAILY_3_FACTORS.xlsx')
+returns = pandas.read_excel('data/FF_DAILY_3_FACTORS.xlsx')
 
 ####################################
 ############ USER INPUT ############
@@ -19,7 +19,7 @@ print("MF2-GARCH risk-return specification")
 print("User options")
 print("------------------------------------------------------------")
 proportional = int(input("Proportional specification (exclude intercept)? (1 = yes, 0 = no) "))
-components = int(input("Which components of MF2-GARCH volatility should be included in the risk-return specification? (0 = short-term only, 1 = long-term only, 2 = both) "))
+components = int(input("Which components of MF2-GARCH volatility should be included in the risk-return specification? (0 = short-term only, 1 = long-term only, 2 = both, 3 = overall volatility) "))
 montecarlo_sim = int(input("Monte Carlo simulation? (1 = yes, 0 = no/real data) "))
 if(montecarlo_sim):
     sim_length = int(input("Simulation length (T)? "))
@@ -43,14 +43,14 @@ if (montecarlo_sim == 0):
     D = np.zeros(len(y))
     if(crisis_control):
         D = returns['Crisis'].values
-    solution, stderrs, p_values, m, nll = estimation.estimate(y, proportional, components, D)
+    solution, stderrs, p_values, m, nll, BIC = estimation.estimate(y, proportional, components, D)
 else:
     print("Monte Carlo Simulation / Estimation Results")
     print("Simulation Length (T): ", sim_length)
     print("Number of Iterations: ", iterations)
     print("------------------------------------------------------------")
     # Standard errors, p-values, m and likelihood are ignored for Monte Carlo simulation
-    stderrs, p_values, m, nll = np.zeros(param_count), np.zeros(param_count), 0, 0
+    stderrs, p_values, m, nll, BIC = np.zeros(param_count), np.zeros(param_count), 0, 0
 
     # Array to store estimated parameters for each Monte Carlo iteration
     solutions = np.zeros((iterations, param_count))
@@ -59,7 +59,7 @@ else:
         y = montecarlo.generate(proportional, components, sim_length, s)
         # Estimate parameters
         D = np.zeros(sim_length)
-        solutions[s], stderrs, p_values, m, nll = estimation.estimate(y, proportional, components, D)
+        solutions[s], stderrs, p_values, m, nll, BIC = estimation.estimate(y, proportional, components, D)
     # The parameter estimates are averaged over all iterations
     solution = solutions.mean(axis=0)
 
@@ -80,10 +80,13 @@ if (components == 0):
 elif (components == 1):
     param_names=np.append(param_names, "delta_1_l")
     print("Long-Term Component")
-else:
+elif (components == 2):
     param_names = np.append(param_names, "delta_1_s")
     param_names = np.append(param_names, "delta_1_l")
     print("Both Components")
+else:
+    param_names = np.append(param_names, "delta_1")
+    print("Overall volatility")
 
 # Adding parameters and description if dummy variable is included to control for crises
 if(crisis_control):
@@ -94,9 +97,12 @@ if(crisis_control):
         param_names = np.append(param_names, "theta_1_s")
     elif (components == 1):
         param_names = np.append(param_names, "theta_1_l")
-    else:
+    elif (components == 2):
         param_names = np.append(param_names, "theta_1_s")
         param_names = np.append(param_names, "theta_1_l")
+    else:
+        param_names = np.append(param_names, "theta_1")
+
 else:
     print("Not controlling for crises")
 
@@ -110,6 +116,7 @@ significance=[
 ]
 
 print("Log-likelihood: ", format(-nll, '.3f'))
+print("BIC: ", format(BIC, '.3f'))
 print("m/argmin(BIC): ", m)
 print("---------------------------RESULTS--------------------------")
 table = [[0]*5 for i in range(len(param_names))]
@@ -120,7 +127,6 @@ for i in range(len(param_names)):
     table[i][3] = format(p_values[i], '.3f')
     table[i][4] = significance[i]
 print(tabulate(table, headers=["", "Coeff.", "Std. Err.", "P-Value","Significance"]))
-
 if(plotBIC):
     plt.show()
 
