@@ -4,12 +4,12 @@ def generate(proportional, components, length, seed):
     r = np.zeros(length)
 
     # Initial values are average parameter estimates from real data
-    alpha = 0.02
-    gamma = 0.1
-    beta = 0.8
-    lambda_0 = 0.02
-    lambda_1 = 0.05
-    lambda_2 = 0.94
+    alpha = 0.006
+    gamma = 0.16
+    beta = 0.842
+    lambda_0 = 0.011
+    lambda_1 = 0.085
+    lambda_2 = 0.902
 
     # Default value is 0 to drop parameter if specification doesn't call for it
     delta_0 = 0.0
@@ -22,7 +22,7 @@ def generate(proportional, components, length, seed):
     if (components == 0):
         delta_1_s = -0.013
     elif (components == 1):
-        delta_1_l = 0.05
+        delta_1_l = 0.049
     else:
         delta_1_s = -0.013
         delta_1_l = 0.05
@@ -33,8 +33,9 @@ def generate(proportional, components, length, seed):
     V_m = np.zeros(length)
     mu = np.zeros(length)
 
-    tau[0] = lambda_0/(1-lambda_2)
-    h[0] = 0.1
+    # Start at averages
+    tau[0] = 0.83
+    h[0] = 1.186
     V[0] = alpha
     V_m[0] = alpha
 
@@ -47,6 +48,7 @@ def generate(proportional, components, length, seed):
 
     for t in range(1, length):
         if (t<m):
+            tau[t] = 0.83
             V_m[t] = np.average(V[:m])
         else:
             V_m[t] = np.average(V[t-m+1:t])
@@ -58,5 +60,8 @@ def generate(proportional, components, length, seed):
             h[t] = (1-alpha-(gamma/2)-beta) + (alpha*(((r[t-1]-mu[t-1])**2)/tau[t-1])) + (beta*h[t-1])
         V[t] = ((r[t]-mu[t])**2)/h[t]
         r[t] = np.sqrt(h[t]*tau[t])*shock + mu[t]
-        tau[t] = lambda_0 + (lambda_1 * V_m[t-1]) + (lambda_2 * tau[t-1])
+        if (t<m):
+            tau[t] = 0.83
+        else:
+            tau[t] = lambda_0 + (lambda_1 * V_m[t-1]) + (lambda_2 * tau[t-1])
     return r

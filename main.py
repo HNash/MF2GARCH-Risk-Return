@@ -49,19 +49,31 @@ else:
     print("Simulation Length (T): ", sim_length)
     print("Number of Iterations: ", iterations)
     print("------------------------------------------------------------")
-    # Standard errors, p-values, m and likelihood are ignored for Monte Carlo simulation
-    stderrs, p_values, m, nll, BIC = np.zeros(param_count), np.zeros(param_count), 0, 0
-
     # Array to store estimated parameters for each Monte Carlo iteration
     solutions = np.zeros((iterations, param_count))
+    stderrs = np.zeros((iterations, param_count))
+    ms = np.zeros(iterations)
+    nlls = np.zeros(iterations)
+    BICs = np.zeros(iterations)
     for s in range(iterations):
         # Generate data
         y = montecarlo.generate(proportional, components, sim_length, s)
         # Estimate parameters
         D = np.zeros(sim_length)
-        solutions[s], stderrs, p_values, m, nll, BIC = estimation.estimate(y, proportional, components, D)
+        solutions[s], stderrs[s], p_values, ms[s], nlls[s], BICs[s] = estimation.estimate(y, proportional, components, D)
     # The parameter estimates are averaged over all iterations
     solution = solutions.mean(axis=0)
+    avgstderrs = stderrs.mean(axis=0)
+    avgm = ms.mean()
+    avgnll = nlls.mean()
+    avgBIC = BICs.mean()
+
+    print(solution)
+    print(avgstderrs)
+    print(avgm)
+    print(avgnll)
+    print(avgBIC)
+    exit()
 
 ##### PARAMETER NAMES #####
 # These parameters are always included
@@ -152,14 +164,18 @@ print("AC(1): ", format(y_pd.autocorr(lag=1), '.3f'))
 
 print("---h---")
 print("Mean: ", format(np.mean(h), '.3f'))
+print("Min: ", format(np.min(h), '.3f'))
+print("Max: ", format(np.max(h), '.3f'))
 print("AC(1): ", format(h_pd.autocorr(lag=1), '.9f'))
 
 print("---tau---")
 print("Mean: ", format(np.mean(tau), '.3f'))
+print("Min: ", format(np.min(tau), '.3f'))
+print("Max: ", format(np.max(tau), '.3f'))
 print("AC(1): ", format(tau_pd.autocorr(lag=1), '.9f'))
 
 print("---Vol---")
 print("Mean: ", format(np.mean(vol), '.3f'))
 print("Min: ", format(np.min(vol), '.3f'))
 print("Max: ", format(np.max(vol), '.3f'))
-print("AC(1): ", format(vol_pd.autocorr(lag=1), '.3f'))
+print("AC(1): ", format(vol_pd.autocorr(lag=1), '.9f'))

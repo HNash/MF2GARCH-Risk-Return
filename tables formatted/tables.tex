@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{legalpaper, margin=0.5in}
+\begin{document}
+\begin{table}[t]
+\centering
+\caption{Summary Statistics - Market Premia}
+\begin{tabular}{cccccccc}
+\midrule
+\midrule
+\mbox{} & mean & sd & skew & kurtosis & min & max & AC(1)\\
+\midrule
+$r_t$ & 0.028 & 1.028 & -0.487 & 15.564 & -17.440 & 11.360 & 0.016\\
+\midrule
+\multicolumn{8}{l}{\textbf{Notes:} This table shows summary statistics for the U.S. daily}\\
+\multicolumn{8}{l}{market premium data. The data runs from January 1964 to April}\\
+\multicolumn{8}{l}{2025. The columns present the mean, standard deviation (sd),}\\
+\multicolumn{8}{l}{skewness, kurtosis, minimum (min), maximum (max) and the}\\
+\multicolumn{8}{l}{first-order autocorrelation coefficient (AC(1)).}\\
+\midrule
+\midrule
+\end{tabular}
+\end{table}
+
+\pagebreak
+\begin{table}
+\centering
+\caption{NBER Recession Periods}
+\begin{tabular}{ccl}
+\midrule
+\midrule
+Start date & End date & Remarks\\
+\midrule
+December 1969 & November 1970 & - \\
+November 1973 & March 1975 & 1973 oil crisis and stagflation \\
+January 1980 & July 1980 & Volcker recession \\
+July 1981 & November 1982 & 1979 energy crisis \\
+July 1990 & March 1991 & - \\
+March 2001 & November 2001 & Dot-com bubble \\
+December 2007 & June 2009 & Global financial crisis \\
+February 2020 & April 2020 & COVID-19 pandemic \\
+\midrule
+\multicolumn{3}{l}{\textbf{Notes:} This table shows the start and end dates of recession}\\
+\multicolumn{3}{l}{periods defined by the U.S. National Bureau of Economic}\\
+\multicolumn{3}{l}{Research (NBER) which fall within the sample period on which}\\
+\multicolumn{3}{l}{the MF2-GARCH-in-mean model is estimated. The dummy}\\
+\multicolumn{3}{l}{variable used to control for periods of crisis is given the value 1}\\
+\multicolumn{3}{l}{for the above periods and 0 otherwise.}\\
+\midrule
+\midrule
+\end{tabular}
+\end{table}
+
+\pagebreak
+\setcounter{table}{3}
+\begin{table}
+\centering
+\caption{Summary Statistics - Volatility}
+\begin{tabular}{ccccc}
+\multicolumn{5}{c}{(Proportional Long-Term Component Specification)}\\
+\midrule
+\midrule
+\mbox{} & mean & min & max & AC(1)\\
+\midrule
+\mbox{$\sigma^2_t$}& 1.051 & 0.122 & 60.992 & 0.94736\\
+\mbox{$h_t$} & 1.186 & 0.474 & 69.731 & 0.98251\\
+\mbox{$\tau_t$} & 0.830 & 0.236 & 3.810 & 0.99988\\
+\midrule
+\multicolumn{5}{l}{\textbf{Notes:} This table shows summary statistics for}\\
+\multicolumn{5}{l}{the conditional variance and its components as}\\
+\multicolumn{5}{l}{estimated by MF2-GARCH in the proportional}\\
+\multicolumn{5}{l}{(no intercept) long-term component specification.}\\
+\midrule
+\midrule
+\end{tabular}
+\end{table}
+
+\end{document}
