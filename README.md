@@ -9,7 +9,7 @@
 </ul>
 <h3>Usage Instructions:</h3>
 <ol>
-  <li>If desired, replace "data/Modern_FF_DAILY_3_FACTORS.xlsx" with your own data in .xlsx format</li>
+  <li>If desired, replace "data/FF_DAILY_3_FACTORS.xlsx" with your own data in .xlsx format</li>
   <li>Put market premia in a column with the heading "Mkt-RF" (case-sensitive)</li>
   <li>If desired, put crisis dummy variable values (to indicate crisis periods in market return) in a column with the heading "Crisis" (case-sensitive)</li>
   <li>Run "main.py" and answer user prompts</li>
