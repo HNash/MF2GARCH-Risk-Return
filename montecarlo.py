@@ -36,10 +36,10 @@ def generate(proportional, components, length, seed):
     # Start at averages
     tau[0] = 0.83
     h[0] = 1.186
-    V[0] = alpha
-    V_m[0] = alpha
+    V[0] = 0.0
+    V_m[0] = 0.0
 
-    r[0] = 0.02
+    r[0] = 0.028
 
     m = 63
 
@@ -52,16 +52,18 @@ def generate(proportional, components, length, seed):
             V_m[t] = np.average(V[:m])
         else:
             V_m[t] = np.average(V[t-m+1:t])
+
         shock = np.random.normal(0,1)
+
         mu[t] = delta_0 + (delta_1_s*h[t-1]) + (delta_1_l*tau[t-1]) + (np.sqrt(h[t-1]*tau[t-1])*shock)
         if (r[t-1]-mu[t-1] < 0):
             h[t] = (1-alpha-(gamma/2)-beta) + ((alpha + gamma)*(((r[t-1]-mu[t-1])**2)/tau[t-1])) + (beta*h[t-1])
         else:
             h[t] = (1-alpha-(gamma/2)-beta) + (alpha*(((r[t-1]-mu[t-1])**2)/tau[t-1])) + (beta*h[t-1])
         V[t] = ((r[t]-mu[t])**2)/h[t]
-        r[t] = np.sqrt(h[t]*tau[t])*shock + mu[t]
         if (t<m):
             tau[t] = 0.83
         else:
             tau[t] = lambda_0 + (lambda_1 * V_m[t-1]) + (lambda_2 * tau[t-1])
+        r[t] = np.sqrt(h[t]*tau[t])*shock + mu[t]
     return r
