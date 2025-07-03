@@ -142,7 +142,7 @@ def negativeLogLikelihood(param, y, m, proportional, components, D):
     ll = -0.5 * (np.log(2*np.pi) + np.log(np.multiply(h,tau)) + np.power(e,2))
     return -np.sum(ll)
 
-def estimate(y, proportional, components, D):
+def estimate(y, proportional, components, D, mchoice):
     # If dummy variable was not initialized, crisis_control is False
     crisis_control = np.sum(D)!=0
 
@@ -178,35 +178,46 @@ def estimate(y, proportional, components, D):
     # Constraints to be passed into SciPy minimization function
     cons = [{'type': 'ineq', 'fun': lambda x, A=A, b=b: b - np.dot(A, x)}]
 
-    # Chooses the m that minimizes the Bayesian Info Criterion
-    BICs = np.zeros(130)
+    m = 0
     final_BIC = 0.0
-    # Loop over possible values of m...
-    for m in range(20, 150):
-        # ...minimize negative log-likelihood for each...
-        param_solution = minimize(fun=lambda x: negativeLogLikelihood(x, y, m, proportional, components, D), x0=param0,
-                                      method='SLSQP', bounds=bounds, constraints=cons).x
-        nll = negativeLogLikelihood(param_solution, y, m, proportional, components, D)
-        # ...calculate and store BIC for this m...
-        BICs[m-20] = (np.log(y.size)*param_solution.size)-(-2*nll)
-    # ...find the value of m that minmizes the BIC
-    m = np.argmin(BICs) + 20
-    final_BIC = np.min(BICs)
 
-    # Plots m on the x axis vs. BIC values on the y axis
-    plt.plot(range(20, 150), BICs)
-    plt.title("BIC Plot")
-    plt.xlabel("Moving Avg. Window Size (m)")
-    plt.ylabel("BIC Value")
-    # Ths final plt.show() statement is in main.py, is/isn't executed based on user options
+    if(mchoice == 0):
+        # Chooses the m that minimizes the Bayesian Info Criterion
+        BICs = np.zeros(130)
+        # Loop over possible values of m...
+        for m in range(20, 150):
+            # ...minimize negative log-likelihood for each...
+            param_solution = minimize(fun=lambda x: negativeLogLikelihood(x, y, m, proportional, components, D), x0=param0,
+                                          method='SLSQP', bounds=bounds, constraints=cons).x
+            nll = negativeLogLikelihood(param_solution, y, m, proportional, components, D)
+            # ...calculate and store BIC for this m...
+            BICs[m-20] = (np.log(y.size)*param_solution.size)-(-2*nll)
+        # ...find the value of m that minmizes the BIC
+        m = np.argmin(BICs) + 20
+        final_BIC = np.min(BICs)
+        # Plots m on the x axis vs. BIC values on the y axis
+        plt.plot(range(20, 150), BICs)
+        plt.title("BIC Plot")
+        plt.xlabel("Moving Avg. Window Size (m)")
+        plt.ylabel("BIC Value")
+        # Ths final plt.show() statement is in main.py, is/isn't executed based on user options
 
-    # Get the solution for the optimal m
-    sol = minimize(fun=lambda x: negativeLogLikelihood(x, y, m, proportional, components, D), x0=param0,
-                                      method='SLSQP', bounds=bounds, constraints=cons)
+        # Get the solution for the optimal m
+        sol = minimize(fun=lambda x: negativeLogLikelihood(x, y, m, proportional, components, D), x0=param0,
+                       method='SLSQP', bounds=bounds, constraints=cons)
+        param_solution = sol.x
+        nll = sol.fun
+        e, h, tau, V_m = mf2_execute(param_solution, y, m, proportional, components, D)
+        qmle_se, p_value_qmle = stderr.stdErrors(param_solution, y, e, h, tau, m, proportional, components, D)
+    else:
+        m = mchoice
 
-    param_solution = sol.x
-    nll = sol.fun
-    e, h, tau, V_m = mf2_execute(param_solution, y, m, proportional, components, D)
-    qmle_se, p_value_qmle = stderr.stdErrors(param_solution, y, e, h, tau, m, proportional, components, D)
+        sol = minimize(fun=lambda x: negativeLogLikelihood(x, y, m, proportional, components, D), x0=param0,
+                       method='SLSQP', bounds=bounds, constraints=cons)
+        param_solution = sol.x
+        nll = sol.fun
+        final_BIC = (np.log(y.size)*param_solution.size)-(-2*nll)
+        e, h, tau, V_m = mf2_execute(param_solution, y, m, proportional, components, D)
+        qmle_se, p_value_qmle = stderr.stdErrors(param_solution, y, e, h, tau, m, proportional, components, D)
 
     return param_solution, qmle_se, p_value_qmle, m, nll, final_BIC
