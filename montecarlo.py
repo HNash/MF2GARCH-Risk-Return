@@ -1,7 +1,7 @@
 import numpy as np
 
 def generate(proportional, components, length, seed):
-    # The first 2520 observations are for burn-in, will be discarded
+    # This variable determines how many observations will be discarded from the beginning of the sample
     burnin = 2520
     r = np.zeros(length+burnin)
 
@@ -64,18 +64,32 @@ def generate(proportional, components, length, seed):
     np.random.seed(seed)
 
     for t in range(1, length+burnin):
+        # Moving average of standardized forecast errors
         V_m[t] = V[:m].mean() if t<m else V[t-m+1:t].mean()
+        # Shock should be deterministic with the above random.seed()
         shock = np.random.normal()
+
+        # If a specification doesn't call for a parameter, it will hold the value 0 and drop out
         mu[t] = delta_0 + (delta_1_s*h[t-1]) + (delta_1_l*tau[t-1]) + (delta_1*h[t-1]*tau[t-1])
 
+        # The short-term component, h, follows asymmetric GJR-GARCH(1,1)
         if (r[t-1]-mu[t-1] < 0):
             h[t] = (1-alpha-(gamma/2)-beta) + ((alpha + gamma)*(((r[t-1]-mu[t-1])**2)/tau[t-1])) + (beta*h[t-1])
         else:
             h[t] = (1-alpha-(gamma/2)-beta) + (alpha*(((r[t-1]-mu[t-1])**2)/tau[t-1])) + (beta*h[t-1])
+
+        # Standardized forecast error of GJR-GARCH
         V[t] = ((r[t]-mu[t])**2)/h[t]
+
+        # Since we need m data points for the moving average (which goes into the equation for tau), the first m
+        # values for tau are all the average value as estimated on real data
         if (t<m):
             tau[t] = 0.83
         else:
+            # MEM equation
             tau[t] = lambda_0 + (lambda_1 * V_m[t-1]) + (lambda_2 * tau[t-1])
+
+        # Final simulated data point
         r[t] = np.sqrt(h[t]*tau[t])*shock + mu[t]
+    # "Burning in" and discarding some data to remove effects of parameter starting values
     return r[burnin+1:]
