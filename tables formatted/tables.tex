@@ -3,6 +3,50 @@
 \usepackage{geometry}
 \geometry{a4paper, margin=0.5in}
 \begin{document}
+\begin{table}
+\centering
+\caption{Parameter Values for Monte Carlo Simulations}
+\begin{tabular}{ccccccccccc}
+\midrule
+\midrule
+$\alpha$ & $\gamma$ & $\beta$ & $\lambda_0$ & $\lambda_1$ & $\lambda_2$ & $\delta_0$ & $\delta_{1,s}$ & $\delta_{1,l}$ & $\delta_{1}$\\
+\midrule
+\multicolumn{11}{c}{\textbf{Short-term component}}\\
+\multicolumn{11}{l}{Proportional}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & - & 0.027 & - & -\\
+\multicolumn{11}{l}{Non-Proportional}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & 0.033 & -0.003 & - & -\\
+\midrule
+\multicolumn{11}{c}{\textbf{Long-term component}}\\
+\multicolumn{11}{l}{Proportional}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & - & - & 0.049  & -\\
+\multicolumn{11}{l}{Non-Proportional}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & 0.003 & - & 0.045 & -\\
+\midrule
+\multicolumn{11}{c}{\textbf{Both components (additive)}}\\
+\multicolumn{11}{l}{Proportional}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & - & -0.005 & 0.054 & -\\
+\multicolumn{11}{l}{Non-Proportional}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & 0.008 & -0.008 & 0.046 & -\\
+\midrule
+\multicolumn{11}{c}{\textbf{Overall conditional variance (multiplicative)}}\\
+\multicolumn{11}{l}{Proportional}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & - & - & - & 0.042\\
+\multicolumn{11}{l}{Non-Proportional}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & 0.020 & - & - & 0.023\\
+\midrule
+\multicolumn{11}{l}{\textbf{Notes:} This table presents the "true" parameter values I used in Monte Carlo}\\
+\multicolumn{11}{l}{simulations of daily market premium data. The MF2-GARCH-in-mean model}\\
+\multicolumn{11}{l}{is fitted $R=1,000$ times on these simulated samples, each of size $T=15,120$.}\\
+\multicolumn{11}{l}{This is repeated for the proportional and non-proportional variant of every}\\
+\multicolumn{11}{l}{specification. These values were chosen based on estimates from real data \textit{(see}}\\
+\multicolumn{11}{l}{\textit{Table 4 below).}}\\
+\midrule
+\midrule
+\end{tabular}
+\end{table}
+
+\pagebreak
 \begin{table}[t]
 \centering
 \caption{Summary Statistics - Market Premia}
@@ -53,7 +97,7 @@ February 2020 & April 2020 & COVID-19 pandemic \\
 \end{table}
 
 \pagebreak
-\setcounter{table}{3}
+\setcounter{table}{4}
 \begin{table}
 \centering
 \caption{Summary Statistics - Volatility}

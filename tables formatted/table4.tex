@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{a4paper, landscape, margin=0.2in}
+\begin{document}
+\setcounter{table}{3}
+\begin{table}[t]
+\centering
+\caption{Combined Specification Parameter Estimates (Controlling for Crises)}
+\begin{tabular}{ccccccccccccccccc}
+\midrule
+\midrule
+$\alpha$ & $\gamma$ & $\beta$ & $\lambda_0$ & $\lambda_1$ & $\lambda_2$ & $\delta_0$ & $\delta_{1,s}$ & $\delta_{1,l}$ & $\delta_{1}$ & $\theta_0$ & $\theta_{1,s}$ & $\theta_{1,l}$ & $\theta_{1}$ & \mbox{LLF} & \mbox{BIC} \\
+
+\midrule
+\multicolumn{17}{c}{\textbf{Panel A: Short-term component}}\\
+\multicolumn{17}{l}{Proportional}\\
+\begin{tabular}[t]{@{}c@{}}0.007 \\ \small (0.014)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.158*** \\ \small (0.019)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.841*** \\ \small (0.018)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.012 \\ \small (0.020)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.086 \\ \small (0.150)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.900*** \\ \small (0.173)\end{tabular}   & \mbox{-}   & \begin{tabular}[t]{@{}c@{}}0.027** \\ \small (0.011)\end{tabular}   & \mbox{-}   & \mbox{-}   &\mbox{-}   & \begin{tabular}[t]{@{}c@{}}-0.013 \\ \small (0.020)\end{tabular}   & \mbox{-}   & \mbox{-} & \mbox{-18567} &\mbox{37212}  \\
+\multicolumn{17}{l}{Non-Proportional}\\
+\begin{tabular}[t]{@{}c@{}}0.005* \\ \small (0.003)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.166*** \\ \small (0.015)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.845*** \\ \small (0.012)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.011*** \\ \small (0.002)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.081*** \\ \small (0.018)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.907*** \\ \small (0.018)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.033*** \\ \small (0.007)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}-0.003*** \\ \small (0.001)\end{tabular}   & \mbox{-}   & \mbox{-}   & \begin{tabular}[t]{@{}c@{}}0.009\\ \small (0.008)\end{tabular} & \begin{tabular}[t]{@{}c@{}}-0.009 \\ \small (0.009)\end{tabular}   & \mbox{-}   & \mbox{-} & \mbox{-18562} &\mbox{37221}  \\
+\mbox{}\\
+\mbox{LRT} &  9.928***\\
+
+\midrule
+\multicolumn{17}{c}{\textbf{Panel B: Long-term component}}\\
+\multicolumn{17}{l}{Proportional}\\
+\begin{tabular}[t]{@{}c@{}}0.006** \\ \small (0.003)\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.160*** \\ \small (0.015)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.842*** \\ \small (0.013)\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.011*** \\ \small (0.003)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.085*** \\ \small (0.018)\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.902*** \\ \small (0.020)\end{tabular}   & \mbox{-}   & \mbox{-}  & \begin{tabular}[t]{@{}c@{}}0.049*** \\ \small (0.009)\end{tabular}   & \mbox{-}   &\mbox{-} & \mbox{-} & \begin{tabular}[t]{@{}c@{}}-0.002*** \\ \small (0.001)\end{tabular} & \mbox{-} & \mbox{-18558} &\mbox{\textbf{37194}}  \\
+\multicolumn{17}{l}{Non-Proportional}\\
+\begin{tabular}[t]{@{}c@{}}0.006* \\ \small (0.004)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.161*** \\ \small (0.015)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.843*** \\ \small (0.014)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.011* \\ \small (0.006)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.080*** \\ \small (0.030)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.907*** \\ \small (0.036)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.003 \\ \small (0.003)\end{tabular}   & \mbox{-} & \begin{tabular}[t]{@{}c@{}}0.045*** \\ \small (0.017)\end{tabular}   & \mbox{-}   & \begin{tabular}[t]{@{}c@{}}-0.054\\ \small (0.060)\end{tabular}  & \mbox{-}  & \begin{tabular}[t]{@{}c@{}}0.049 \\ \small (0.049)\end{tabular} & \mbox{-} & \mbox{-18558} &\mbox{37212}  \\
+\mbox{}\\
+\mbox{LRT} &  1.358\\
+
+\midrule
+\multicolumn{17}{c}{\textbf{Panel C: Both components (additive)}}\\
+\multicolumn{17}{l}{Proportional}\\
+ \begin{tabular}[t]{@{}c@{}}0.006 \\ \small (0.013)\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.161*** \\ \small (0.015)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.844*** \\ \small (0.016)\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.012* \\ \small (0.006)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.085** \\ \small (0.035)\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.901*** \\ \small (0.042)\end{tabular}   & \mbox{-}   & \begin{tabular}[t]{@{}c@{}}-0.005 \\ \small (0.021)\end{tabular}  & \begin{tabular}[t]{@{}c@{}}0.054** \\ \small (0.023)\end{tabular}   & \mbox{-}   &\mbox{-} & \begin{tabular}[t]{@{}c@{}}-0.012** \\ \small (0.006)\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.009 \\ \small (0.012)\end{tabular} & \mbox{-} & \mbox{-18558} &\mbox{37212}  \\
+\multicolumn{17}{l}{Non-Proportional}\\
+ \begin{tabular}[t]{@{}c@{}}0.006 \\ \small (0.003)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.162*** \\ \small (0.016)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.844*** \\ \small (0.014)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.011 \\ \small (0.007)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.081** \\ \small (0.036)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.906*** \\ \small (0.043)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.008 \\ \small (0.006)\end{tabular}    & \begin{tabular}[t]{@{}c@{}}-0.008 \\ \small (0.007)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.046***\\ \small (0.012)\end{tabular}& \mbox{-} & \begin{tabular}[t]{@{}c@{}}-0.050 \\ \small (0.067)\end{tabular}&  \begin{tabular}[t]{@{}c@{}}-0.002 \\ \small (0.002)\end{tabular}  & \begin{tabular}[t]{@{}c@{}}0.048 \\ \small (0.041)\end{tabular} & \mbox{-} & \mbox{-18557} &\mbox{37230}  \\
+\mbox{}\\
+\mbox{LRT} &  0.990\\
+
+\midrule
+\multicolumn{17}{c}{\textbf{Panel D: Overall conditional variance (multiplicative)}}\\
+\multicolumn{17}{l}{Proportional}\\
+\begin{tabular}[t]{@{}c@{}}0.007 \\ \small (0.009)\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.158*** \\ \small (0.016)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.839*** \\ \small (0.014)\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.011** \\ \small (0.005)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.080*** \\ \small (0.031)\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.907*** \\ \small (0.035)\end{tabular}   & \mbox{-} & \mbox{-} &\mbox{-} & \begin{tabular}[t]{@{}c@{}}0.042*** \\ \small (0.010)\end{tabular} & \mbox{-} & \mbox{-} & \mbox{-} & \begin{tabular}[t]{@{}c@{}}-0.014* \\ \small (0.008)\end{tabular} & \mbox{-18563} &\mbox{37203}  \\
+\multicolumn{17}{l}{Non-Proportional}\\
+\begin{tabular}[t]{@{}c@{}}0.006 \\ \small (0.012)\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.162*** \\ \small (0.025)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.841*** \\ \small (0.018)\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.011 \\ \small (0.016)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.080 \\ \small (0.084)\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.908*** \\ \small (0.101)\end{tabular}   & \begin{tabular}[t]{@{}c@{}}0.020 \\ \small (0.059)\end{tabular} & \mbox{-} &\mbox{-} & \begin{tabular}[t]{@{}c@{}}0.023 \\ \small (0.083)\end{tabular} & \begin{tabular}[t]{@{}c@{}}-0.005 \\ \small (0.016)\end{tabular} & \mbox{-} & \mbox{-} & \begin{tabular}[t]{@{}c@{}}-0.004 \\ \small (0.022)\end{tabular} & \mbox{-18560} &\mbox{37217}  \\
+\mbox{}\\
+\mbox{LRT} &  4.850*\\
+
+\midrule
+\multicolumn{17}{l}{\textbf{Notes:} This table shows the results of the QMLE parameter estimates for the MF2-GARCH-in-mean model. The numbers in parentheses are Bollerslev–Wooldridge robust}\\
+\multicolumn{17}{l}{standard errors. *** ,** and * indicate significance at the 1\%, 5\% and 10\% level. Each panel shows the results for a different specification, depending on which components of}\\
+\multicolumn{17}{l}{volatility are included. Each panel shows the proportional (no intercept) and non-proportional variant. The likelihood ratio test (LRT) statistic for the proportional variant}\\
+\multicolumn{17}{l}{against the non-proportional variant is also shown at the bottom of each panel. All specifications are estimated using daily U.S. market premium data for the period January}\\
+\multicolumn{17}{l}{1964 to April 2025 inclusive. The moving average window size (m) which minmizes the Bayesian Information Criterionfor all specifications is m=63}\\
+\midrule
+\midrule
+\end{tabular}
+\end{table}
+\end{document}

@@ -98,9 +98,9 @@ if(montecarlo_sim):
     table = [[0] * 4 for i in range(len(param_names))]
     for i in range(len(param_names)):
         table[i][0] = param_names[i]
-        table[i][1] = format(solution[i], '.3f')
-        table[i][2] = format(avgstderrs[i], '.3f')
-        table[i][3] = format(stderrofparams[i], '.3f')
+        table[i][1] = format(solution[i], '.5f')
+        table[i][2] = format(avgstderrs[i], '.5f')
+        table[i][3] = format(stderrofparams[i], '.5f')
     print(tabulate(table, headers=["", "Avg. Est.", "Avg. Std. Err.", "Std. Err. of Avg."]))
 
 else:
