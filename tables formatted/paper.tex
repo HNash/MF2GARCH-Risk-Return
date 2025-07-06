@@ -109,8 +109,9 @@ The novelty in this process is in the way that MF2-GARCH models the long-term co
 The question of including a constant/intercept in the regression of return on risk is also material. Christoffersen et al.'s (2006) findings show that estimating a proportional model with no intercept strengthens evidence of a positive risk-return relationship. For this reason, I estimate a proportional (no-intercept) and non-proportional version of each specification and, following Guo \& Neely (2007), I implement a likelihood ratio test to see whether including an intercept adds to the explanatory power of the model.\par
 As touched upon above, there is evidence of volatility "regime-switching" in equity markets, especially during crises. Ghysels et al. (2016) use a "flight to safety" indicator variable to exclude crisis periods from their analysis of the risk-return relationship using the MIDAS approach. They find a significant and positive relationship between return and their MIDAS estimator during the "normal" regime, but a reversal of this relationship in the "crisis" regime.\par
 The intuition is that crises cause investors to move capital to safe haven assets of lower long-term volatility. Following their example, I use a binary dummy variable to control for crisis periods in this thesis. The exact dates of the crisis periods are informed by the recession periods defined by the National Bureau of Economic Research (NBER). I also show parameter estimates without the crisis dummy variable to illustrate its effect.\par
+I limit the data to a "modern" subsample starting from 1964, following the example of Ghysels et al. (2005). As Hetzel (2013) notes, in this period, the U.S. Federal Reserve began actively adjusting short-term interest rates to smooth business-cycle fluctuations (affecting market volatility), whereas their pre-World War Two focus was to back the dollar with gold and prevent speculative credit booms. This is public information which informs investor behavior and therefore affects the equity premium which they demand in return for bearing risk, affecting the market risk-return relationship.\par
 The parameter estimates that I obtain show that the short-term component of MF2-GARCH volatility only has a significant (and sometimes negative) coefficient in limited scenarios. On the other hand, the long-term component shows significance across all specifications. It is also positively related to return in all cases. In some cases, the crisis period dummy variable also points to components of volatility losing importance during crisis periods, which is consistent with flight to safe haven assets by investors.\par
-Finally, I use Monte Carlo simulations to generate market premia and estimate the bias of the model over many iterations to examine the bias (if any) of the model's parameter estimates. The simulations are of similar size to the U.S. market data used in this thesis, and are motivated by Lundblad (2007)'s finding that small samples can significantly distort the estimated relationship between risk and return.\par
+Finally, I use Monte Carlo simulations to generate daily market premia and estimate the bias of the model over many iterations to examine the bias of the model's parameter estimates. For each specification, I generate a sample of 30,240 trading  days, (or 120 trading years) of data. This is motivated by Lundblad (2007)'s finding that small samples can significantly distort the estimated relationship between risk and return.\par
 
 
 \section{Econometric Model}
@@ -123,17 +124,17 @@ Volatility here has two multiplicative components: short- ($h_t$) and long-term 
 Daily stock returns are written as:
 \begin{equation}
 \nonumber
-r_t=\sigma_tZ_t
+r_t=\mu_t+\sigma_tZ_t
 \end{equation}
 \begin{equation}
 \nonumber
-=\sqrt{h_t\tau_t}Z_t
+=\mu_t+\sqrt{h_t\tau_t}Z_t
 \end{equation}
-where $Z_t$ are return innovations (assumptions about these innovations are detailed below).\par
+where $\mu$ is the unconditional mean of returns and $Z_t$ are return innovations (assumptions about these innovations are detailed below).\par
 \vspace{5mm}
 \noindent The short-term component is modeled as a GJR-GARCH(1,1) process:
 \begin{equation}
-h_t=(1-\phi)+(\alpha+\gamma1_{\{r_{t-1}<0\}})\frac{r_{t-1}^2}{\tau_{t-1}}+\beta h_{t-1}
+h_t=(1-\phi)+(\alpha+\gamma1_{\{r_{t-1}<0\}})\frac{(r_{t-1}-\mu)^2}{\tau_{t-1}}+\beta h_{t-1}
 \end{equation}
 where $\phi=\alpha+\frac{\gamma}{2}+\beta$.\par
 To ensure that this process is covariance stationary, MF2-GARCH relies on the assumption that the parameters satisfy the following inequalities:
@@ -149,13 +150,13 @@ and that $Z_t$:
 \item has a symmetric density with $E(Z_t)=0$ and $E(Z_t^2)=1$
 \item is such that $Z_t^2$ has a nondegenerate distribution with $E(Z_t^4)<\infty$
 \end{itemize}
-While it is not necessary to assume that $Z_t$ follows a standard normal distribution, I do so in the Monte Carlo simulations (Section 4.3), as this satisfies the above assumptions.\par
-Following Engle (2009a), Conrad \& Engle (2025) define $V_t=\frac{r_t^2}{h_t}$ as the squared "deGARCHed returns". These represent the standardized volatility forecast errors from Equation (1). The long term component, $\tau_t$, is specified as a multiplicative error model (MEM) equation for the conditional expectation of $V_{t-1}^{(m)}$, the moving average of the standardized errors $V_t$:
+While it is not necessary to assume that $Z_t$ follows a standard normal distribution, I do so to derive the log-likelihood function (Section 4.1) and to generate shocks in the Monte Carlo simulations (Section 4.3), as this satisfies the above assumptions.\par
+Following Engle (2009a), Conrad \& Engle (2025) define $V_t=\frac{(r_t-\mu)^2}{h_t}$ as the squared "deGARCHed returns". These represent the standardized volatility forecast errors from Equation (1). The long term component, $\tau_t$, is specified as a multiplicative error model (MEM) equation for the conditional expectation of $V_{t-1}^{(m)}$, the moving average of the standardized errors $V_t$:
 \begin{equation}
 \tau_t=\lambda_0+\lambda_1V_{t-1}^{(m)}+\lambda_2\tau_{t-1}
 \end{equation}
 \begin{equation}
-V_{t-1}^{(m)}=\frac{1}{m}\sum_{j=1}^mV_{t-j}=\frac{1}{m}\sum_{j=1}^m\frac{r_{t-j}^2}{h_{t-j}}
+V_{t-1}^{(m)}=\frac{1}{m}\sum_{j=1}^mV_{t-j}=\frac{1}{m}\sum_{j=1}^m\frac{(r_{t-j}-\mu)^2}{h_{t-j}}
 \end{equation}
 This is because of the empirical fact that a rolling window moving average of the past daily standardized forecast errors of one-component GARCH models has predictive power for future volatility (more specifically, squared returns). The errors are predictable and counter-cyclical, with one-component GARCH models underpredicting volatility in economic recessions and overpredicting it in expansions. \par
 This is the MF2-GARCH-rw-m variant, where rw-m stands for "rolling window of length m". Conrad \& Engle (2025) introduce another variant which allows for variable weighting schemes to be applied to different values of Vt. Nonetheless, they find that across various subsamples, the flat weighting scheme of the MF2-GARCH-rw-m is consistently preferred when considering the resulting Bayesian Information Criterion (BIC) values. Allowing for a flexible weighting scheme only increases the standard errors of the parameter estimates. For this reason, I employ MF2-GARCH-rw-m alone.\par
@@ -165,17 +166,18 @@ Maheu \& McCurdy (2007) introduce a basic risk-return model in which the conditi
 \begin{equation}
 \mu_t=\delta_0+\delta_1\sigma_{t,(q)}^2+\sigma_{t,(k)}z_t, \hspace{5mm}z_t\sim N(0,1)
 \end{equation}
-where $\sigma_{t,(k)}$ is the (square root of) the conditional variance at time t given by a k-component volatility model and $\sigma_{t,(q)}^2$ is a weighted sum of q of its components.
+where $\sigma_{t,(k)}$ is the (square root of) the conditional variance at time t given by a k-component volatility model and $\sigma_{t,(q)}^2$ is a weighted sum of q of its components.\par
+While they use a realized variance (RV) approach to model risk in their original work, I use MF2-GARCH volatility and its components instead.
 \subsection{MF2-GARCH-in-Mean}
-The combined model is such that the squared return in Equation (1), $r_{t-1}^2$,  is the squared demeaned market premium of the previous period, where the conditional mean is given by the Maheu-McCurdy specification in Equation (4):
+While the original MF2-GARCH specification treats the mean component ($\mu$) unconditionally as a parameter to be estimated, I instead use the conditional mean, $\mu_t$. Here the conditional mean is given by the Maheu-McCurdy specification in Equation (4). The squared demeaned return in Equation (1), $(r_{t-1}-\mu)^2$, becomes:
 \begin{equation}
 \nonumber
-r_{t-1}=R_{t-1}-\mu_{t-1}=R_{t-1}-\delta_0-\delta_1\sigma_{t-1,(q)}^2
+(r_{t-1}-\mu_t)^2=r_{t-1}-\delta_0-\delta_1\sigma_{t-1,(q)}^2
 \end{equation}
-where $R_{t-1}$ is the daily market premium for period t-1.\par
+and as this thesis uses excess market return, $r_{t-1}$ is the daily market premium for period $t-1$.\par
 In Equation (4), the conditional variance and its components are estimated with MF2-GARCH-rw-m. As in the original paper by Conrad \& Engle (2025), I estimate all models for values of m from 20 up to 160 and determine the optimal value for m as the one that minimizes the BIC value.\par
 I investigate if the components of the MF2-GARCH model support the finding that long-term volatility is a better determinant of excess market return.\par
-For $\sigma_{t,(q)}^2$ I first include just one of the short and long-term components (q=1):
+\noindent For $\sigma_{t,(q)}^2$ I first include just one of the short and long-term components (q=1):
 \begin{equation}
 \nonumber
 \mu_t=\delta_0+\delta_{1,s}h_t
@@ -203,7 +205,7 @@ For these reasons, I include a binary dummy variable in the risk-return specific
 \mu_t=\delta_0+\theta_0D_t+(\delta_1+\theta_1D_t)\sigma_{t,(q)}^2
 \end{equation}
 \begin{equation}
-h_t=(1-\phi)+(\alpha+\gamma1_{\{R_{t-1}-\mu_{t-1}<0\}})\frac{(R_{t-1}-\mu_{t-1})^2}{\tau_{t-1}}+\beta h_{t-1}
+h_t=(1-\phi)+(\alpha+\gamma1_{\{r_{t-1}-\mu_{t-1}<0\}})\frac{(r_{t-1}-\mu_{t-1})^2}{\tau_{t-1}}+\beta h_{t-1}
 \end{equation}
 where $D_t$ is the dummy variable, $\theta_0$ and $\theta_1$ are its coefficients, and the long term component $\tau_t$ is as previously defined by Equation (2) and (3).\par
 The exact crisis period dates (where $D_t=1$) are described in Section 4.2 and presented in detail in Table 3. I also repeat the estimation of all specifications without controlling for crisis periods to demonstrate the effect of doing so.
@@ -211,47 +213,46 @@ The exact crisis period dates (where $D_t=1$) are described in Section 4.2 and p
 
 \section{Method}
 \subsection{Log-Likelihood Function}
-Given past information set $I_{t-1}$ and assuming that $R_t | I_{t-1}\sim N(\mu_t,\sigma_t^2)$ gives the $t^{th}$ market premium observation the following likelihood function:
+Given past information set $I_{t-1}$ and assuming that $r_t | I_{t-1}\sim N(\mu_t,\sigma_t^2)$ gives the $t^{th}$ market premium observation the following likelihood function:
 \begin{equation}
 \nonumber
-f(R_t|I_{t-1})=\frac{1}{\sqrt{2\pi\sigma_t^2}}exp\left[-\frac{(R_t-\mu_t)^2}{2\sigma_t^2}\right]
+f(r_t|I_{t-1})=\frac{1}{\sqrt{2\pi\sigma_t^2}}exp\left[-\frac{(r_t-\mu_t)^2}{2\sigma_t^2}\right]
 \end{equation}
 Under the model, $\sigma_t^2=h_t\tau_t$. The total likelihood, denoted as $l$, is therefore given by:
 \begin{equation}
 \nonumber
-l=\frac{1}{\sqrt{2\pi h_t\tau_t}}\sum_{t=1}^Texp\left[-\frac{1}{2}\frac{(R_t-\mu_t)^2}{h_t\tau_t}\right]
+l=\frac{1}{\sqrt{2\pi h_t\tau_t}}\sum_{t=1}^Texp\left[-\frac{1}{2}\frac{(r_t-\mu_t)^2}{h_t\tau_t}\right]
 \end{equation}
 where T is the sample size, and the total log-likelihood is given by:
 \begin{equation}
 \nonumber
-L=\frac{1}{2}\sum_{t=1}^T[ln(2\pi)+ln(h_t\tau_t)+\frac{(R_t-\mu_t)^2}{h_t\tau_t}]
+L=\frac{1}{2}\sum_{t=1}^T[ln(2\pi)+ln(h_t\tau_t)+\frac{(r_t-\mu_t)^2}{h_t\tau_t}]
 \end{equation}
 This gives the combined risk-return specification given by Equation (5) and (6) the following  total log-likelihood function:
 \begin{equation}
-L=\frac{1}{2}\sum_{t=1}^T[ln(2\pi)+ln(h_t\tau_t)+\frac{(R_t-(\delta_0+\theta_0D_t)-(\delta_1+\theta_1D_t)\sigma_{t,(q)}^2)^2}{h_t\tau_t}]
+L=\frac{1}{2}\sum_{t=1}^T[ln(2\pi)+ln(h_t\tau_t)+\frac{(r_t-(\delta_0+\theta_0D_t)-(\delta_1+\theta_1D_t)\sigma_{t,(q)}^2)^2}{h_t\tau_t}]
 \end{equation}
 In my implementation, I minimize the negative log-likelihood function, $-L$.
 \subsection{Estimation}
-The full Python code and data files are provided as attachments to the digital version of this thesis, and links to an online repository can be found in Section A.1 of the appendix. The code is based on the original MF2-GARCH toolbox for Matlab (Conrad \& Schoelkopf, 2025).\par
+The full Python code and data files are provided as attachments to the digital version of this thesis, and links to an online repository can be found in Section A.1 of the appendix. The implementation of MF2-GARCH parameter estimation is based on the original MF2-GARCH toolbox for Matlab (Conrad \& Schoelkopf, 2025).\par
 I estimate all parameters simultaneously using Quasi-Maximum Likelihood Estimation (QMLE) implemented in Python. Minimization of the negative log-likelihood function is done with the optimize.minimize function of the SciPy package, using the sequential least squares programming (SLSQP) option.\par
 Likelihood ratio tests of the proportional variants against non-proportional counterparts are implemented manually with the SciPy package. 
 \subsection{Monte Carlo Simulation}
 To test the viability of the MF2-GARCH-in-mean model, I generate simulated data using known parameters, assuming that the model holds, and I estimate the parameters over the simulated data.\par
-I do this for every specification. For simplicity, no crisis periods are generated and the crisis indicator dummy variable is excluded. The choice of moving average window size (m) is set at $m=63$, or three trading months.\par
+I do this for the proportional and non-proportional variant of every specification. For simplicity, no crisis periods are generated and the crisis indicator dummy variable is excluded. The choice of moving average window size (m) is set at $m=63$, or three trading months, and set at the same value manually during estimation.\par
 For the "true" parameter values, I use averages of the parameter estimates I obtained from fitting the model on real data. The parameter values used in the Monte Carlo simulations are shown in Table 1. The values of $\tau_t$, $h_t$, and $r_t$ at time $t=0$ are their average values obtained from fitting the model on real data. The moving average of the daily standardized forecast errors ($V_t^{(m)}$) requires at least m previous data points, and $\tau_t$ is a function of $V_{t-1}^{(m)}$. As a result, for all $t<m$, values of $\tau_t$ are hard-coded to be equal to the initial $\tau_0$ value, and $V_t^{(m)}$ is simply an average of all past values of $V_t$.\par
-To avoid dependence on initial value choices in the simulated data, the first 252 data points (one trading year) are discarded as a form of "burn-in". In each simulation, I simulate $T=30,240$ days of data, the equivalent of 120 trading years. I perform $R=1,000$ simulations and report the mean and standard deviation of the parameter estimates, mean bias, and average standard deviations.\par
-This is  implemented in Python and Monte Carlo simulation features are included in the code referred to above in Section 4.2. Parameter estimation on simulated data is performed as described in Section 4.2.
+To avoid dependence on initial value choices in the simulated data, the first 252 data points (one trading year) are discarded as a form of "burn-in". In each simulation, I simulate $T=30,240$ days of data, the equivalent of 120 trading years. I perform $R=1,000$ simulations and report the mean and standard deviation of the parameter estimates and mean bias.\par
+This is implemented in Python and Monte Carlo simulation features are included in the code referred to above in Section 4.2. Parameter estimation on simulated data is performed as described in Section 4.2.
 
 
 \section{Empirical Results}
 \subsection{Data}
 I apply the combined specification given in Equation (5) and (6) to U.S. daily market premium data.\par
-The data are downloaded from CRSP. For excess market return, I use the U.S. market premium from the Fama-French 3 Factor library. The data runs from July of 1926 to April of 2025, inclusive. I limit it to a modern subsample starting in January of 1964 as detailed in Section 5.1.1.\par
-The excess market return is calculated by subtracting the one-month Treasury bill rate from the value-weighted CRSP market return for NYSE, AMEX, and NASDAQ firms. The resulting values are taken as Rt in the combined MF2-GARCH-in-mean model. The binary crisis indicator variable is added manually (see section 5.1.2 for more details). The data was converted from .csv to .xlsx format for convenience.\par
+The data are downloaded from CRSP. For excess market return, I use the U.S. market premium from the Fama-French 3 Factor library. The data runs from July of 1926 to April of 2025, inclusive. I limit it to a modern subsample starting in January of 1964 as detailed in Section 5.1.1. The data used is included as an attachment to the digital version of this thesis.\par
+The excess market return is calculated by subtracting the one-month Treasury bill rate (the risk-free rate) from the value-weighted CRSP market return for NYSE, AMEX, and NASDAQ firms (the market return rate). The resulting values are taken as $r_t$ in the combined MF2-GARCH-in-mean model. The binary crisis indicator variable is added manually (see section 5.1.2 for more details). The data was converted from .csv to .xlsx format for convenience.\par
 Table 2 shows summary statistics for the market premium data. As expected, the premia have a moderately positive mean, a negative skew, a high kurtosis and a weak autocorrelation coefficient.
 \subsubsection{Sample Dates}
-While exact dates vary, the mid 1960s mark a clear turning point toward lower volatility in output and inflation in the postwar U.S. economy. They also mark a shift in monetary policy focus. As Hetzel (2013) notes, in this period, the U.S. Federal Reserve began actively adjusting short-term interest rates to smooth business-cycle fluctuations (affecting market volatility), whereas their pre-World War Two focus was to back the dollar with gold and prevent speculative credit booms.\par
-This is public information which informs investor behavior and therefore affects the equity premium which they demand in return for bearing risk, affecting the market risk-return relationship. I therefore limit the data to a "modern" subsample starting from January of 1964, following the example of Ghysels et al. (2005).
+While exact dates vary, the mid 1960s mark a clear turning point toward lower volatility in output and inflation in the postwar U.S. economy. They also mark a shift in monetary policy focus. I therefore limit the data to a "modern" subsample starting from January of 1964.
 \subsubsection{Crisis Periods}
 A binary dummy variable ($D_t$) is used to exclude the idiosyncratic effects of crisis periods.\par
 To define the specific dates which mark the beginnings and ends of crisis periods in U.S. markets, I use economic recessions as recognized by the U.S. National Bureau of Economic Research (NBER). This is to ensure that the dummy variable truly captures periods of macroeconomic stress rather than benign clusters of high volatility.\par

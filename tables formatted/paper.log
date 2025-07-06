@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.4)  5 JUL 2025 18:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.4)  5 JUL 2025 19:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -237,7 +237,7 @@ nent of the Component-
 [7]
 
 [8]
-Overfull \hbox (0.86949pt too wide) in paragraph at lines 199--199
+Overfull \hbox (0.86949pt too wide) in paragraph at lines 200--200
 \OT1/cmr/m/n/12 Previous at-tempts to de-ter-mine the risk-return re-la-tion-sh
 ip which ac-count for volatil-
  []
@@ -245,7 +245,7 @@ ip which ac-count for volatil-
 
 
 [9]
-Overfull \hbox (0.48581pt too wide) in paragraph at lines 236--236
+Overfull \hbox (0.48581pt too wide) in paragraph at lines 237--237
 \OT1/cmr/m/n/12 ma-tion (QMLE) im-ple-mented in Python. Min-i-miza-tion of the 
 neg-a-tive log-likelihood
  []
@@ -265,7 +265,7 @@ neg-a-tive log-likelihood
 [15]
 
 [16]
-Overfull \hbox (0.60573pt too wide) in paragraph at lines 278--279
+Overfull \hbox (0.60573pt too wide) in paragraph at lines 279--280
 []\OT1/cmr/m/n/12 Finally, the sim-i-lar-ity of the un-der-ly-ing MF2[]GARCH pa
 -ram-e-ter es-ti-mates across
  []
@@ -285,7 +285,7 @@ Here is how much of TeX's memory you used:
  24811 multiletter control sequences out of 15000+600000
  564556 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 57i,8n,65p,1165b,194s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,8n,65p,1197b,194s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/cloudberry/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.60
 0pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/f
@@ -298,7 +298,7 @@ public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
 usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on paper.pdf (19 pages, 189870 bytes).
+Output written on paper.pdf (19 pages, 189816 bytes).
 PDF statistics:
  136 PDF objects out of 1000 (max. 8388607)
  87 compressed objects within 1 object stream
