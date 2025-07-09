@@ -592,6 +592,137 @@ February 2020 & April 2020 & COVID-19 pandemic \\
 }
 \end{sidewaystable}
 
+\pagebreak
+\restoregeometry
+\newgeometry{a4paper, margin=0.5in}
+
+\begin{sidewaystable}[!ht]
+\centering
+\scriptsize                           % smaller font
+\setlength{\tabcolsep}{3pt}           % reduce horizontal padding
+\renewcommand{\arraystretch}{0.8}     % reduce vertical padding
+\caption{Combined Specification Parameter Estimates (\textbf{Not} Controlling for Crises)}
+\resizebox{\textwidth}{!}{%
+  \begin{tabular}{ccccccccccccc}
+    \toprule\toprule
+    $\alpha$ & $\gamma$ & $\beta$ & $\lambda_0$ & $\lambda_1$ & $\lambda_2$ & $\delta_0$ & $\delta_{1,s}$ & $\delta_{1,l}$ & $\delta_{1}$ & LLF & BIC \\
+    \midrule
+    \multicolumn{13}{c}{\textbf{Panel A: Short-term component}}\\
+    \multicolumn{13}{l}{\textbf{Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.007* \\ (0.004)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.158*** \\ (0.015)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.840*** \\ (0.013)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.012 \\ (0.011)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.086 \\ (0.066)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.901*** \\ (0.079)\end{tabular} &
+    - &
+    \begin{tabular}[t]{@{}c@{}}0.024** \\ (0.010)\end{tabular} &
+    - & - &
+    -18568 & 37203 \\
+    \multicolumn{13}{l}{\textbf{Non‑Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.006*** \\ (0.002)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.163*** \\ (0.015)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.843*** \\ (0.014)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.011*** \\ (0.003)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.089*** \\ (0.027)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.898*** \\ (0.029)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.043*** \\ (0.007)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}-0.013** \\ (0.005)\end{tabular} &
+    - & - &
+    -18561 & 37199 \\
+    \multicolumn{13}{l}{LRT: 13.806***}\\
+    \midrule
+
+    \multicolumn{13}{c}{\textbf{Panel B: Long-term component}}\\
+    \multicolumn{13}{l}{\textbf{Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.006** \\ (0.003)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.160*** \\ (0.015)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.842*** \\ (0.013)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.011*** \\ (0.003)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.084*** \\ (0.021)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.902*** \\ (0.022)\end{tabular} &
+    - & - &
+    \begin{tabular}[t]{@{}c@{}}0.049*** \\ (0.010)\end{tabular} &
+    - &
+    -18558 & 37184 \\
+    \multicolumn{13}{l}{\textbf{Non‑Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.006 \\ (0.033)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.160*** \\ (0.021)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.843*** \\ (0.020)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.011 \\ (0.020)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.085 \\ (0.329)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.902** \\ (0.386)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.003 \\ (0.009)\end{tabular} &
+    - & 
+    \begin{tabular}[t]{@{}c@{}}0.046 \\ (0.038)\end{tabular} &
+    - &
+    -18558 & 37194 \\
+    \multicolumn{13}{l}{LRT: 0.034}\\
+    \midrule
+
+    \multicolumn{13}{c}{\textbf{Panel C: Both components (additive)}}\\
+    \multicolumn{13}{l}{\textbf{Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.006* \\ (0.003)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.161*** \\ (0.015)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.843*** \\ (0.013)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.012*** \\ (0.003)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.085*** \\ (0.023)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.901*** \\ (0.024)\end{tabular} &
+    - &
+    \begin{tabular}[t]{@{}c@{}}-0.008 \\ (0.008)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.057*** \\ (0.015)\end{tabular} &
+    - &
+    -18558 & 37193 \\
+    \multicolumn{13}{l}{\textbf{Non-Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.005 \\ (0.033)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.162*** \\ (0.021)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.843*** \\ (0.030)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.012 \\ (0.039)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.088 \\ (0.139)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.898*** \\ (0.188)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.013 \\ (0.138)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}-0.013 \\ (0.104)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.046 \\ (0.332)\end{tabular} &
+    - &
+    -18558 & 37202 \\
+    \multicolumn{13}{l}{LRT: 0.542}\\
+    \midrule
+
+    \multicolumn{13}{c}{\textbf{Panel D: Overall conditional variance (multiplicative)}}\\
+    \multicolumn{13}{l}{\textbf{Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.007 \\ (0.005)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.158*** \\ (0.015)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.839*** \\ (0.013)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.010*** \\ (0.003)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.079*** \\ (0.023)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.909*** \\ (0.024)\end{tabular} &
+    - & - & - &
+    \begin{tabular}[t]{@{}c@{}}0.037*** \\ (0.007)\end{tabular} &
+    -18563 & 37194 \\
+    \multicolumn{13}{l}{\textbf{Non‑Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.007 \\ (0.013)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.159*** \\ (0.016)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.840*** \\ (0.022)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.011** \\ (0.005)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.083** \\ (0.034)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.904*** \\ (0.039)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.022 \\ (0.015)\end{tabular} &
+    - & - &
+    \begin{tabular}[t]{@{}c@{}}0.019 \\ (0.034)\end{tabular} &
+    -18560 & 37197 \\
+    \multicolumn{13}{l}{LRT: 7.182**}\\
+    \midrule
+\multicolumn{13}{l}{\textbf{Notes:} This table shows the results of the QMLE parameter estimates for the MF2-GARCH-in-mean model. The numbers in parentheses are Bollerslev-}\\
+\multicolumn{13}{l}{Wooldridge robust standard errors. *** ,** and * indicate significance at the 1\%, 5\% and 10\% level. Each panel shows the results for a different}\\
+\multicolumn{13}{l}{specification, depending on which components of volatility are included. Each panel shows the proportional (no intercept) and non-proportional}\\
+\multicolumn{13}{l}{variant. The likelihood ratio test (LRT) statistic for the proportional variant against the non-proportional variant is also shown at the bottom of each}\\
+\multicolumn{13}{l}{panel. All specifications are estimated using daily U.S. market premium data for the period January 1964 to April 2025 inclusive. The moving average}\\
+\multicolumn{13}{l}{window size (m) which minmizes the Bayesian Information Criterion for all specifications is m=63.}\\
+\midrule
+\midrule
+  \end{tabular}%
+}
+\end{sidewaystable}
 
 \pagebreak
 \restoregeometry
