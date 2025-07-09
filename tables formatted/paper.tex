@@ -294,30 +294,12 @@ The Monte Carlo evidence confirms that the long-term volatility component is rel
 While the MF2-GARCH-in-mean framework offers a flexible approach to model multi-horizon volatility, there are several limitations:\par
 Model Complexity and Estimation Error: The joint QMLE of all parameters in a high-dimensional, nonlinear likelihood can be sensitive to initial values and local optima. Although the Monte Carlo results support the recovery of long-horizon parameters, convergence issues may arise in empirical applications, particularly when fitting two-component or full-variance specifications.\par
 Short-Term Component Identification: The large bias in short-term risk prices indicates that short-horizon volatility dynamics are not as robustly estimated under the current model. As a result, conclusions regarding the role of transitory volatility in asset pricing should be tempered.\par
-Crisis Dummy Simplification: The binary crisis indicator assumes homogeneous effects within NBER-defined recessions. This simplification may mask nuanced responses to varying stress levels, market microstructure changes, or policy interventions during crises.
-
-Rolling-Window Specification: The choice of a fixed moving-average window (m=63) may not capture time-varying persistence in long-term volatility cycles. Although selected via BIC, a more flexible weighting (e.g., MIDAS) could adapt to structural breaks or evolving market regimes.
-
-Distributional Assumptions: The normality assumption for return innovations (Z_t) is convenient but may underestimate tail risk and the impact of extreme events. Extensions using Student-t or other heavy-tailed distributions could improve model fit during turbulent periods.
-
-7 Further Research
-
+Crisis Dummy Simplification: The binary crisis indicator assumes homogeneous effects within NBER-defined recessions. This simplification may mask nuanced responses to varying stress levels, market microstructure changes, or policy interventions during crises.\par
+\section{Further Research}
 Building on the present analysis, several avenues could enrich the understanding and application of MF2-GARCH-in-mean models:
-
-Adaptive Horizon Estimation: Implementing a MIDAS or time-varying weighting scheme for the long-term component could capture shifts in volatility persistence and improve forecasts across market regimes.
-
-Regime-Switching Extensions: Integrating Markov-switching or smooth-transition dynamics into the volatility components may more accurately reflect structural breaks and crisis dynamics.
-
-Alternative Innovation Distributions: Employing heavy-tailed distributions (e.g., Student-t, skewed t) for Z_t could better accommodate extreme observations and improve inference on risk prices.
-
 Multi-Asset Applications: Extending the MF2-GARCH-in-mean framework to cross-sectional asset pricing or multi-asset portfolios could test its explanatory power beyond aggregate market premia.
-
-Real-Time Estimation and Forecasting: Developing fast, recursive estimation algorithms would facilitate real-time risk monitoring and adaptive portfolio allocation strategies.
-
-8 Conclusion
-
-This thesis integrates the MF2-GARCH volatility decomposition into a univariate risk-return framework, assessing how short- and long-term volatility horizons relate to excess market premia. Empirical estimation on U.S. daily data reveals that the long-term component is the primary driver of risk compensation, while the short-term component plays a negligible or, in some specifications, counterintuitive role once persistent risk is accounted for. Monte Carlo simulations corroborate the reliable identification of long-horizon parameters but highlight estimation biases in short-term prices and intercepts.
-
+\section{Conclusion}
+This thesis integrates the MF2-GARCH volatility decomposition into a univariate risk-return framework, assessing how short- and long-term volatility horizons relate to excess market premia. Empirical estimation on U.S. daily data reveals that the long-term component is the primary driver of risk compensation, while the short-term component plays a negligible or, in some specifications, counterintuitive role once persistent risk is accounted for. Monte Carlo simulations corroborate the reliable identification of long-horizon parameters but highlight estimation biases in short-term prices and intercepts.\par
 Overall, the results support the hypothesis that enduring uncertainty embodies the true background risk for investors and that modeling this component multiplicatively offers superior insight into the risk-return tradeoff. Future work should address the limitations noted, particularly regarding adaptive horizon estimation and crisis dynamics, to further refine multi-horizon volatility models for asset-pricing applications.
 
 
