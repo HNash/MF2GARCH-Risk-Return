@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.4)  7 JUL 2025 00:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.4)  7 JUL 2025 23:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -69,27 +69,62 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@layoutvoffset=\dimen162
 \Gm@dimlist=\toks18
 )
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen163
+\Gin@req@width=\dimen164
+)
+(/usr/share/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+)
+(/usr/share/texmf-dist/tex/latex/graphics/rotating.sty
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count277
+\rotFPtop=\skip51
+\rotFPbot=\skip52
+\rot@float@box=\box52
+\rot@mess@toks=\toks19
+)
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count277
-\l__pdf_internal_box=\box52
+\l__color_backend_stack_int=\count278
+\l__pdf_internal_box=\box53
 ) (./tables.aux)
 \openout1 = `tables.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -124,39 +159,156 @@ LaTeX Font Info:    ... okay on input line 5.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 9.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 9.
+(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count279
+\scratchdimen=\dimen165
+\scratchbox=\box54
+\nofMPsegments=\count280
+\nofMParguments=\count281
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count282
+\MPscratchDim=\dimen166
+\MPnumerator=\count283
+\makeMPintoPDFobject=\count284
+\everyMPtoPDFconversion=\toks21
+) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+
+ []
+
+<BICPlots/Prop_ST_Cr.png, id=1, 642.4pt x 481.8pt>
+File: BICPlots/Prop_ST_Cr.png Graphic file (type png)
+<use BICPlots/Prop_ST_Cr.png>
+Package pdftex.def Info: BICPlots/Prop_ST_Cr.png  used on input line 16.
+(pdftex.def)             Requested size: 192.72148pt x 144.5411pt.
+<BICPlots/ST_Cr.png, id=3, 642.4pt x 481.8pt>
+File: BICPlots/ST_Cr.png Graphic file (type png)
+<use BICPlots/ST_Cr.png>
+Package pdftex.def Info: BICPlots/ST_Cr.png  used on input line 17.
+(pdftex.def)             Requested size: 192.72148pt x 144.5411pt.
+<BICPlots/Prop_LT_Cr.png, id=4, 642.4pt x 481.8pt>
+File: BICPlots/Prop_LT_Cr.png Graphic file (type png)
+<use BICPlots/Prop_LT_Cr.png>
+Package pdftex.def Info: BICPlots/Prop_LT_Cr.png  used on input line 18.
+(pdftex.def)             Requested size: 192.72148pt x 144.5411pt.
+<BICPlots/LT_Cr.png, id=5, 642.4pt x 481.8pt>
+File: BICPlots/LT_Cr.png Graphic file (type png)
+<use BICPlots/LT_Cr.png>
+Package pdftex.def Info: BICPlots/LT_Cr.png  used on input line 19.
+(pdftex.def)             Requested size: 192.72148pt x 144.5411pt.
+<BICPlots/Prop_Both_Cr.png, id=6, 642.4pt x 481.8pt>
+File: BICPlots/Prop_Both_Cr.png Graphic file (type png)
+<use BICPlots/Prop_Both_Cr.png>
+Package pdftex.def Info: BICPlots/Prop_Both_Cr.png  used on input line 20.
+(pdftex.def)             Requested size: 192.72148pt x 144.5411pt.
+<BICPlots/Both_Cr.png, id=7, 642.4pt x 481.8pt>
+File: BICPlots/Both_Cr.png Graphic file (type png)
+<use BICPlots/Both_Cr.png>
+Package pdftex.def Info: BICPlots/Both_Cr.png  used on input line 21.
+(pdftex.def)             Requested size: 192.72148pt x 144.5411pt.
+<BICPlots/Prop_Vol_Cr.png, id=8, 642.4pt x 481.8pt>
+File: BICPlots/Prop_Vol_Cr.png Graphic file (type png)
+<use BICPlots/Prop_Vol_Cr.png>
+Package pdftex.def Info: BICPlots/Prop_Vol_Cr.png  used on input line 22.
+(pdftex.def)             Requested size: 192.72148pt x 144.5411pt.
+<BICPlots/Vol_Cr.png, id=9, 642.4pt x 481.8pt>
+File: BICPlots/Vol_Cr.png Graphic file (type png)
+<use BICPlots/Vol_Cr.png>
+Package pdftex.def Info: BICPlots/Vol_Cr.png  used on input line 23.
+(pdftex.def)             Requested size: 192.72148pt x 144.5411pt.
 
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./BICPlots/Prop_ST_Cr.png>
+ <./BICPlots/ST_Cr.png> <./BICPlots/Prop_LT_Cr.png> <./BICPlots/LT_Cr.png> <./B
+ICPlots/Prop_Both_Cr.png> <./BICPlots/Both_Cr.png> <./BICPlots/Prop_Vol_Cr.png>
+ <./BICPlots/Vol_Cr.png>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 32.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 32.
+
 
 [2]
 
-[3] (./tables.aux)
+Package geometry Warning: `a4paper': not available in `\newgeometry'; skipped.
+
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(14.45377pt, 568.60034pt, 14.45377pt)
+* v-part:(T,H,B)=(14.45377pt, 816.13931pt, 14.45377pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=568.60034pt
+* \textheight=816.13931pt
+* \oddsidemargin=-57.81622pt
+* \evensidemargin=-57.81622pt
+* \topmargin=-94.81622pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+
+[3]
+
+[4]
+
+[5] (./tables.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 1114 strings out of 475171
- 18592 string characters out of 5767096
- 456625 words of memory out of 5000000
- 24172 multiletter control sequences out of 15000+600000
- 559491 words of font info for 38 fonts, out of 8000000 for 9000
+ 2204 strings out of 475171
+ 35814 string characters out of 5767096
+ 468361 words of memory out of 5000000
+ 25221 multiletter control sequences out of 15000+600000
+ 559790 words of font info for 39 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 57i,10n,65p,190b,287s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,17n,65p,926b,376s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on tables.pdf (3 pages, 82958 bytes).
+r7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on tables.pdf (5 pages, 275061 bytes).
 PDF statistics:
- 44 PDF objects out of 1000 (max. 8388607)
- 26 compressed objects within 1 object stream
+ 72 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

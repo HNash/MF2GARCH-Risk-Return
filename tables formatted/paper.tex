@@ -1,15 +1,21 @@
 \documentclass[12pt]{article}
 \usepackage[a4paper, margin=3cm]{geometry}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{rotating}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{pdflscape}
 \usepackage{amsmath}
 \linespread{1.5}
 \begin{document}
 
 \thispagestyle{empty}
-\newgeometry{margin=2.5cm}
 \hspace{0pt}
 \begin{center}
 \vfill
-\textbf{Examining the Risk-Return Relationship Using the MF2-GARCH Model}\\
+\textbf{Examining the Risk-Return Relationship \\Using the MF2-GARCH Model}\\
 \vspace{25mm}
 Master's thesis\\
 to obtain the academic degree "Master of Science" (M.Sc.)\\
@@ -35,7 +41,6 @@ Kuwait City, Kuwait on 23.05.1998
 
 \newpage
 \thispagestyle{empty}
-\restoregeometry
 \section*{Summary}
 This thesis investigates whether the multiplicative factor multi-frequency component GARCH (MF2-GARCH) model of Conrad \& Engle (2025) supports earlier findings that the long-term component of market volatility holds more predictive power for market premia than overall volatility.\par
 I create a combined "MF2-GARCH-in-mean" model, placing the components of MF2-GARCH volatility in a risk-return specification similar to those of Maheu \& McCurdy (2007) and estimating the parameters for historical data on U.S. market premia. Following Maheu \& McCurdy (2007), I test different specifications, varying the choice of components included in the model. To further test the viability of the model, I run several thousand Monte Carlo simulations and record the average biases and standard deviations of the MF2-GARCH-in-mean estimates on this simulated data.\par
@@ -262,7 +267,7 @@ I estimate the model for values of m from 20 to 160 and choose the value which m
 \subsection{Estimates and Interpretations}
 \subsubsection{Parameter estimates}
 Table 4 reports QMLE parameter estimates from the MF2-GARCH-in-mean model. Each panel presents the proportional (no-intercept) and non-proportional (with-intercept) variants of each specification as well as the corresponding log-likelihood and BIC values. Standard errors in parentheses are Bollerslev-Wooldridge robust standard errors. Each panel also shows the value of the likelihood ratio test (LRT) statistic for the proportional variant against the non-proportional variant. A significant LRT statistic means a rejection of the null hypothesis that the proportional variant has sufficient explanatory power.\par
-For all specifications, the moving average window size (m) which minimizes the BIC value is $m=63$. The plots of BIC values against m values are shown in Figure 1a to Figure 1h.\par
+For all specifications, the moving average window size (m) which minimizes the BIC value is $m=63$. The plots of BIC values against m values are shown in Figure 1.\par
 In the short-term component only specification (Panel A), the estimate of the coefficient of the short-term component ($\widehat{\delta_{1,s}}$) is positive and significant at the 5\% level in the proportional variant and negative and significant at the 1\% level in the non-proportional variant. The LRT statistic is highly significant, rejecting the proportional variant in favor of the non-proportional one. The estimate of the intercept in the non-proportional variant ($\widehat{\delta_0}$) is positive and significant at the 1\% level. The coefficients of the crisis indicator dummy variable are statistically indistinguishable from zero.\par
 In the long-term component only specification (Panel B), the estimate of the coefficient of the long-term component ($\widehat{\delta_{1,l}}$) is positive and significant at the 1\% level in both the proportional and non-proportional variants. The LRT fails to reject the null hypothesis, favoring the proportional variant. The estimate of the intercept in the non-proportional variant ($\widehat{\delta_0}$) is positive but statistically insignificant.  When interacted with the long-term component in the proportional specification, the crisis indicator dummy variable has a negative coefficient estimate ($\widehat{\theta_{1,l}}$) which is significant at the 1\% level. The other coefficients of the crisis indicator dummy variable are statistically indistinguishable from zero.\par
 In the two-component specification (Panel C), where the short- and long-term components are both additively included, $\widehat{\delta_{1,s}}$ is negative and insignificant in both the proportional and non-proportional variants. $\widehat{\delta_{1,l}}$, on the other hand, is positive in both, and significant at the 5\% level in the proportional variant and at the 1\% level in the non-proportional one. The LRT again fails to reject the null hypothesis, favoring the proportional variant. The estimate of the intercept is positive but insignificant in the non-proportional variant. When interacted with the short-term component in the proportional specification, the crisis indicator dummy variable has a negative coefficient estimate ($\widehat{\theta_{1,s}}$) which is significant at the 5\% level. All of the dummy variable's other coefficient estimates are statistically indistinguishable from zero.\par
@@ -277,5 +282,399 @@ According to the BIC values, the proportional long‑term only model is the most
 In this proportional long-term component specification, we can interpret $\widehat{\delta_{1,l}}$, as the "daily" coefficient of relative risk aversion (CRRA), as explained in Section 1. If we annualize this CRRA by multiplying it by 252 (the number of trading days in a year), we get a value of 12.348. This is slightly high compared to the "traditional" benchmark range of 2-10 ************ which is usually estimated by previous research. This is perhaps explained by the focus of this specification on long-horizon risk, which may be viewed by investors as more enduring rather than transitory, causing them to be more averse to it.\par
 What is interesting to note about the LRT statistics and the option of including an intercept is that the regressand in this model is the market premium, meaning that the risk-free rate (which we can consider the constant component of overall market return) is already subtracted and controlled for. A positive and significant intercept, like the one in the non-proportional short-term component only specification (Panel A), can just mean that the intercept is capturing the average premium, and that the short-term component's inclusion explains deviations from the average premium. If we used the raw market return as a regressand instead, one would expect the intercept to be equal to the risk-free rate.\par
 Finally, the similarity of the underlying MF2‑GARCH  parameter estimates across all specifications suggests consistent volatility dynamics, meaning that roughly the same information is retained across specification changes, so that they can be reasonably compared.
+\subsection{Monte Carlo Simulations}
+\subsubsection{Parameter Estimates}
+To test the viability of the model and the biasedness of its parameter estimates, I fit the MF2-GARCH-in-mean model on data generated by Monte Carlo simulations. For each specification, I generate $T=30,240$ daily market premium values and perform QMLE parameter estimation on these values. I repeat this $R=1,000$ times. For each specification, Table 6 reports the true parameters used in data generation, the average bias of the estimates (absolute and percentage value), and the standard deviation of the parameter estimates across the 1,000 iterations.\par
+For $\gamma$, $\beta$, $\lambda_1$, $\lambda_2$, $\delta_{1,l}$ and $\delta_1$, the estimates show little bias. The bias does not exceed $\pm1.50\%$ for any specification for these parameters. The estimates of the constants ($\alpha$, $\lambda_0$ and $\delta_0$) as well as the coefficient of the short-term component ($\delta_{1,s}$) show more severe bias, however. The estimates of $\alpha$ have an average bias of $19.37\%$, $\lambda_0$ an average bias of $6.86\%$, $\delta_0$ an average bias of $-9.50\%$ and $\delta_{1,s}$ an average bias of $-20\%$.\\
 
+\newpage
+%\newgeometry{a4paper, margin=3cm}
+\section*{Figures}
+\graphicspath{{BICPlots/}}
+\begin{figure}[!ht]
+  \centering
+  \scriptsize
+  \setlength{\abovecaptionskip}{1pt}
+  \setlength{\belowcaptionskip}{1pt}
+  \captionsetup{font=scriptsize}
+  
+  \caption[BIC Plots]{%     
+BIC Plots. This figure shows the Bayesian Information Criterion (BIC) against moving‑average window size \(m\) for all MF2‑GARCH‑in‑mean specifications. The optimal \(m\) minimizes BIC. Left column: proportional variants, right column: non‑proportional. From top to bottom: short‑term component, long‑term component, two-component, and overall conditional variance specifications.}
+\begin{subfigure}[!ht]{0.45\textwidth}
+\includegraphics[width=\linewidth]{Prop_ST_Cr}
+\end{subfigure}\hfill
+\begin{subfigure}[!ht]{0.45\textwidth}
+    \includegraphics[width=\linewidth]{ST_Cr}
+  \end{subfigure}
+
+  \begin{subfigure}[!ht]{0.45\textwidth}
+    \includegraphics[width=\linewidth]{Prop_LT_Cr}
+  \end{subfigure}\hfill
+  \begin{subfigure}[!ht]{0.45\textwidth}
+    \includegraphics[width=\linewidth]{LT_Cr}
+  \end{subfigure}
+
+  \begin{subfigure}[!ht]{0.45\textwidth}
+    \includegraphics[width=\linewidth]{Prop_Both_Cr}
+  \end{subfigure}\hfill
+  \begin{subfigure}[!ht]{0.45\textwidth}
+    \includegraphics[width=\linewidth]{Both_Cr}
+  \end{subfigure}
+
+  \begin{subfigure}[!ht]{0.45\textwidth}
+    \includegraphics[width=\linewidth]{Prop_Vol_Cr}
+  \end{subfigure}\hfill
+  \begin{subfigure}[!ht]{0.45\textwidth}
+    \includegraphics[width=\linewidth]{Vol_Cr}
+  \end{subfigure}
+
+\end{figure}
+
+\pagebreak
+%\restoregeometry
+%\newgeometry{a4paper, margin=0.5in}
+\section*{Tables}
+\begin{table}[!ht]
+\centering
+\caption{Parameter Values for Monte Carlo Simulations}
+\begin{tabular}{ccccccccccc}
+\midrule
+\midrule
+$\alpha$ & $\gamma$ & $\beta$ & $\lambda_0$ & $\lambda_1$ & $\lambda_2$ & $\delta_0$ & $\delta_{1,s}$ & $\delta_{1,l}$ & $\delta_{1}$\\
+\midrule
+\multicolumn{11}{c}{\textbf{Short-term component}}\\
+\multicolumn{11}{l}{\textbf{Proportional}}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & - & 0.027 & - & -\\
+\multicolumn{11}{l}{\textbf{Non-Proportional}}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & 0.033 & -0.003 & - & -\\
+\midrule
+\multicolumn{11}{c}{\textbf{Long-term component}}\\
+\multicolumn{11}{l}{\textbf{Proportional}}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & - & - & 0.049  & -\\
+\multicolumn{11}{l}{\textbf{Non-Proportional}}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & 0.003 & - & 0.045 & -\\
+\midrule
+\multicolumn{11}{c}{\textbf{Both components (additive)}}\\
+\multicolumn{11}{l}{\textbf{Proportional}}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & - & -0.005 & 0.054 & -\\
+\multicolumn{11}{l}{\textbf{Non-Proportional}}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & 0.008 & -0.008 & 0.046 & -\\
+\midrule
+\multicolumn{11}{c}{\textbf{Overall conditional variance (multiplicative)}}\\
+\multicolumn{11}{l}{\textbf{Proportional}}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & - & - & - & 0.042\\
+\multicolumn{11}{l}{\textbf{Non-Proportional}}\\
+0.006 & 0.160 & 0.842 & 0.011 & 0.085 & 0.902 & 0.020 & - & - & 0.023\\
+\midrule
+\multicolumn{11}{l}{\textbf{Notes:} This table presents the "true" parameter values I used in Monte Carlo}\\
+\multicolumn{11}{l}{simulations of daily market premium data. The MF2-GARCH-in-mean model}\\
+\multicolumn{11}{l}{is fitted $R=1,000$ times on these simulated samples, each of size $T=15,120$.}\\
+\multicolumn{11}{l}{This is repeated for the proportional and non-proportional variant of every}\\
+\multicolumn{11}{l}{specification. These values were chosen based on estimates from real data \textit{(see}}\\
+\multicolumn{11}{l}{\textit{Table 4 below).}}\\
+\midrule
+\midrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\caption{Summary Statistics - Market Premia}
+\begin{tabular}{cccccccc}
+\midrule
+\midrule
+\mbox{} & mean & sd & skew & kurtosis & min & max & AC(1)\\
+\midrule
+$r_t$ & 0.028 & 1.028 & -0.487 & 15.564 & -17.440 & 11.360 & 0.016\\
+\midrule
+\multicolumn{8}{l}{\textbf{Notes:} This table shows summary statistics for the U.S. daily}\\
+\multicolumn{8}{l}{market premium data. The data runs from January 1964 to April}\\
+\multicolumn{8}{l}{2025. The columns present the mean, standard deviation (sd),}\\
+\multicolumn{8}{l}{skewness, kurtosis, minimum (min), maximum (max) and the}\\
+\multicolumn{8}{l}{first-order autocorrelation coefficient (AC(1)).}\\
+\midrule
+\midrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\caption{NBER Recession Periods}
+\begin{tabular}{ccl}
+\midrule
+\midrule
+Start date & End date & Remarks\\
+\midrule
+December 1969 & November 1970 & - \\
+November 1973 & March 1975 & 1973 oil crisis and stagflation \\
+January 1980 & July 1980 & Volcker recession I \\
+July 1981 & November 1982 & Volcker recession II \\
+July 1990 & March 1991 & - \\
+March 2001 & November 2001 & Dot-com bubble \\
+December 2007 & June 2009 & Global financial crisis \\
+February 2020 & April 2020 & COVID-19 pandemic \\
+\midrule
+\multicolumn{3}{l}{\textbf{Notes:} This table shows the start and end dates of recession}\\
+\multicolumn{3}{l}{periods defined by the U.S. National Bureau of Economic}\\
+\multicolumn{3}{l}{Research (NBER) which fall within the sample period on which}\\
+\multicolumn{3}{l}{the MF2-GARCH-in-mean model is estimated. The dummy}\\
+\multicolumn{3}{l}{variable used to control for periods of crisis is given the value 1}\\
+\multicolumn{3}{l}{for the above periods and 0 otherwise.}\\
+\midrule
+\midrule
+\end{tabular}
+\end{table}
+
+\pagebreak
+\restoregeometry
+\newgeometry{a4paper, margin=0.5in}
+\setcounter{table}{3}
+
+\begin{sidewaystable}[!ht]
+\centering
+\scriptsize                           % smaller font
+\setlength{\tabcolsep}{3pt}           % reduce horizontal padding
+\renewcommand{\arraystretch}{0.8}     % reduce vertical padding
+\caption{Combined Specification Parameter Estimates (Controlling for Crises)}
+\resizebox{\textwidth}{!}{%
+  \begin{tabular}{ccccccccccccccccc}
+    \toprule\toprule
+    $\alpha$ & $\gamma$ & $\beta$ & $\lambda_0$ & $\lambda_1$ & $\lambda_2$ & $\delta_0$ & $\delta_{1,s}$ & $\delta_{1,l}$ & $\delta_{1}$ & $\theta_0$ & $\theta_{1,s}$ & $\theta_{1,l}$ & $\theta_{1}$ & LLF & BIC \\
+    \midrule
+    \multicolumn{17}{c}{\textbf{Panel A: Short-term component}}\\
+    \multicolumn{17}{l}{\textbf{Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.007 \\ (0.014)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.158*** \\ (0.019)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.841*** \\ (0.018)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.012 \\ (0.020)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.086 \\ (0.150)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.900*** \\ (0.173)\end{tabular} &
+    - &
+    \begin{tabular}[t]{@{}c@{}}0.027** \\ (0.011)\end{tabular} &
+    - & - & - &
+    \begin{tabular}[t]{@{}c@{}}-0.013 \\ (0.020)\end{tabular} &
+    - & - & -18567 & 37212 \\
+    \multicolumn{17}{l}{\textbf{Non‑Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.005* \\ (0.003)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.166*** \\ (0.015)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.845*** \\ (0.012)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.011*** \\ (0.002)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.081*** \\ (0.018)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.907*** \\ (0.018)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.033*** \\ (0.007)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}-0.003*** \\ (0.001)\end{tabular} &
+    - & - &
+    \begin{tabular}[t]{@{}c@{}}0.009 \\ (0.008)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}-0.009 \\ (0.009)\end{tabular} &
+    - & - & -18562 & 37221 \\
+    \multicolumn{17}{l}{LRT: 9.928***}\\
+    \midrule
+
+    \multicolumn{17}{c}{\textbf{Panel B: Long-term component}}\\
+    \multicolumn{17}{l}{\textbf{Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.006** \\ (0.003)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.160*** \\ (0.015)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.842*** \\ (0.013)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.011*** \\ (0.003)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.085*** \\ (0.018)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.902*** \\ (0.020)\end{tabular} &
+    - & - &
+    \begin{tabular}[t]{@{}c@{}}0.049*** \\ (0.009)\end{tabular} &
+    - & - & - &
+    \begin{tabular}[t]{@{}c@{}}-0.002*** \\ (0.001)\end{tabular} &
+    - & -18558 & \textbf{37194} \\
+    \multicolumn{17}{l}{\textbf{Non‑Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.006* \\ (0.004)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.161*** \\ (0.015)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.843*** \\ (0.014)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.011* \\ (0.006)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.080*** \\ (0.030)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.907*** \\ (0.036)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.003 \\ (0.003)\end{tabular} &
+    - &
+    \begin{tabular}[t]{@{}c@{}}0.045*** \\ (0.017)\end{tabular} &
+    - &
+    \begin{tabular}[t]{@{}c@{}}-0.054 \\ (0.060)\end{tabular} &
+    - &
+    \begin{tabular}[t]{@{}c@{}}0.049 \\ (0.049)\end{tabular} &
+    - & -18558 & 37212 \\
+    \multicolumn{17}{l}{LRT: 1.358}\\
+    \midrule
+
+    \multicolumn{17}{c}{\textbf{Panel C: Both components (additive)}}\\
+    \multicolumn{17}{l}{\textbf{Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.006 \\ (0.013)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.161*** \\ (0.015)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.844*** \\ (0.016)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.012* \\ (0.006)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.085** \\ (0.035)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.901*** \\ (0.042)\end{tabular} &
+    - &
+    \begin{tabular}[t]{@{}c@{}}-0.005 \\ (0.021)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.054** \\ (0.023)\end{tabular} &
+    - & - &
+    \begin{tabular}[t]{@{}c@{}}-0.012** \\ (0.006)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.009 \\ (0.012)\end{tabular} &
+    - & -18558 & 37212 \\
+    \multicolumn{17}{l}{\textbf{Non‑Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.006 \\ (0.003)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.162*** \\ (0.016)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.844*** \\ (0.014)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.011 \\ (0.007)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.081** \\ (0.036)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.906*** \\ (0.043)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.008 \\ (0.006)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}-0.008 \\ (0.007)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.046*** \\ (0.012)\end{tabular} &
+    - &
+    \begin{tabular}[t]{@{}c@{}}-0.050 \\ (0.067)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}-0.002 \\ (0.002)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.048 \\ (0.041)\end{tabular} &
+    - & -18557 & 37230 \\
+    \multicolumn{17}{l}{LRT: 0.990}\\
+    \midrule
+
+    \multicolumn{17}{c}{\textbf{Panel D: Overall conditional variance (multiplicative)}}\\
+    \multicolumn{17}{l}{\textbf{Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.007 \\ (0.009)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.158*** \\ (0.016)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.839*** \\ (0.014)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.011** \\ (0.005)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.080*** \\ (0.031)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.907*** \\ (0.035)\end{tabular} &
+    - & - & - &
+    \begin{tabular}[t]{@{}c@{}}0.042*** \\ (0.010)\end{tabular} &
+    - & - & - &
+    \begin{tabular}[t]{@{}c@{}}-0.014* \\ (0.008)\end{tabular} &
+    -18563 & 37203 \\
+    \multicolumn{17}{l}{\textbf{Non‑Proportional}}\\
+    \begin{tabular}[t]{@{}c@{}}0.006 \\ (0.012)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.162*** \\ (0.025)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.841*** \\ (0.018)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.011 \\ (0.016)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.080 \\ (0.084)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.908*** \\ (0.101)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.020 \\ (0.059)\end{tabular} &
+    - & - &
+    \begin{tabular}[t]{@{}c@{}}0.023 \\ (0.083)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}-0.005 \\ (0.016)\end{tabular} &
+    - & - &
+    \begin{tabular}[t]{@{}c@{}}-0.004 \\ (0.022)\end{tabular} &
+    -18560 & 37217 \\
+    \multicolumn{17}{l}{LRT: 4.850*}\\
+    \midrule
+\multicolumn{17}{l}{\textbf{Notes:} This table shows the results of the QMLE parameter estimates for the MF2-GARCH-in-mean model. The numbers in parentheses are Bollerslev-}\\
+\multicolumn{17}{l}{Wooldridge robust standard errors. *** ,** and * indicate significance at the 1\%, 5\% and 10\% level. Each panel shows the results for a different}\\
+\multicolumn{17}{l}{specification, depending on which components of volatility are included. Each panel shows the proportional (no intercept) and non-proportional}\\
+\multicolumn{17}{l}{variant. The likelihood ratio test (LRT) statistic for the proportional variant against the non-proportional variant is also shown at the bottom of each}\\
+\multicolumn{17}{l}{panel. All specifications are estimated using daily U.S. market premium data for the period January 1964 to April 2025 inclusive. The moving average}\\
+\multicolumn{17}{l}{window size (m) which minmizes the Bayesian Information Criterion for all specifications is m=63.}\\
+\midrule
+\midrule
+  \end{tabular}%
+}
+\end{sidewaystable}
+
+
+\pagebreak
+\restoregeometry
+%\newgeometry{a4paper, margin=0.2in}
+\setcounter{table}{4}
+\begin{table}[!ht]
+\centering
+\caption{Summary Statistics - Volatility}
+\begin{tabular}{ccccc}
+\multicolumn{5}{c}{(Proportional Long-Term Component Specification)}\\
+\midrule
+\midrule
+\mbox{} & mean & min & max & AC(1)\\
+\midrule
+\mbox{$\sigma^2_t$}& 1.051 & 0.122 & 60.992 & 0.94736\\
+\mbox{$h_t$} & 1.186 & 0.474 & 69.731 & 0.98251\\
+\mbox{$\tau_t$} & 0.830 & 0.236 & 3.810 & 0.99988\\
+\midrule
+\multicolumn{5}{l}{\textbf{Notes:} This table shows summary statistics for}\\
+\multicolumn{5}{l}{the conditional variance and its components as}\\
+\multicolumn{5}{l}{estimated by MF2-GARCH in the proportional}\\
+\multicolumn{5}{l}{(no intercept) long-term component specification.}\\
+\midrule
+\midrule
+\end{tabular}
+\end{table}
+
+\pagebreak
+\newgeometry{a4paper, margin=0.5in}
+\begin{table}[!ht]
+  \centering
+  \scriptsize
+  \setlength\tabcolsep{3pt}
+  \caption{Monte Carlo Parameter Estimates \& Standard Deviations}
+  % auto-scale to full text width
+  \resizebox{\linewidth}{!}{%
+    \begin{tabular}{lccccccccccc}
+      \toprule
+      & $\alpha$ & $\gamma$ & $\beta$ & $\lambda_0$ & $\lambda_1$ & $\lambda_2$ 
+      & $\delta_0$ & $\delta_{1,s}$ & $\delta_{1,l}$ & $\delta_{1}$\\
+      \midrule
+      \multicolumn{12}{c}{\textbf{Short-term component}}\\
+      \multicolumn{12}{l}{\textbf{Proportional}}\\
+      True & 0.00600 & 0.16000 & 0.84200 & 0.01100 & 0.08500 & 0.90200 & - & 0.02700 & - & -\\
+      Bias & -0.00116 & -0.00128 & 0.00198 & 0.00082 & 0.00119 & -0.00226 & - & -0.00011 & - & -\\
+      (\%)  & (-19.33\%) & (-0.80\%) & (0.24\%) & (7.45\%) & (1.40\%) & (-0.25\%) & - & (-0.41\%) & - & -\\
+      S.d.  & 0.00353 & 0.00684 & 0.00675 & 0.00601 & 0.03777 & 0.04460 & - & 0.00468 & - & -\\
+      \addlinespace
+      \multicolumn{12}{l}{\textbf{Non-Proportional}}\\
+      True & 0.00600 & 0.16000 & 0.84200 & 0.01100 & 0.08500 & 0.90200 & 0.03300 & -0.00300 & - & -\\
+      Bias & -0.00115 & -0.00072 & 0.00122 & 0.00086 & 0.00147 & -0.00259 & -0.00155 & 0.00150 & - & -\\
+      (\%)  & (-19.17\%) & (-0.45\%) & (0.14\%) & (7.82\%) & (1.73\%) & (-0.29\%) & (-4.70\%) & (-50.00\%) & - & -\\
+      S.d.  & 0.00356 & 0.00691 & 0.00711 & 0.00603 & 0.03789 & 0.04476 & 0.01192 & 0.01303 & - & -\\
+      \midrule
+      \multicolumn{12}{c}{\textbf{Long-term component}}\\
+      \multicolumn{12}{l}{\textbf{Proportional}}\\
+      True & 0.00600 & 0.16000 & 0.84200 & 0.01100 & 0.08500 & 0.90200 & - & - & 0.04900 & -\\
+      Bias & -0.00116 & -0.00070 & 0.00139 & 0.00071 & 0.00052 & -0.00145 & - & - & -0.00010 & -\\
+      (\%)  & (-19.33\%) & (-0.44\%) & (0.17\%) & (6.45\%) & (0.61\%) & (-0.16\%) & - & - & (-0.20\%) & -\\
+      S.d.  & 0.00353 & 0.00693 & 0.00678 & 0.00578 & 0.03593 & 0.04253 & - & - & 0.00636 & -\\
+      \addlinespace
+      \multicolumn{12}{l}{\textbf{Non-Proportional}}\\
+      True & 0.00600 & 0.16000 & 0.84200 & 0.01100 & 0.08500 & 0.90200 & 0.00300 & - & 0.04500 & -\\
+      Bias & -0.00116 & -0.00070 & 0.00140 & 0.00073 & 0.00075 & -0.00170 & -0.00035 & - & 0.00022 & -\\
+      (\%)  & (-19.33\%) & (-0.44\%) & (0.17\%) & (6.64\%) & (0.88\%) & (-0.19\%) & (-11.67\%) & - & (0.49\%) & -\\
+      S.d.  & 0.00355 & 0.00692 & 0.00679 & 0.00577 & 0.03660 & 0.04314 & 0.01413 & - & 0.01833 & -\\
+      \midrule
+      \multicolumn{12}{c}{\textbf{Both components (additive)}}\\
+      \multicolumn{12}{l}{\textbf{Proportional}}\\
+      True & 0.00600 & 0.16000 & 0.84200 & 0.01100 & 0.08500 & 0.90200 & - & -0.00500 & 0.05400 & -\\
+      Bias & -0.00116 & -0.00064 & 0.00124 & 0.00066 & 0.00050 & -0.00138 & - & 0.00057 & -0.00079 & -\\
+      (\%)  & (-19.33\%) & (-0.40\%) & (0.15\%) & (6.00\%) & (0.59\%) & (-0.15\%) & - & (-11.40\%) & (-1.46\%) & -\\
+      S.d.  & 0.00354 & 0.00692 & 0.00702 & 0.00563 & 0.03599 & 0.04239 & - & 0.01071 & 0.01272 & -\\
+      \addlinespace
+      \multicolumn{12}{l}{\textbf{Non-Proportional}}\\
+      True & 0.00600 & 0.16000 & 0.84200 & 0.01100 & 0.08500 & 0.90200 & 0.00800 & -0.00800 & 0.04600 & -\\
+      Bias & -0.00115 & -0.00061 & 0.00108 & 0.00068 & 0.00054 & -0.00145 & -0.00166 & 0.00156 & 0.00010 & -\\
+      (\%)  & (-19.17\%) & (-0.38\%) & (0.13\%) & (6.18\%) & (0.64\%) & (-0.16\%) & (-20.75\%) & (-19.50\%) & (0.22\%) & -\\
+      S.d.  & 0.00356 & 0.00693 & 0.00710 & 0.00568 & 0.03638 & 0.04281 & 0.01735 & 0.01309 & 0.01863 & -\\
+      \midrule
+      \multicolumn{12}{c}{\textbf{Overall conditional variance (multiplicative)}}\\
+      \multicolumn{12}{l}{\textbf{Proportional}}\\
+      True & 0.00600 & 0.16000 & 0.84200 & 0.01100 & 0.08500 & 0.90200 & - & - & - & 0.04200\\
+      Bias & -0.00119 & -0.00144 & 0.00211 & 0.00077 & 0.00095 & -0.00195 & - & - & - & -0.00006\\
+      (\%)  & (-19.83\%) & (-0.90\%) & (0.25\%) & (7.00\%) & (1.12\%) & (-0.22\%) & - & - & - & (-0.14\%)\\
+      S.d.  & 0.00350 & 0.00682 & 0.00672 & 0.00594 & 0.03701 & 0.04378 & - & - & - & 0.00610\\
+      \addlinespace
+      \multicolumn{12}{l}{\textbf{Non-Proportional}}\\
+      True & 0.00600 & 0.16000 & 0.84200 & 0.01100 & 0.08500 & 0.90200 & 0.02000 & - & - & 0.02300\\
+      Bias & -0.00117 & -0.00109 & 0.00176 & 0.00081 & 0.00116 & -0.00221 & -0.00018 & - & - & 0.00011\\
+      (\%)  & (-19.50\%) & (-0.68\%) & (0.21\%) & (7.36\%) & (1.36\%) & (-0.25\%) & (-0.90\%) & - & - & (0.48\%)\\
+      S.d.  & 0.00353 & 0.00686 & 0.00689 & 0.00600 & 0.03745 & 0.04429 & 0.00846 & - & - & 0.01140\\
+      \midrule
+      \multicolumn{12}{l}{\textbf{Notes:} This table presents the results of MF2-GARCH-in-mean QMLE parameter estimation on data}\\
+      \multicolumn{12}{l}{generated by Monte Carlo simulations of daily market premia. Each specification was fitted on a simulated}\\
+      \multicolumn{12}{l}{sample of size $T=30,240$ and this was repeated $R=1,000$ times. The table shows the true parameter}\\
+      \multicolumn{12}{l}{values (True), the average bias of the parameter estimates (value and percent), and the standard}\\
+      \multicolumn{12}{l}{deviation (S.d.) of the parameter estimates across the 1,000 simulations.}\\
+      \bottomrule
+    \end{tabular}%
+  }
+\end{table}
 \end{document}
