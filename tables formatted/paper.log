@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.4)  13 JUL 2025 08:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.4)  13 JUL 2025 20:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -357,7 +357,7 @@ nent of the Component-
 [10]
 
 [11]
-Overfull \hbox (0.86949pt too wide) in paragraph at lines 218--218
+Overfull \hbox (0.86949pt too wide) in paragraph at lines 219--219
 \OT1/cmr/m/n/12 Previous at-tempts to de-ter-mine the risk-return re-la-tion-sh
 ip which ac-count for volatil-
  []
@@ -367,7 +367,7 @@ ip which ac-count for volatil-
 [12]
 
 [13]
-Overfull \hbox (0.48581pt too wide) in paragraph at lines 255--255
+Overfull \hbox (0.48581pt too wide) in paragraph at lines 256--256
 \OT1/cmr/m/n/12 ma-tion (QMLE) im-ple-mented in Python. Min-i-miza-tion of the 
 neg-a-tive log-likelihood
  []
@@ -389,7 +389,7 @@ neg-a-tive log-likelihood
 [20]
 
 [21]
-Overfull \hbox (0.60573pt too wide) in paragraph at lines 305--306
+Overfull \hbox (0.60573pt too wide) in paragraph at lines 306--307
 []\OT1/cmr/m/n/12 Finally, the sim-i-lar-ity of the un-der-ly-ing MF2[]GARCH pa
 -ram-e-ter es-ti-mates across
  []
@@ -399,102 +399,108 @@ Overfull \hbox (0.60573pt too wide) in paragraph at lines 305--306
 [22]
 
 [23]
+Overfull \hbox (0.39958pt too wide) in paragraph at lines 323--324
+\OT1/cmr/m/n/12 short-term com-po-nent's pa-ram-e-ter es-ti-ma-tion. In my es-t
+i-mates the short-run volatil-
+ []
+
+
 
 [24]
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Overfull \hbox (1.71992pt too wide) in paragraph at lines 331--349
+Overfull \hbox (1.71992pt too wide) in paragraph at lines 332--350
 \OT1/cmr/m/n/12 His-tory. Re-trieved 2nd of June, 2025 from: $\OT1/cmtt/m/n/12 
 https : / / www . federalreservehistory .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--349
+Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
@@ -510,42 +516,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 331--349
 <BICPlots/Prop_ST_Cr.png, id=124, 642.4pt x 481.8pt>
 File: BICPlots/Prop_ST_Cr.png Graphic file (type png)
 <use BICPlots/Prop_ST_Cr.png>
-Package pdftex.def Info: BICPlots/Prop_ST_Cr.png  used on input line 370.
+Package pdftex.def Info: BICPlots/Prop_ST_Cr.png  used on input line 371.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
 <BICPlots/ST_Cr.png, id=126, 642.4pt x 481.8pt>
 File: BICPlots/ST_Cr.png Graphic file (type png)
 <use BICPlots/ST_Cr.png>
-Package pdftex.def Info: BICPlots/ST_Cr.png  used on input line 373.
+Package pdftex.def Info: BICPlots/ST_Cr.png  used on input line 374.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
 <BICPlots/Prop_LT_Cr.png, id=127, 642.4pt x 481.8pt>
 File: BICPlots/Prop_LT_Cr.png Graphic file (type png)
 <use BICPlots/Prop_LT_Cr.png>
-Package pdftex.def Info: BICPlots/Prop_LT_Cr.png  used on input line 377.
+Package pdftex.def Info: BICPlots/Prop_LT_Cr.png  used on input line 378.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
 <BICPlots/LT_Cr.png, id=128, 642.4pt x 481.8pt>
 File: BICPlots/LT_Cr.png Graphic file (type png)
 <use BICPlots/LT_Cr.png>
-Package pdftex.def Info: BICPlots/LT_Cr.png  used on input line 380.
+Package pdftex.def Info: BICPlots/LT_Cr.png  used on input line 381.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
 <BICPlots/Prop_Both_Cr.png, id=129, 642.4pt x 481.8pt>
 File: BICPlots/Prop_Both_Cr.png Graphic file (type png)
 <use BICPlots/Prop_Both_Cr.png>
-Package pdftex.def Info: BICPlots/Prop_Both_Cr.png  used on input line 384.
+Package pdftex.def Info: BICPlots/Prop_Both_Cr.png  used on input line 385.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
 <BICPlots/Both_Cr.png, id=130, 642.4pt x 481.8pt>
 File: BICPlots/Both_Cr.png Graphic file (type png)
 <use BICPlots/Both_Cr.png>
-Package pdftex.def Info: BICPlots/Both_Cr.png  used on input line 387.
+Package pdftex.def Info: BICPlots/Both_Cr.png  used on input line 388.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
 <BICPlots/Prop_Vol_Cr.png, id=131, 642.4pt x 481.8pt>
 File: BICPlots/Prop_Vol_Cr.png Graphic file (type png)
 <use BICPlots/Prop_Vol_Cr.png>
-Package pdftex.def Info: BICPlots/Prop_Vol_Cr.png  used on input line 391.
+Package pdftex.def Info: BICPlots/Prop_Vol_Cr.png  used on input line 392.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
 <BICPlots/Vol_Cr.png, id=132, 642.4pt x 481.8pt>
 File: BICPlots/Vol_Cr.png Graphic file (type png)
 <use BICPlots/Vol_Cr.png>
-Package pdftex.def Info: BICPlots/Vol_Cr.png  used on input line 394.
+Package pdftex.def Info: BICPlots/Vol_Cr.png  used on input line 395.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
 
 
@@ -555,42 +561,42 @@ g> <./BICPlots/Prop_Vol_Cr.png> <./BICPlots/Vol_Cr.png>]
 <BICPlots/Prop_ST.png, id=144, 462.528pt x 346.896pt>
 File: BICPlots/Prop_ST.png Graphic file (type png)
 <use BICPlots/Prop_ST.png>
-Package pdftex.def Info: BICPlots/Prop_ST.png  used on input line 412.
+Package pdftex.def Info: BICPlots/Prop_ST.png  used on input line 413.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
 <BICPlots/ST.png, id=145, 462.528pt x 346.896pt>
 File: BICPlots/ST.png Graphic file (type png)
 <use BICPlots/ST.png>
-Package pdftex.def Info: BICPlots/ST.png  used on input line 415.
+Package pdftex.def Info: BICPlots/ST.png  used on input line 416.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
 <BICPlots/Prop_LT.png, id=146, 462.528pt x 346.896pt>
 File: BICPlots/Prop_LT.png Graphic file (type png)
 <use BICPlots/Prop_LT.png>
-Package pdftex.def Info: BICPlots/Prop_LT.png  used on input line 419.
+Package pdftex.def Info: BICPlots/Prop_LT.png  used on input line 420.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
 <BICPlots/LT.png, id=147, 462.528pt x 346.896pt>
 File: BICPlots/LT.png Graphic file (type png)
 <use BICPlots/LT.png>
-Package pdftex.def Info: BICPlots/LT.png  used on input line 422.
+Package pdftex.def Info: BICPlots/LT.png  used on input line 423.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
 <BICPlots/Prop_Both.png, id=148, 462.528pt x 346.896pt>
 File: BICPlots/Prop_Both.png Graphic file (type png)
 <use BICPlots/Prop_Both.png>
-Package pdftex.def Info: BICPlots/Prop_Both.png  used on input line 426.
+Package pdftex.def Info: BICPlots/Prop_Both.png  used on input line 427.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
 <BICPlots/Both.png, id=149, 462.528pt x 346.896pt>
 File: BICPlots/Both.png Graphic file (type png)
 <use BICPlots/Both.png>
-Package pdftex.def Info: BICPlots/Both.png  used on input line 429.
+Package pdftex.def Info: BICPlots/Both.png  used on input line 430.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
 <BICPlots/Prop_Vol.png, id=150, 462.528pt x 346.896pt>
 File: BICPlots/Prop_Vol.png Graphic file (type png)
 <use BICPlots/Prop_Vol.png>
-Package pdftex.def Info: BICPlots/Prop_Vol.png  used on input line 433.
+Package pdftex.def Info: BICPlots/Prop_Vol.png  used on input line 434.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
 <BICPlots/Vol.png, id=151, 462.528pt x 346.896pt>
 File: BICPlots/Vol.png Graphic file (type png)
 <use BICPlots/Vol.png>
-Package pdftex.def Info: BICPlots/Vol.png  used on input line 436.
+Package pdftex.def Info: BICPlots/Vol.png  used on input line 437.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
 
 
@@ -742,7 +748,7 @@ Here is how much of TeX's memory you used:
  27628 multiletter control sequences out of 15000+600000
  565680 words of font info for 60 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 66i,17n,67p,1230b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 66i,17n,67p,1249b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/cloudberry/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.60
 0pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fo
@@ -758,7 +764,7 @@ dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on paper.pdf (42 pages, 637972 bytes).
+Output written on paper.pdf (42 pages, 637639 bytes).
 PDF statistics:
  264 PDF objects out of 1000 (max. 8388607)
  151 compressed objects within 2 object streams

@@ -7,7 +7,7 @@
 \contentsline {subsection}{\numberline {3.1}The MF2-GARCH Model}{9}{}%
 \contentsline {subsection}{\numberline {3.2}Maheu-McCurdy Univariate Risk-Return Specification}{11}{}%
 \contentsline {subsection}{\numberline {3.3}MF2-GARCH-in-Mean}{11}{}%
-\contentsline {subsection}{\numberline {3.4}Controlling for Crisis Periods/Final Specification}{12}{}%
+\contentsline {subsection}{\numberline {3.4}Controlling for Crisis Periods/Final Specification}{13}{}%
 \contentsline {section}{\numberline {4}Method}{13}{}%
 \contentsline {subsection}{\numberline {4.1}Log-Likelihood Function}{13}{}%
 \contentsline {subsection}{\numberline {4.2}Estimation}{14}{}%
@@ -30,7 +30,7 @@
 \contentsline {subsubsection}{\numberline {7.1.1}Short-Term Volatility Dynamics}{24}{}%
 \contentsline {subsubsection}{\numberline {7.1.2}Crisis Dummy Simplification}{25}{}%
 \contentsline {subsection}{\numberline {7.2}Conclusion}{25}{}%
-\contentsline {section}{\numberline {8}References}{27}{}%
+\contentsline {section}{\numberline {8}References}{26}{}%
 \contentsline {section}{Appendix}{29}{}%
 \contentsline {subsection}{A.1{\hskip 1em\relax }Figures}{30}{}%
 \contentsline {subsection}{A.2{\hskip 1em\relax }Tables}{32}{}%
