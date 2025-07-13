@@ -1,0 +1,36 @@
+\contentsline {section}{Summary}{1}{}%
+\contentsline {section}{\numberline {1}Introduction}{2}{}%
+\contentsline {section}{\numberline {2}Literature Review}{4}{}%
+\contentsline {subsection}{\numberline {2.1}Background}{4}{}%
+\contentsline {subsection}{\numberline {2.2}Contribution}{7}{}%
+\contentsline {section}{\numberline {3}Econometric Model}{9}{}%
+\contentsline {subsection}{\numberline {3.1}The MF2-GARCH Model}{9}{}%
+\contentsline {subsection}{\numberline {3.2}Maheu-McCurdy Univariate Risk-Return Specification}{11}{}%
+\contentsline {subsection}{\numberline {3.3}MF2-GARCH-in-Mean}{11}{}%
+\contentsline {subsection}{\numberline {3.4}Controlling for Crisis Periods/Final Specification}{12}{}%
+\contentsline {section}{\numberline {4}Method}{13}{}%
+\contentsline {subsection}{\numberline {4.1}Log-Likelihood Function}{13}{}%
+\contentsline {subsection}{\numberline {4.2}Estimation}{14}{}%
+\contentsline {subsection}{\numberline {4.3}Monte Carlo Simulation}{14}{}%
+\contentsline {section}{\numberline {5}Empirical Results}{15}{}%
+\contentsline {subsection}{\numberline {5.1}Data}{15}{}%
+\contentsline {subsubsection}{\numberline {5.1.1}Sample Dates}{16}{}%
+\contentsline {subsubsection}{\numberline {5.1.2}Crisis Periods}{16}{}%
+\contentsline {subsubsection}{\numberline {5.1.3}Choice of moving average window size}{16}{}%
+\contentsline {subsection}{\numberline {5.2}Estimates and Interpretations}{17}{}%
+\contentsline {subsubsection}{\numberline {5.2.1}Parameter Estimates - Controlling for Crisis Periods}{17}{}%
+\contentsline {subsubsection}{\numberline {5.2.2}Parameter Estimates - Not Controlling for Crisis Periods}{18}{}%
+\contentsline {subsubsection}{\numberline {5.2.3}Interpretation}{20}{}%
+\contentsline {subsection}{\numberline {5.3}Monte Carlo Simulation Results}{22}{}%
+\contentsline {section}{\numberline {6}Further Research}{23}{}%
+\contentsline {subsection}{\numberline {6.1}Return and Premium Forecasting}{23}{}%
+\contentsline {subsection}{\numberline {6.2}Regime-Switching Extensions}{24}{}%
+\contentsline {section}{\numberline {7}Conclusion}{24}{}%
+\contentsline {subsection}{\numberline {7.1}Limitations}{24}{}%
+\contentsline {subsubsection}{\numberline {7.1.1}Short-Term Volatility Dynamics}{24}{}%
+\contentsline {subsubsection}{\numberline {7.1.2}Crisis Dummy Simplification}{25}{}%
+\contentsline {subsection}{\numberline {7.2}Conclusion}{25}{}%
+\contentsline {section}{\numberline {8}References}{27}{}%
+\contentsline {section}{Appendix}{29}{}%
+\contentsline {subsection}{A.1{\hskip 1em\relax }Figures}{30}{}%
+\contentsline {subsection}{A.2{\hskip 1em\relax }Tables}{32}{}%

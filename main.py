@@ -9,8 +9,6 @@ import warnings
 
 # Suppressing warnings due to square rooting of negative h*tau values
 warnings.filterwarnings("ignore", category=RuntimeWarning)
-# Importing data (market premia)
-returns = pandas.read_excel('data/FF_DAILY_3_FACTORS.xlsx')
 
 ####################################
 ############ USER INPUT ############
@@ -104,8 +102,11 @@ if(montecarlo_sim):
     print(tabulate(table, headers=["", "Avg. Est.", "Avg. Std. Err.", "Std. Err. of Avg."]))
 
 else:
+    # Importing data (market premia)
+    returns = pandas.read_excel('data/FF_DAILY_3_FACTORS.xlsx')
     # Market premia
     y = returns['Mkt-RF'].values
+    rfs = returns['RF'].values
     # Dummy variable to control for crises. If not desired then remains an array of zeros
     D = np.zeros(len(y))
     if(crisis_control):
@@ -164,6 +165,12 @@ else:
     h_pd = pandas.Series(h)
     tau_pd = pandas.Series(tau)
     vol_pd = pandas.Series(vol)
+
+    print("Sample length (in days, after discarding 2*252 days): ", len(h))
+
+    print("Correlation between risk-free rate and components:")
+    print("Corr(RF, tau)=", format(np.corrcoef(rfs[len(rfs)-len(tau):], tau)[0][1], '.3f'))
+    print("Corr(RF, h)=", format(np.corrcoef(rfs[len(rfs)-len(h):], h)[0][1], '.3f'))
 
     print("---y---")
     print("Mean: ", format(np.mean(y), '.3f'))
