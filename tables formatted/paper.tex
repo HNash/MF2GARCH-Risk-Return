@@ -251,7 +251,7 @@ L=\frac{1}{2}\sum_{t=1}^T[ln(2\pi)+ln(h_t\tau_t)+\frac{(r_t-(\delta_0+\theta_0D_
 \end{equation}
 In my implementation, I minimize the negative log-likelihood function, $-L$.
 \subsection{Estimation}
-The full Python code and data files are provided as attachments to the digital version of this thesis, and links to an online repository can be found in Section A.1 of the appendix. The implementation of MF2-GARCH parameter estimation is based on Conrad \& Schoelkopf (2025).\par
+The full Python code and data files are provided as attachments to the digital version of this thesis, and links to an online repository can be found in Section A.3 of the appendix. The implementation of MF2-GARCH parameter estimation is based on Conrad \& Schoelkopf (2025).\par
 I estimate all parameters simultaneously using Quasi-Maximum Likelihood Estimation (QMLE) implemented in Python. Minimization of the negative log-likelihood function is done with the optimize.minimize function of the SciPy package, using the sequential least squares programming (SLSQP) option.\par
 Likelihood ratio tests of the proportional variants against non-proportional counterparts are implemented manually with the SciPy package. 
 \subsection{Monte Carlo Simulation}
@@ -935,6 +935,10 @@ February 2020 & April 2020 & COVID-19 pandemic \\
   }
 \end{table}
 
-\newpage
+\pagebreak
 \restoregeometry
+\addcontentsline{toc}{subsection}{A.3{\quad}Code}
+\section*{A.3 - Code}
+The full Python code and data files are provided as attachments to the digital version of this thesis. The code can also be found online at: \url{}
+
 \end{document}
