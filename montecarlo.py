@@ -91,4 +91,4 @@ def generate(proportional, components, length, seed):
         # Standardized forecast error of GJR-GARCH
         V[t] = ((r[t] - mu[t]) ** 2) / h[t]
     # "Burning in" and discarding some data to remove effects of parameter starting values
-    return r[burnin+1:]
+    return r[burnin:]
