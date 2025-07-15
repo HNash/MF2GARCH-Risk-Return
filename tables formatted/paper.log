@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.4)  13 JUL 2025 20:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.4)  15 JUL 2025 15:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -210,6 +210,9 @@ LaTeX Info: Redefining \Relbar on input line 970.
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
+(/usr/share/texmf-dist/tex/latex/ncctools/extdash.sty
+Package: extdash 2018/06/24 v1.3 Extended Dash Package (NCC)
+)
 (/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -221,20 +224,20 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -513,42 +516,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 332--350
 [28]
 
 [29]
-<BICPlots/Prop_ST_Cr.png, id=124, 642.4pt x 481.8pt>
+<BICPlots/Prop_ST_Cr.png, id=123, 642.4pt x 481.8pt>
 File: BICPlots/Prop_ST_Cr.png Graphic file (type png)
 <use BICPlots/Prop_ST_Cr.png>
 Package pdftex.def Info: BICPlots/Prop_ST_Cr.png  used on input line 371.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/ST_Cr.png, id=126, 642.4pt x 481.8pt>
+<BICPlots/ST_Cr.png, id=125, 642.4pt x 481.8pt>
 File: BICPlots/ST_Cr.png Graphic file (type png)
 <use BICPlots/ST_Cr.png>
 Package pdftex.def Info: BICPlots/ST_Cr.png  used on input line 374.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/Prop_LT_Cr.png, id=127, 642.4pt x 481.8pt>
+<BICPlots/Prop_LT_Cr.png, id=126, 642.4pt x 481.8pt>
 File: BICPlots/Prop_LT_Cr.png Graphic file (type png)
 <use BICPlots/Prop_LT_Cr.png>
 Package pdftex.def Info: BICPlots/Prop_LT_Cr.png  used on input line 378.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/LT_Cr.png, id=128, 642.4pt x 481.8pt>
+<BICPlots/LT_Cr.png, id=127, 642.4pt x 481.8pt>
 File: BICPlots/LT_Cr.png Graphic file (type png)
 <use BICPlots/LT_Cr.png>
 Package pdftex.def Info: BICPlots/LT_Cr.png  used on input line 381.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/Prop_Both_Cr.png, id=129, 642.4pt x 481.8pt>
+<BICPlots/Prop_Both_Cr.png, id=128, 642.4pt x 481.8pt>
 File: BICPlots/Prop_Both_Cr.png Graphic file (type png)
 <use BICPlots/Prop_Both_Cr.png>
 Package pdftex.def Info: BICPlots/Prop_Both_Cr.png  used on input line 385.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/Both_Cr.png, id=130, 642.4pt x 481.8pt>
+<BICPlots/Both_Cr.png, id=129, 642.4pt x 481.8pt>
 File: BICPlots/Both_Cr.png Graphic file (type png)
 <use BICPlots/Both_Cr.png>
 Package pdftex.def Info: BICPlots/Both_Cr.png  used on input line 388.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/Prop_Vol_Cr.png, id=131, 642.4pt x 481.8pt>
+<BICPlots/Prop_Vol_Cr.png, id=130, 642.4pt x 481.8pt>
 File: BICPlots/Prop_Vol_Cr.png Graphic file (type png)
 <use BICPlots/Prop_Vol_Cr.png>
 Package pdftex.def Info: BICPlots/Prop_Vol_Cr.png  used on input line 392.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/Vol_Cr.png, id=132, 642.4pt x 481.8pt>
+<BICPlots/Vol_Cr.png, id=131, 642.4pt x 481.8pt>
 File: BICPlots/Vol_Cr.png Graphic file (type png)
 <use BICPlots/Vol_Cr.png>
 Package pdftex.def Info: BICPlots/Vol_Cr.png  used on input line 395.
@@ -558,42 +561,42 @@ Package pdftex.def Info: BICPlots/Vol_Cr.png  used on input line 395.
 [30 <./BICPlots/Prop_ST_Cr.png> <./BICPlots/ST_Cr.png> <./BICPlots/Prop_LT_Cr.p
 ng> <./BICPlots/LT_Cr.png> <./BICPlots/Prop_Both_Cr.png> <./BICPlots/Both_Cr.pn
 g> <./BICPlots/Prop_Vol_Cr.png> <./BICPlots/Vol_Cr.png>]
-<BICPlots/Prop_ST.png, id=144, 462.528pt x 346.896pt>
+<BICPlots/Prop_ST.png, id=143, 462.528pt x 346.896pt>
 File: BICPlots/Prop_ST.png Graphic file (type png)
 <use BICPlots/Prop_ST.png>
 Package pdftex.def Info: BICPlots/Prop_ST.png  used on input line 413.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/ST.png, id=145, 462.528pt x 346.896pt>
+<BICPlots/ST.png, id=144, 462.528pt x 346.896pt>
 File: BICPlots/ST.png Graphic file (type png)
 <use BICPlots/ST.png>
 Package pdftex.def Info: BICPlots/ST.png  used on input line 416.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/Prop_LT.png, id=146, 462.528pt x 346.896pt>
+<BICPlots/Prop_LT.png, id=145, 462.528pt x 346.896pt>
 File: BICPlots/Prop_LT.png Graphic file (type png)
 <use BICPlots/Prop_LT.png>
 Package pdftex.def Info: BICPlots/Prop_LT.png  used on input line 420.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/LT.png, id=147, 462.528pt x 346.896pt>
+<BICPlots/LT.png, id=146, 462.528pt x 346.896pt>
 File: BICPlots/LT.png Graphic file (type png)
 <use BICPlots/LT.png>
 Package pdftex.def Info: BICPlots/LT.png  used on input line 423.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/Prop_Both.png, id=148, 462.528pt x 346.896pt>
+<BICPlots/Prop_Both.png, id=147, 462.528pt x 346.896pt>
 File: BICPlots/Prop_Both.png Graphic file (type png)
 <use BICPlots/Prop_Both.png>
 Package pdftex.def Info: BICPlots/Prop_Both.png  used on input line 427.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/Both.png, id=149, 462.528pt x 346.896pt>
+<BICPlots/Both.png, id=148, 462.528pt x 346.896pt>
 File: BICPlots/Both.png Graphic file (type png)
 <use BICPlots/Both.png>
 Package pdftex.def Info: BICPlots/Both.png  used on input line 430.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/Prop_Vol.png, id=150, 462.528pt x 346.896pt>
+<BICPlots/Prop_Vol.png, id=149, 462.528pt x 346.896pt>
 File: BICPlots/Prop_Vol.png Graphic file (type png)
 <use BICPlots/Prop_Vol.png>
 Package pdftex.def Info: BICPlots/Prop_Vol.png  used on input line 434.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/Vol.png, id=151, 462.528pt x 346.896pt>
+<BICPlots/Vol.png, id=150, 462.528pt x 346.896pt>
 File: BICPlots/Vol.png Graphic file (type png)
 <use BICPlots/Vol.png>
 Package pdftex.def Info: BICPlots/Vol.png  used on input line 437.
@@ -740,13 +743,17 @@ Package geometry Warning: `a4paper': not available in `\newgeometry'; skipped.
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 4665 strings out of 475171
- 78295 string characters out of 5767096
- 508219 words of memory out of 5000000
- 27628 multiletter control sequences out of 15000+600000
- 565680 words of font info for 60 fonts, out of 8000000 for 9000
+ 4723 strings out of 475171
+ 79251 string characters out of 5767096
+ 508738 words of memory out of 5000000
+ 27682 multiletter control sequences out of 15000+600000
+ 565987 words of font info for 61 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  66i,17n,67p,1249b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/cloudberry/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.60
@@ -757,17 +764,17 @@ ic/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
 r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></
-usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.p
-fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on paper.pdf (42 pages, 637639 bytes).
+/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
+sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.
+pfb>
+Output written on paper.pdf (42 pages, 628262 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
+ 259 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
