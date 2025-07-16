@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage[a4paper, margin=3cm]{geometry}
+\usepackage[shortcuts]{extdash}
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{setspace}
@@ -19,30 +20,29 @@
 \vfill
 \textbf{Examining the Risk-Return Relationship \\Using the MF2-GARCH Model}\\
 \vspace{25mm}
-Master's thesis\\
-to obtain the academic degree "Master of Science" (M.Sc.)\\
-\vspace{10mm}
-submitted\\
-to the Examination Board for the Master's program\\
-\vspace{10mm}
+Masterarbeit\\
+zur Erlangung des akademischen Grades "Master of Science" (M.Sc.)\\
+\vspace{5mm}
+eingereicht\\
+beim Prüfungsausschuss für den Masterstudiengang\\
+\vspace{5mm}
 Economics\\
-\vspace{10mm}
-the\\
-Faculty of Economics and Social Sciences of the\\
-Ruprecht-Karls-University Heidelberg\\
-\vspace{10mm}
-Year\\
-2025
-\vspace{10mm}
+\vspace{5mm}
+der\\
+Fakultät für Wirtschafts- und Sozialwissenschaften der\\
+Ruprecht-Karls-Universität Heidelberg\\
+\vspace{5mm}
+2025\\
+\vspace{5mm}
 \end{center}
 \vfill
-Hussam Elhamy Hamed Shaker \textbf{Elnashar}, born in\\
-Kuwait City, Kuwait on 23.05.1998
+Hussam Elhamy Hamed Shaker \textbf{Elnashar},\\ 
+Geborn in Kuwait City, Kuwait, 23.05.1998
 \hspace{0pt}
 
 \newpage
 \thispagestyle{empty}
-\noindent Hiermit versichere ich, dass ich die vorliegende Arbeit selbstständig und ohne unerlaubte fremde Hilfe verfasst habe und dass alle wörtlich oder sinngemäß aus Veroeffentlichungen entnommenen Stellen dieser Arbeit unter Quellenangabe einzeln kenntlich gemacht sind.\\\\
+\noindent Hiermit versichere ich, dass ich die vorliegende Arbeit selbstständig und ohne unerlaubte fremde Hilfe verfasst habe und dass alle wörtlich oder sinngemäß aus Veröffen\-/tlichungen entnommenen Stellen dieser Arbeit unter Quellenangabe einzeln kenntlich gemacht sind.\\\\
 Datum:\\\\
 Unterschrift:\\\\
 \begin{center}
@@ -189,7 +189,7 @@ While they use a realized volatility (RV) approach to model risk in their origin
 While the original MF2-GARCH specification treats the mean ($\mu$) unconditionally as a parameter to be estimated, I instead use the conditional mean, $\mu_t$. Here the conditional mean is given by the Maheu-McCurdy specification in Equation (4). The squared demeaned return in Equation (1), $(r_{t-1}-\mu)^2$, becomes:
 \begin{equation}
 \nonumber
-(r_{t-1}-\mu_t)^2=r_{t-1}-\delta_0-\delta_1\sigma_{t-1,(q)}^2
+(r_{t-1}-\mu_t)^2=(r_{t-1}-\delta_0-\delta_1\sigma_{t-1,(q)}^2)^2
 \end{equation}
 and as this thesis uses excess market return, $r_{t-1}$ is the daily market premium for period $t-1$.\par
 In Equation (4), the conditional variance and its components are estimated with MF2-GARCH-rw-m. As in the original paper by Conrad \& Engle (2025), I estimate all models for values of m from 20 up to 160 and determine the optimal value for m as the one that minimizes the BIC value.\par
@@ -738,8 +738,8 @@ February 2020 & April 2020 & COVID-19 pandemic \\
     \multicolumn{13}{l}{\textbf{Non‑Proportional}}\\
     \begin{tabular}[t]{@{}c@{}}0.006 \\ (0.033)\end{tabular} &
     \begin{tabular}[t]{@{}c@{}}0.160*** \\ (0.021)\end{tabular} &
-    \begin{tabular}[t]{@{}c@{}}0.843*** \\ (0.020)\end{tabular} &
-    \begin{tabular}[t]{@{}c@{}}0.011 \\ (0.020)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.842*** \\ (0.020)\end{tabular} &
+    \begin{tabular}[t]{@{}c@{}}0.011 \\ (0.047)\end{tabular} &
     \begin{tabular}[t]{@{}c@{}}0.085 \\ (0.329)\end{tabular} &
     \begin{tabular}[t]{@{}c@{}}0.902** \\ (0.386)\end{tabular} &
     \begin{tabular}[t]{@{}c@{}}0.003 \\ (0.009)\end{tabular} &
@@ -941,8 +941,8 @@ February 2020 & April 2020 & COVID-19 pandemic \\
 \addcontentsline{toc}{subsection}{A.3{\quad}Code}
 \section*{A.3 - Code}
 The full Python code and data files are provided as attachments to the digital version of this thesis. The code can also be found online at: \url{https://github.com/HNash/MF2-GARCH-in-Mean}. The code is authored by me except where explicitly stated in the comments of the code files. I took the MATLAB files from Conrad \& Schoelkopf (2025), which were originally written for QMLE of MF2-GARCH parameters, translated them to Python, and extended them in order to estimate the full MF2-GARCH-in-mean model (\textit{see files "estimation.py" and "stderr.py"}).
-\addcontentsline{toc}{subsection}{A.3{\quad}Notes on the use of Artificial Intillegence}
-\section*{A.4 - Notes on the use of Artificial Intillegence}
+\addcontentsline{toc}{subsection}{A.3{\quad}Notes on the use of Artificial Intelligence}
+\section*{A.4 - Notes on the use of Artificial Intelligence}
 Aside from direct references to previous research, the contents of this thesis are all written in my own words.\\
 Large Language Models (LLMs) such as Chat-GPT and Perplexity were used to:
 \begin{itemize}

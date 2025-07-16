@@ -1,240 +1,244 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.4)  13 JUL 2025 20:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.11.29)  16 JUL 2025 18:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**paper.tex
-(./paper.tex
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
-(/usr/share/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
-(/usr/share/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+**./paper.tex
+(paper.tex
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-08-29>
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count196
-\c@section=\count197
-\c@subsection=\count198
-\c@subsubsection=\count199
-\c@paragraph=\count266
-\c@subparagraph=\count267
-\c@figure=\count268
-\c@table=\count269
-\abovecaptionskip=\skip49
-\belowcaptionskip=\skip50
-\bibindent=\dimen141
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
 )
-(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
-(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
 )
-(/usr/share/texmf-dist/tex/generic/iftex/ifvtex.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(/usr/share/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
-\Gm@cnth=\count270
-\Gm@cntv=\count271
-\c@Gm@tempcnt=\count272
-\Gm@bindingoffset=\dimen142
-\Gm@wd@mp=\dimen143
-\Gm@odd@mp=\dimen144
-\Gm@even@mp=\dimen145
-\Gm@layoutwidth=\dimen146
-\Gm@layoutheight=\dimen147
-\Gm@layouthoffset=\dimen148
-\Gm@layoutvoffset=\dimen149
+\Gm@cnth=\count193
+\Gm@cntv=\count194
+\c@Gm@tempcnt=\count195
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
 \Gm@dimlist=\toks18
+
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/ncctools\extdash.sty
+Package: extdash 2018/06/24 v1.3 Extended Dash Package (NCC)
 )
-(/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen150
-\lightrulewidth=\dimen151
-\cmidrulewidth=\dimen152
-\belowrulesep=\dimen153
-\belowbottomsep=\dimen154
-\aboverulesep=\dimen155
-\abovetopsep=\dimen156
-\cmidrulesep=\dimen157
-\cmidrulekern=\dimen158
-\defaultaddspace=\dimen159
-\@cmidla=\count273
-\@cmidlb=\count274
-\@aboverulesep=\dimen160
-\@belowrulesep=\dimen161
-\@thisruleclass=\count275
-\@lastruleclass=\count276
-\@thisrulewidth=\dimen162
+\heavyrulewidth=\dimen149
+\lightrulewidth=\dimen150
+\cmidrulewidth=\dimen151
+\belowrulesep=\dimen152
+\belowbottomsep=\dimen153
+\aboverulesep=\dimen154
+\abovetopsep=\dimen155
+\cmidrulesep=\dimen156
+\cmidrulekern=\dimen157
+\defaultaddspace=\dimen158
+\@cmidla=\count196
+\@cmidlb=\count197
+\@aboverulesep=\dimen159
+\@belowrulesep=\dimen160
+\@thisruleclass=\count198
+\@lastruleclass=\count199
+\@thisrulewidth=\dimen161
 )
-(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
-(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 106.
-
-(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+Package graphics Info: Driver file: pdftex.def on input line 107.
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen163
-\Gin@req@width=\dimen164
-)
-(/usr/share/texmf-dist/tex/latex/setspace/setspace.sty
+\Gin@req@height=\dimen162
+\Gin@req@width=\dimen163
+) (C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 )
-(/usr/share/texmf-dist/tex/latex/graphics/rotating.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotating.sty
 Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
 
-(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\c@r@tfl@t=\count277
-\rotFPtop=\skip51
-\rotFPbot=\skip52
-\rot@float@box=\box52
+\c@r@tfl@t=\count266
+\rotFPtop=\skip50
+\rotFPbot=\skip51
+\rot@float@box=\box51
 \rot@mess@toks=\toks19
 )
-(/usr/share/texmf-dist/tex/latex/caption/caption.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
-(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen165
-\captionmargin=\dimen166
-\caption@leftmargin=\dimen167
-\caption@rightmargin=\dimen168
-\caption@width=\dimen169
-\caption@indent=\dimen170
-\caption@parindent=\dimen171
-\caption@hangindent=\dimen172
+\caption@tempdima=\dimen164
+\captionmargin=\dimen165
+\caption@leftmargin=\dimen166
+\caption@rightmargin=\dimen167
+\caption@width=\dimen168
+\caption@indent=\dimen169
+\caption@parindent=\dimen170
+\caption@hangindent=\dimen171
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count278
-\c@continuedfloat=\count279
+\c@caption@flags=\count267
+\c@continuedfloat=\count268
 Package caption Info: rotating package is loaded.
 )
-(/usr/share/texmf-dist/tex/latex/caption/subcaption.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count280
+\c@subfigure=\count269
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count281
+\c@subtable=\count270
 )
-(/usr/share/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
 
-(/usr/share/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nometa
+data.sty
 Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
 F (HO)
 
-(/usr/share/texmf-dist/tex/latex/graphics/lscape.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2024/11/05 v2.17t AMS math features
-\@mathmargin=\skip53
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip52
 
 For additional information on amsmath, use the `?' option.
-(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
 
-(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks20
-\ex@=\dimen173
+\ex@=\dimen172
 ))
-(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen174
+\pmbraise@=\dimen173
 )
-(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count282
-LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count283
-\leftroot@=\count284
-LaTeX Info: Redefining \overline on input line 398.
-LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count285
-\DOTSCASE@=\count286
-LaTeX Info: Redefining \ldots on input line 495.
-LaTeX Info: Redefining \dots on input line 498.
-LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box53
-\strutbox@=\box54
-LaTeX Info: Redefining \big on input line 721.
-LaTeX Info: Redefining \Big on input line 722.
-LaTeX Info: Redefining \bigg on input line 723.
-LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen175
-LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count287
-LaTeX Info: Redefining \bmod on input line 904.
-LaTeX Info: Redefining \pmod on input line 909.
-LaTeX Info: Redefining \smash on input line 939.
-LaTeX Info: Redefining \relbar on input line 969.
-LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count288
-\dotsspace@=\muskip17
-\c@parentequation=\count289
-\dspbrk@lvl=\count290
+\inf@bad=\count271
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count272
+\leftroot@=\count273
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count274
+\DOTSCASE@=\count275
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box52
+\strutbox@=\box53
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen174
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count276
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count277
+\dotsspace@=\muskip16
+\c@parentequation=\count278
+\dspbrk@lvl=\count279
 \tag@help=\toks21
-\row@=\count291
-\column@=\count292
-\maxfields@=\count293
+\row@=\count280
+\column@=\count281
+\maxfields@=\count282
 \andhelp@=\toks22
-\eqnshift@=\dimen176
-\alignsep@=\dimen177
-\tagshift@=\dimen178
-\tagwidth@=\dimen179
-\totwidth@=\dimen180
-\lineht@=\dimen181
+\eqnshift@=\dimen175
+\alignsep@=\dimen176
+\tagshift@=\dimen177
+\tagwidth@=\dimen178
+\totwidth@=\dimen179
+\lineht@=\dimen180
 \@envbody=\toks23
-\multlinegap=\skip54
-\multlinetaggap=\skip55
+\multlinegap=\skip53
+\multlinetaggap=\skip54
 \mathdisplay@stack=\toks24
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
-(/usr/share/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip18
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count294
-\l__pdf_internal_box=\box55
-) (./paper.aux)
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex
+.def
+File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count283
+\l__pdf_internal_box=\box54
+) (paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -270,35 +274,34 @@ LaTeX Font Info:    ... okay on input line 13.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count295
-\scratchdimen=\dimen182
-\scratchbox=\box56
-\nofMPsegments=\count296
-\nofMParguments=\count297
+\scratchcounter=\count284
+\scratchdimen=\dimen181
+\scratchbox=\box55
+\nofMPsegments=\count285
+\nofMParguments=\count286
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count298
-\MPscratchDim=\dimen183
-\MPnumerator=\count299
-\makeMPintoPDFobject=\count300
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen182
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
 \everyMPtoPDFconversion=\toks26
-) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+)
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base
+.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
+(C:\Users\HN\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+ [1
 
-
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+{C:/Users/HN/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 Underfull \hbox (badness 10000) in paragraph at lines 45--48
 
  []
@@ -318,97 +321,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--48
 
  []
 
-
-
-[2] (./paper.toc
-
-[3])
+[2] (paper.toc [3])
 \tf@toc=\write3
 \openout3 = `paper.toc'.
 
-
-
-[4]
-
-[1]
-
-[2]
-
-[3]
-
-[4]
-
-[5]
+ [4] [1] [2] [3] [4] [5]
 Overfull \hbox (4.69028pt too wide) in paragraph at lines 97--98
 \OT1/cmr/m/n/12 cant when risk is mea-sured by the persistent/long-term com-po-
 nent of the Component-
  []
 
-
-
-[6]
-
-[7]
-
-[8]
-
-[9]
-
-[10]
-
-[11]
+[6] [7] [8] [9] [10] [11]
 Overfull \hbox (0.86949pt too wide) in paragraph at lines 219--219
 \OT1/cmr/m/n/12 Previous at-tempts to de-ter-mine the risk-return re-la-tion-sh
 ip which ac-count for volatil-
  []
 
-
-
-[12]
-
-[13]
+[12] [13]
 Overfull \hbox (0.48581pt too wide) in paragraph at lines 256--256
 \OT1/cmr/m/n/12 ma-tion (QMLE) im-ple-mented in Python. Min-i-miza-tion of the 
 neg-a-tive log-likelihood
  []
 
-
-
-[14]
-
-[15]
-
-[16]
-
-[17]
-
-[18]
-
-[19]
-
-[20]
-
-[21]
+[14] [15] [16] [17] [18] [19] [20] [21]
 Overfull \hbox (0.60573pt too wide) in paragraph at lines 306--307
 []\OT1/cmr/m/n/12 Finally, the sim-i-lar-ity of the un-der-ly-ing MF2[]GARCH pa
 -ram-e-ter es-ti-mates across
  []
 
-
-
-[22]
-
-[23]
+[22] [23]
 Overfull \hbox (0.39958pt too wide) in paragraph at lines 323--324
 \OT1/cmr/m/n/12 short-term com-po-nent's pa-ram-e-ter es-ti-ma-tion. In my es-t
 i-mates the short-run volatil-
  []
 
-
-
-[24]
-
-[25]
+[24] [25]
 Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
@@ -504,109 +451,94 @@ Underfull \hbox (badness 10000) in paragraph at lines 332--350
 
  []
 
-
-
-[26]
-
-[27]
-
-[28]
-
-[29]
-<BICPlots/Prop_ST_Cr.png, id=124, 642.4pt x 481.8pt>
+[26] [27] [28] [29]
+<BICPlots/Prop_ST_Cr.png, id=123, 642.4pt x 481.8pt>
 File: BICPlots/Prop_ST_Cr.png Graphic file (type png)
 <use BICPlots/Prop_ST_Cr.png>
 Package pdftex.def Info: BICPlots/Prop_ST_Cr.png  used on input line 371.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/ST_Cr.png, id=126, 642.4pt x 481.8pt>
+<BICPlots/ST_Cr.png, id=125, 642.4pt x 481.8pt>
 File: BICPlots/ST_Cr.png Graphic file (type png)
 <use BICPlots/ST_Cr.png>
 Package pdftex.def Info: BICPlots/ST_Cr.png  used on input line 374.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/Prop_LT_Cr.png, id=127, 642.4pt x 481.8pt>
+<BICPlots/Prop_LT_Cr.png, id=126, 642.4pt x 481.8pt>
 File: BICPlots/Prop_LT_Cr.png Graphic file (type png)
 <use BICPlots/Prop_LT_Cr.png>
 Package pdftex.def Info: BICPlots/Prop_LT_Cr.png  used on input line 378.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/LT_Cr.png, id=128, 642.4pt x 481.8pt>
+<BICPlots/LT_Cr.png, id=127, 642.4pt x 481.8pt>
 File: BICPlots/LT_Cr.png Graphic file (type png)
 <use BICPlots/LT_Cr.png>
 Package pdftex.def Info: BICPlots/LT_Cr.png  used on input line 381.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/Prop_Both_Cr.png, id=129, 642.4pt x 481.8pt>
+<BICPlots/Prop_Both_Cr.png, id=128, 642.4pt x 481.8pt>
 File: BICPlots/Prop_Both_Cr.png Graphic file (type png)
 <use BICPlots/Prop_Both_Cr.png>
 Package pdftex.def Info: BICPlots/Prop_Both_Cr.png  used on input line 385.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/Both_Cr.png, id=130, 642.4pt x 481.8pt>
+<BICPlots/Both_Cr.png, id=129, 642.4pt x 481.8pt>
 File: BICPlots/Both_Cr.png Graphic file (type png)
 <use BICPlots/Both_Cr.png>
 Package pdftex.def Info: BICPlots/Both_Cr.png  used on input line 388.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/Prop_Vol_Cr.png, id=131, 642.4pt x 481.8pt>
+<BICPlots/Prop_Vol_Cr.png, id=130, 642.4pt x 481.8pt>
 File: BICPlots/Prop_Vol_Cr.png Graphic file (type png)
 <use BICPlots/Prop_Vol_Cr.png>
 Package pdftex.def Info: BICPlots/Prop_Vol_Cr.png  used on input line 392.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-<BICPlots/Vol_Cr.png, id=132, 642.4pt x 481.8pt>
+<BICPlots/Vol_Cr.png, id=131, 642.4pt x 481.8pt>
 File: BICPlots/Vol_Cr.png Graphic file (type png)
 <use BICPlots/Vol_Cr.png>
 Package pdftex.def Info: BICPlots/Vol_Cr.png  used on input line 395.
 (pdftex.def)             Requested size: 192.0548pt x 144.0412pt.
-
-
-[30 <./BICPlots/Prop_ST_Cr.png> <./BICPlots/ST_Cr.png> <./BICPlots/Prop_LT_Cr.p
-ng> <./BICPlots/LT_Cr.png> <./BICPlots/Prop_Both_Cr.png> <./BICPlots/Both_Cr.pn
-g> <./BICPlots/Prop_Vol_Cr.png> <./BICPlots/Vol_Cr.png>]
-<BICPlots/Prop_ST.png, id=144, 462.528pt x 346.896pt>
+ [30 <./BICPlots/Prop_ST_Cr.png> <./BICPlots/ST_Cr.png> <./BICPlots/Prop_LT_Cr.
+png> <./BICPlots/LT_Cr.png> <./BICPlots/Prop_Both_Cr.png> <./BICPlots/Both_Cr.p
+ng> <./BICPlots/Prop_Vol_Cr.png> <./BICPlots/Vol_Cr.png>]
+<BICPlots/Prop_ST.png, id=143, 462.528pt x 346.896pt>
 File: BICPlots/Prop_ST.png Graphic file (type png)
 <use BICPlots/Prop_ST.png>
 Package pdftex.def Info: BICPlots/Prop_ST.png  used on input line 413.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/ST.png, id=145, 462.528pt x 346.896pt>
+<BICPlots/ST.png, id=144, 462.528pt x 346.896pt>
 File: BICPlots/ST.png Graphic file (type png)
 <use BICPlots/ST.png>
 Package pdftex.def Info: BICPlots/ST.png  used on input line 416.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/Prop_LT.png, id=146, 462.528pt x 346.896pt>
+<BICPlots/Prop_LT.png, id=145, 462.528pt x 346.896pt>
 File: BICPlots/Prop_LT.png Graphic file (type png)
 <use BICPlots/Prop_LT.png>
 Package pdftex.def Info: BICPlots/Prop_LT.png  used on input line 420.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/LT.png, id=147, 462.528pt x 346.896pt>
+<BICPlots/LT.png, id=146, 462.528pt x 346.896pt>
 File: BICPlots/LT.png Graphic file (type png)
 <use BICPlots/LT.png>
 Package pdftex.def Info: BICPlots/LT.png  used on input line 423.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/Prop_Both.png, id=148, 462.528pt x 346.896pt>
+<BICPlots/Prop_Both.png, id=147, 462.528pt x 346.896pt>
 File: BICPlots/Prop_Both.png Graphic file (type png)
 <use BICPlots/Prop_Both.png>
 Package pdftex.def Info: BICPlots/Prop_Both.png  used on input line 427.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/Both.png, id=149, 462.528pt x 346.896pt>
+<BICPlots/Both.png, id=148, 462.528pt x 346.896pt>
 File: BICPlots/Both.png Graphic file (type png)
 <use BICPlots/Both.png>
 Package pdftex.def Info: BICPlots/Both.png  used on input line 430.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/Prop_Vol.png, id=150, 462.528pt x 346.896pt>
+<BICPlots/Prop_Vol.png, id=149, 462.528pt x 346.896pt>
 File: BICPlots/Prop_Vol.png Graphic file (type png)
 <use BICPlots/Prop_Vol.png>
 Package pdftex.def Info: BICPlots/Prop_Vol.png  used on input line 434.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
-<BICPlots/Vol.png, id=151, 462.528pt x 346.896pt>
+<BICPlots/Vol.png, id=150, 462.528pt x 346.896pt>
 File: BICPlots/Vol.png Graphic file (type png)
 <use BICPlots/Vol.png>
 Package pdftex.def Info: BICPlots/Vol.png  used on input line 437.
 (pdftex.def)             Requested size: 192.0548pt x 144.04384pt.
 
-
 [31 <./BICPlots/Prop_ST.png> <./BICPlots/ST.png> <./BICPlots/Prop_LT.png> <./BI
 CPlots/LT.png> <./BICPlots/Prop_Both.png> <./BICPlots/Both.png> <./BICPlots/Pro
-p_Vol.png> <./BICPlots/Vol.png>]
-
-[32]
-
-[33]
+p_Vol.png> <./BICPlots/Vol.png>] [32] [33]
 
 Package geometry Warning: `a4paper': not available in `\newgeometry'; skipped.
 
@@ -641,8 +573,6 @@ Package geometry Warning: `a4paper': not available in `\newgeometry'; skipped.
 * \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-
 
 [34]
 
@@ -680,16 +610,12 @@ Package geometry Warning: `a4paper': not available in `\newgeometry'; skipped.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-
-
 [35
 
 
 
 
-]
-
-[36
+] [36
 
 ]
 
@@ -727,47 +653,47 @@ Package geometry Warning: `a4paper': not available in `\newgeometry'; skipped.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-
-
 [37
 
-]
+] [38
 
-[38
-
-] (./paper.aux)
+] (paper.aux)
  ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4665 strings out of 475171
- 78295 string characters out of 5767096
- 508219 words of memory out of 5000000
- 27628 multiletter control sequences out of 15000+600000
- 565680 words of font info for 60 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 66i,17n,67p,1249b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/cloudberry/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.60
-0pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
-r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></
-usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.p
-fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on paper.pdf (42 pages, 637639 bytes).
+ 4712 strings out of 475247
+ 81095 string characters out of 5759207
+ 1966785 words of memory out of 5000000
+ 26197 multiletter control sequences out of 15000+600000
+ 564912 words of font info for 60 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 66i,17n,67p,1251b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\HN\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm120
+0.pk><C:/Users/HN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmbx12.pfb><C:/Users/HN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx8.pfb><C:/Users/HN/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmex10.pfb><C:/Users/HN/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmmi12.pfb><C:/Users/HN/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmmi6.pfb><C:/Users/HN/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/HN/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/HN/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/HN/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/HN/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/HN/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/HN/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/HN/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/User
+s/HN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:
+/Users/HN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pf
+b><C:/Users/HN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmt
+i12.pfb><C:/Users/HN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmtt12.pfb>
+Output written on paper.pdf (42 pages, 664441 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
+ 261 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
