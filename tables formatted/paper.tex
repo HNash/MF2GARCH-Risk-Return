@@ -8,7 +8,6 @@
 \usepackage{subcaption}
 \usepackage{pdflscape}
 \usepackage{amsmath}
-\usepackage[shortcuts]{extdash}
 \usepackage{url}
 \linespread{1.5}
 \begin{document}
@@ -20,29 +19,30 @@
 \vfill
 \textbf{Examining the Risk-Return Relationship \\Using the MF2-GARCH Model}\\
 \vspace{25mm}
-Masterarbeit\\
-zur Erlangung des akademischen Grades  Master of Science“ (M.Sc.)\\
-\vspace{5mm}
-eingereicht\\
-beim Prüfungsausschuss für den Masterstudiengang\\
-\vspace{5mm}
+Master's thesis\\
+to obtain the academic degree "Master of Science" (M.Sc.)\\
+\vspace{10mm}
+submitted\\
+to the Examination Board for the Master's program\\
+\vspace{10mm}
 Economics\\
-\vspace{5mm}
-der\\
-Fakultät für Wirtschafts- und Sozialwissenschaften der\\
-Ruprecht-Karls-Universität Heidelberg\\
-\vspace{5mm}
+\vspace{10mm}
+the\\
+Faculty of Economics and Social Sciences of the\\
+Ruprecht-Karls-University Heidelberg\\
+\vspace{10mm}
+Year\\
 2025
-\vspace{5mm}
+\vspace{10mm}
 \end{center}
 \vfill
-Hussam Elhamy Hamed Shaker \textbf{Elnashar}\\
-Geborn in Kuwait City, Kuwait, 23.05.1998
+Hussam Elhamy Hamed Shaker \textbf{Elnashar}, born in\\
+Kuwait City, Kuwait on 23.05.1998
 \hspace{0pt}
 
 \newpage
 \thispagestyle{empty}
-\noindent Hiermit versichere ich, dass ich die vorliegende Arbeit selbstständig und ohne unerlaubte fremde Hilfe verfasst habe und dass alle wörtlich oder sinngemäß aus Veröffen\-/tlichungen entnommenen Stellen dieser Arbeit unter Quellenangabe einzeln kenntlich gemacht sind.\\\\
+\noindent Hiermit versichere ich, dass ich die vorliegende Arbeit selbstständig und ohne unerlaubte fremde Hilfe verfasst habe und dass alle wörtlich oder sinngemäß aus Veroeffentlichungen entnommenen Stellen dieser Arbeit unter Quellenangabe einzeln kenntlich gemacht sind.\\\\
 Datum:\\\\
 Unterschrift:\\\\
 \begin{center}
@@ -83,15 +83,15 @@ Volatility models like Generalized Autoregressive Conditional Heteroskedasticity
 Providing evidence for the existence of a positive risk-return relationship has practical implications in asset pricing, asset allocation, portfolio optimization, and policymaking.\par
 Asset pricing is usually done on the basis of the present value of the expected future income that the asset generates. This expected income is often estimated based on the asset's expected return, which in turn is based on the risk with which it is associated. It is taken for granted that riskier assets command higher risk premia and therefore higher expected returns, but without evidence to support this positive relationship, this remains an assumption. Inadequate risk measures which do not accurately capture this relationship reduce the accuracy of expected return estimates and by extension, the estimate of the asset price.\par
 Portfolio optimization methods like mean-variance analysis rely on estimates of expected returns for given levels of risk. If conditional variance forecasts contain information about expected returns, optimization models can make us of this by linking higher volatilities to higher expected equity premia. For an investor looking for a specific return, this means choosing an appropriate volatility level. If this relationship is negative or statistically insignificant, return objectives cannot be linked to volatility forecasts and optimization based on mean-variance analysis is ineffective.\par
-The risk-return relationship is also important for policymakers and regulators trying to maintain financial stability. Risk-weighted asset rules assume that higher-risk assets provide higher expected returns, so evidence of a positive tradeoff supports these approaches. If the market does not reward risk with higher returns, regulators may need to reassess these regulatory approaches. Governments and central banks also monitor equity risk premia as indicators of market sentiment. A rising premium might signal to them that risk aversion has increased, or that market sentiment has worsened. This also relies on the assumption that the risk-return relationship is positive.\par
+The risk-return relationship is also important for policymakers and regulators trying to maintain financial stability. Risk-weighted asset rules assume that higher-risk assets provide higher expected returns, so evidence of a positive tradeoff supports these approaches. If the market does not reward risk with higher returns, regulators may need to reasses these regulatory approaches. Governments and central banks also monitor equity risk premia as indicators of market sentiment. A rising premium might signal to them that risk aversion has increased, or that market sentiment has worsened. This also relies on the assumption that the risk-return relationship is positive.\par
 Risk aversion and market conditions can change over time, so the factors determining the market risk premium can vary across different "volatility regimes". Other variables like liquidity constraints, macroeconomic announcements, or investor sentiment can also influence returns and act as confounding variables when estimating the relationship between market risk and return. As a result, empirical tests often find weak or counterintuitive evidence of a volatility premium at short horizons.\par
 This thesis combines the MF2-GARCH model with a univariate risk-return specification to get a MF2-GARCH-in-mean model. The MF2-GARCH model multiplicatively decomposes overall conditional variance into long-term (persistent) and short-term (transient) components. By separating persistent volatility from transient shocks, this approach aims to achieve more accurate measures of risk and to test whether each volatility component commands a different risk premium (if any). In doing so, the aim is to see whether it is possible to detect the expected positive risk-return relationship in this way.
 
 \section{Literature Review}
 \subsection{Background}
-Early attempts to estimate the risk-return relationship often yielded unexpected results. Many early GARCH-in-mean regressions found a negative or statistically insignificant coefficient on conditional variance, contrary to expectations. French et al. (1987) document this "volatility feedback" effect, where "unexpected stock market returns are negatively related to the unexpected change in the volatility of stock returns". Simple regressions of returns on short-horizon variance can fail to detect the expected positive relationship. As a result, researchers explored alternative risk measures and more complex models in an attempt to find a positive slope.\par
+Early attempts to estimate the risk-return relationship often yielded unexpected results. Many early GARCH-in-mean regressions found a negative or statistically insignificant coefficient on conditional variance, contrary to expectations. French et al. (1987) document this “volatility feedback” effect, where "unexpected stock market returns are negatively related to the unexpected change in the volatility of stock returns". Simple regressions of returns on short-horizon variance can fail to detect the expected positive relationship. As a result, researchers explored alternative risk measures and more complex models in an attempt to find a positive slope.\par
 Guo \& Whitelaw (2006) explicitly model two components of expected returns. Following the ICAPM, they decompose the expected excess return into a variance term and a hedging demand term (estimated from a vector of state-variables such as the consumption-wealth ratio). They find that once the hedging component is included, the coefficient of variance becomes positive and statistically significant, and the implied coefficient of relative risk aversion is large but reasonable. They show that omitting the hedging demand term biases the estimated risk‐return slope downward. When the hedging term is controlled for, the volatility term no longer appears negatively related to returns. They do find, however, that the hedging term is primarily responsible for expected returns.\par
-Kim et al. (2008) estimate the relationship by modeling regime changes in volatility. They derive a model of the equity premium under the assumption that market variance follows a two-state Markov-switching process. In their estimation, they let the volatility feedback effect differ when the variance regime is "high" versus "low". Their results, using historical U.S. returns, show a negative and significant volatility feedback effect on current returns, which in their interpretation implies that higher volatility in the current period predicts a higher equity premium in future periods (a positive risk-return relationship). They find that the risk-return relationship is stronger in high-volatility regimes (crisis periods), and relatively weak in calmer periods.\par
+Kim et al. (2008) estimate the relationship by modeling regime changes in volatility. They derive a model of the equity premium under the assumption that market variance follows a two-state Markov-switching process. In their estimation, they let the volatility feedback effect differ when the variance regime is “high” versus “low.” Their results, using historical U.S. returns, show a negative and significant volatility feedback effect on current returns, which in their interpretation implies that higher volatility in the current period predicts a higher equity premium in future periods (a positive risk-return relationship). They find that the risk-return relationship is stronger in high-volatility regimes (crisis periods), and relatively weak in calmer periods.\par
 To find the positive risk-return relationship, Lundblad (2007) takes the approach of greatly expanding the sample size. He uses a very long historical sample of U.S. stock returns (starting in 1836) in his analysis. He finds statistically significant evidence of a positive risk premium when measured over such long horizons. His assertion is that conventional samples which are under 100 years in size may be too short to reliably estimate this relationship. In Monte Carlo simulations, he shows that small sample sizes can produce widely varying estimates of the coefficient of variance. He therefore argues that previous failures to find a positive tradeoff may be due to insufficient sample sizes. He also notes that the level of volatility itself has shifted a lot over history, with very high volatility around periods of market crisis and lower volatility in other periods. This suggests that the risk-return slope may appear different if crises are not accounted for.\par
 What has motivated this thesis is that more recently, several papers have found success when measuring or modeling risk over a longer horizon. One core issue in exploring the risk-return relationship is that volatility is not directly observable and can be modeled in many ways. More recent studies have separated volatility into short- and long-term components (through CGARCH, MIDAS, or other methods) and used longer averaging windows for its calculation. In particular, several papers have reported strong positive risk-return slopes when the risk measure is built to model low-frequency or long-run volatility.\par
 Guo \& Neely (2007) find that the risk-return relationship is positive and significant when risk is measured by the persistent/long-term component of the Component-GARCH (CGARCH) model (Engle \& Lee, 1993). The CGARCH model separates total conditional variance into two additive components. The CGARCH(1,1) specification, for example, would look as follows:
@@ -189,7 +189,7 @@ While they use a realized volatility (RV) approach to model risk in their origin
 While the original MF2-GARCH specification treats the mean ($\mu$) unconditionally as a parameter to be estimated, I instead use the conditional mean, $\mu_t$. Here the conditional mean is given by the Maheu-McCurdy specification in Equation (4). The squared demeaned return in Equation (1), $(r_{t-1}-\mu)^2$, becomes:
 \begin{equation}
 \nonumber
-(r_{t-1}-\mu_t)^2=(r_{t-1}-\delta_0-\delta_1\sigma_{t-1,(q)}^2)^2
+(r_{t-1}-\mu_t)^2=r_{t-1}-\delta_0-\delta_1\sigma_{t-1,(q)}^2
 \end{equation}
 and as this thesis uses excess market return, $r_{t-1}$ is the daily market premium for period $t-1$.\par
 In Equation (4), the conditional variance and its components are estimated with MF2-GARCH-rw-m. As in the original paper by Conrad \& Engle (2025), I estimate all models for values of m from 20 up to 160 and determine the optimal value for m as the one that minimizes the BIC value.\par
@@ -315,7 +315,7 @@ While this bias tells us that the model's estimates of the intercepts and short-
 \subsection{Return and Premium Forecasting}
 One immediate extension is to evaluate the MF2-GARCH-in-mean model as a forecasting tool for returns or equity premia. Given that Conrad \& Engle (2025) find MF2-GARCH generates strong out-of-sample volatility forecasts, it is worth exploring whether using the MF2-GARCH long-run volatility component improves return/premium forecasts. Future research could use the MF2-GARCH risk measure in out-of-sample forecasts, testing against earlier models like GJR-GARCH, Spline-GARCH, GARCH-MIDAS-RV, etc. A possible approach would be to simulate multi-step forecasts of expected returns under the MF2-GARCH-in-mean model and compare the forecast errors. In practice, a better forecasting model for returns would be of interest for financial applications, so verifying the predictive power of the MF2-GARCH-in-mean specification warrants further examination.
 \subsection{Regime-Switching Extensions}
-Another promising option is to introduce explicit regime or structural breaks into the MF2-GARCH-in-mean model. Allowing the GARCH parameters ($\alpha$, $\gamma$, $\beta$, $\lambda_0$, $\lambda_1$, $\lambda_2$) to switch between high-volatility and low-volatility regimes as in two-state Markov-switching models like that of Kim et al. (2008) would achieve this. Doing so might capture changes in investors' risk aversion or volatility dynamics that occur during crises. Similarly, allowing time-varying coefficients on the components of volatility in the risk-return specification to move with economic variables tied to expansion/recession can achieve the same aim. These extensions would build on the evidence that volatility dynamics can vary between regimes. By extending the MF2-GARCH model in this way, one can  endogenously change the definition of long-run volatility according to the market state, potentially improving fit. This can eliminate the need for the crisis indicator dummy variable.
+Another promising option is to introduce explicit regime or structural breaks into the MF2-GARCH-in-mean model. Allowing the GARCH parameters ($\alpha$, $\gamma$, $\beta$, $\lambda_0$, $\lambda_1$, $\lambda_2$) to switch between high-volatility and low-volatility regimes as in two-state Markov-switching models like that of Kim et al. (2008) would achieve this. Doing so might capture changes in investors' risk aversion or volatility dynamics that occur during crises. Similarly, allowing time-varying coefficients on the components of volatility in the risk-return specification to move with economic variables tied to expansion/recession can achieve the same aim. These extensions would build on the evidence that volatility dynamics can vary between regimes. By extending the MF2-GARCH model in this way, one can  endogenously change the definition of “long-run” volatility according to the market state, potentially improving fit. This can eliminate the need for the crisis indicator dummy variable.
 
 \section{Conclusion}
 \subsection{Limitations}
@@ -325,7 +325,7 @@ Perhaps the biggest issue in this MF2-GARCH-in-mean model is the bias in the sho
 The use of a simple binary crisis indicator also has its limitations. By construction the dummy assumes that all of the NBER-defined recessions have the same effect on the market risk premium, which is a strong simplification. In reality, crises can vary widely in severity, duration, and underlying causes. A single binary dummy cannot capture such non-linear or asymmetric effects across different crisis periods. Additionally, the NBER start and end dates mix downturn and recovery months, which might not line up well with market stress. The magnitude and timing of responses by policymakers and changes in investor behavior vary by crisis, so the real adjustment of the market premium to volatility likely changes continuously over time rather than starting and stopping perfectly with the start and end dates of each crisis period. The dummy variable is may therefore mistime how the premium behaves through turbulent periods. More complex approaches (e.g. Markov-switching regimes, mathematically defined recession periods) would allow the data to endogenously identify changes in dynamics rather than forcing a uniform on/off crisis effect, and would likely more accurately model risk premia in recessions.
 \subsection{Conclusion}
 This thesis introduces the MF2-GARCH volatility decomposition to a univariate risk-return model, explicitly separating short-run and long-run volatility in the conditional mean. This approach reveals that only the long-run volatility component carries a significant risk premium. Across many specifications the coefficient on the long-run component is statistically significant and positive, whereas the short-run component is frequently statistically insignificant or negative. This implies that persistent volatility (rather than temporary fluctuations) is what investors demand compensation for. Monte Carlo simulations support this finding by showing the long-run risk premium is identified reliably, while the short-run premium is not. The results support the idea that long-run uncertainty is a main determinant of the equity premium.\par
-These results are consistent with recent literature that makes use of persistent volatility to arrive at the same positive relationship. The use of MF2-GARCH is novel in the risk-premium context, and it explicitly makes use of the counter-cyclical behavior of forecast errors to model the smooth volatility component.\par
+These results are consistent with recent literature that makes use of persistent volatility to arrive at the same positive relationmship. The use of MF2-GARCH is novel in the risk-premium context, and it explicitly makes use of the counter-cyclical behavior of forecast errors to model the smooth volatility component.\par
 Practically, the results have important implications for investment, risk management and policymaking. A positive long-horizon risk-return relationship means that achieving higher returns over many years requires bearing greater long-run volatility, as standard asset pricing theory would predict. This suggests that long-term investors (such as pension funds) should focus on and hedge against persistent volatility changes over short-run volatility fluctuations. Portfolio management strategies that adjust exposure to assets based on short-term volatility measures may be ineffective. In risk management, making use of MF2-GARCH components for value at risk models or stress tests could improve the forecasting of tail events if those events are driven by changes in long-run volatility. Finally, policymakers concerned with financial stability should note that their policies that affect long-term volatility are likely to have sustained effects on market premia.\par
 
 \section{References}
@@ -352,7 +352,7 @@ Merton, R. C. (1980). On Estimating the Expected Return on the Market: An Explor
 \addcontentsline{toc}{section}{Appendix}
 \vspace*{5cm}
 \begin{center}
-\huge{\textbf{Appendix}}
+\huge{Appendix}
 \end{center}
 \newpage
 %\newgeometry{a4paper, margin=3cm}
@@ -941,8 +941,8 @@ February 2020 & April 2020 & COVID-19 pandemic \\
 \addcontentsline{toc}{subsection}{A.3{\quad}Code}
 \section*{A.3 - Code}
 The full Python code and data files are provided as attachments to the digital version of this thesis. The code can also be found online at: \url{https://github.com/HNash/MF2-GARCH-in-Mean}. The code is authored by me except where explicitly stated in the comments of the code files. I took the MATLAB files from Conrad \& Schoelkopf (2025), which were originally written for QMLE of MF2-GARCH parameters, translated them to Python, and extended them in order to estimate the full MF2-GARCH-in-mean model (\textit{see files "estimation.py" and "stderr.py"}).
-\addcontentsline{toc}{subsection}{A.3{\quad}Notes on the use of Artificial Intelligence}
-\section*{A.4 - Notes on the use of Artificial Intelligence}
+\addcontentsline{toc}{subsection}{A.3{\quad}Notes on the use of Artificial Intillegence}
+\section*{A.4 - Notes on the use of Artificial Intillegence}
 Aside from direct references to previous research, the contents of this thesis are all written in my own words.\\
 Large Language Models (LLMs) such as Chat-GPT and Perplexity were used to:
 \begin{itemize}

@@ -35,4 +35,4 @@
 \contentsline {subsection}{A.1{\hskip 1em\relax }Figures}{30}{}%
 \contentsline {subsection}{A.2{\hskip 1em\relax }Tables}{32}{}%
 \contentsline {subsection}{A.3{\hskip 1em\relax }Code}{38}{}%
-\contentsline {subsection}{A.3{\hskip 1em\relax }Notes on the use of Artificial Intelligence}{38}{}%
+\contentsline {subsection}{A.3{\hskip 1em\relax }Notes on the use of Artificial Intillegence}{38}{}%
